@@ -31,12 +31,12 @@
             gap: 6px;
             box-shadow: 0 2px 15px rgba(16, 185, 129, 0.25);
         }
-        /* هيدر المتجر */
+        /* هيدر المتجر مع مكان الشعار الاحترافي */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 12px 20px;
             border-bottom: 1px solid rgba(16, 185, 129, 0.15);
             background: rgba(6, 9, 8, 0.95);
             position: sticky;
@@ -46,7 +46,7 @@
         }
         .header-icons {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             align-items: center;
         }
         .header-icon-btn {
@@ -82,21 +82,41 @@
             align-items: center;
             justify-content: center;
         }
-        .logo-area {
-            text-align: left;
+        /* تصميم مكان الشعار في الهيدر (مشابه لزاك بلس) */
+        .brand-logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .logo-area h1 {
-            font-size: 15px;
+        .store-logo-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #0f1714;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+        }
+        .store-logo-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #10b981;
+        }
+        .logo-text h1 {
+            font-size: 14px;
             font-weight: 800;
             color: #fff;
             letter-spacing: 0.5px;
         }
-        .logo-area span {
-            font-size: 10px;
+        .logo-text span {
+            font-size: 9px;
             color: #10b981;
             display: block;
             font-weight: 600;
         }
+
         /* عنوان القسم */
         .section-title {
             text-align: center;
@@ -113,6 +133,7 @@
             font-size: 12px;
             color: #10b981;
         }
+
         /* شبكة المنتجات */
         .products-grid {
             display: grid;
@@ -246,6 +267,7 @@
         .order-btn:hover svg {
             fill: #060908;
         }
+
         /* زر الواتساب العائم */
         .whatsapp-float {
             position: fixed;
@@ -272,6 +294,7 @@
         .whatsapp-float:hover {
             transform: scale(1.08);
         }
+
         /* شريط التنقل السفلي */
         .bottom-nav {
             position: fixed;
@@ -311,7 +334,7 @@
             fill: #10b981;
         }
 
-        /* نافذة منبثقة فخمة (Modals) */
+        /* النوافذ المنبثقة (Modals) */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -337,13 +360,8 @@
             flex-direction: column;
             gap: 16px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            animation: fadeIn 0.3s ease;
             max-height: 90vh;
             overflow-y: auto;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
         }
         .modal-header {
             display: flex;
@@ -360,7 +378,6 @@
         .close-modal {
             background: none;
             border: none;
-            color: #71717a;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -369,7 +386,6 @@
             width: 20px;
             height: 20px;
             fill: #71717a;
-            transition: fill 0.2s;
         }
         .close-modal:hover svg {
             fill: #fff;
@@ -422,7 +438,6 @@
         .modal-btn:hover {
             background: #34d399;
         }
-        /* خانات التحقق OTP */
         .otp-container {
             display: flex;
             justify-content: space-between;
@@ -442,11 +457,6 @@
             text-align: center;
             outline: none;
         }
-        .otp-input:focus {
-            border-color: #10b981;
-            box-shadow: 0 0 10px rgba(16,185,129,0.3);
-        }
-        /* القائمة الجانبية للحساب */
         .account-menu-item {
             display: flex;
             align-items: center;
@@ -459,8 +469,8 @@
             font-size: 13px;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.04);
-            transition: all 0.2s;
             cursor: pointer;
+            transition: all 0.2s;
         }
         .account-menu-item:hover {
             border-color: #10b981;
@@ -517,7 +527,7 @@
         🔥 كود خصم اليوم الوطني: ULTRA96 ⚡ تفعيل فوري وسريع
     </div>
 
-    <!-- الهيدر -->
+    <!-- هيدر المتجر مع الشعار الرسمي -->
     <header>
         <div class="header-icons">
             <button class="header-icon-btn" onclick="openAccountModal()" title="حسابي">
@@ -526,35 +536,39 @@
             <button class="header-icon-btn" onclick="openSearchModal()" title="بحث">
                 <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
             </button>
-            <button class="header-icon-btn" onclick="alert('ألترا بلس - المتجر الرقمي الأكثر موثوقية.')" title="القائمة">
-                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-            </button>
         </div>
-        <div class="logo-area">
-            <h1>ULTRA PLUS | ألترا بلس</h1>
-            <span>التطبيق الأكثر مبيعاً</span>
+        
+        <!-- شعار المتجر واقسام البلس -->
+        <div class="brand-logo-area">
+            <div class="logo-text">
+                <h1>ULTRA PLUS</h1>
+                <span>تطبيقات الأيفون والاشتراكات</span>
+            </div>
+            <div class="store-logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
         </div>
     </header>
 
     <!-- عنوان القسم -->
     <div class="section-title">
-        <h2>متجر ألترا بلس | ULTRA PLUS</h2>
-        <p>⚡ تفعيل فوري وآمن بضغطة زر</p>
+        <h2>قسم اشتراكات البلس الرقمية</h2>
+        <p>⚡ تفعيل فوري وآمن لباقات الأيفون والألعاب</p>
     </div>
 
-    <!-- شبكة المنتجات -->
+    <!-- شبكة منتجات البلس -->
     <div class="products-grid" id="productsGrid">
         
-        <!-- المنتج الأول -->
+        <!-- الباقة الأولى: تطبيقات بلس الأيفون (الذهبي) -->
         <div class="product-card" data-name="تطبيقات بلس للأيفون الذهبي" data-price="30.99">
             <div class="product-banner">
                 <span class="badge-discount">68%-</span>
                 <span class="badge-rating">★ 5</span>
-                <div class="card-title-top">الباقة الذهبية</div>
+                <div class="card-title-top">باقة بلس الذهبية</div>
             </div>
             <div class="product-body">
                 <div class="product-name">تطبيقات بلس للأيفون (الذهبي)</div>
-                <div class="product-sub">باقة ذهبية ⭐</div>
+                <div class="product-sub">+2000 تطبيق معدل وبدون جلبريك ⭐</div>
                 <div class="price-box">
                     <span class="current-price">30.99 ر.س</span>
                     <span class="old-price">279 ر.س</span>
@@ -566,16 +580,16 @@
             </div>
         </div>
 
-        <!-- المنتج الثاني -->
+        <!-- الباقة الثانية: تطبيقات بلس للأيفون (الفضي) -->
         <div class="product-card" data-name="تطبيقات بلس للأيفون الفضي" data-price="20.99">
             <div class="product-banner">
                 <span class="badge-discount">64%-</span>
                 <span class="badge-rating">★ 5</span>
-                <div class="card-title-top">الباقة الفضية (سنة)</div>
+                <div class="card-title-top">باقة بلس الفضية</div>
             </div>
             <div class="product-body">
                 <div class="product-name">تطبيقات بلس للأيفون (الفضي)</div>
-                <div class="product-sub">باقة فضية</div>
+                <div class="product-sub">اشتراك سنة كاملة بضمان شامل</div>
                 <div class="price-box">
                     <span class="current-price">20.99 ر.س</span>
                     <span class="old-price">139 ر.س</span>
@@ -661,10 +675,10 @@
         </div>
     </div>
 
-    <!-- سكريبت التشغيل -->
+    <!-- سكريبت التشغيل والتفاعلات -->
     <script>
         let cart = JSON.parse(localStorage.getItem('ultra_cart')) || [];
-        let userPhone = localStorage.getItem('ultra_phone') || '';
+        let userPhone = localStorage.getItem('ultra_phone') || '0568327822';
         let isVerified = localStorage.getItem('ultra_verified') === 'true';
         updateCartBadge();
 
@@ -672,7 +686,6 @@
             document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
         }
 
-        // --- نظام حسابي المطور (مطابق للصور) ---
         function openAccountModal() {
             const modal = document.getElementById('accountModal');
             const title = document.getElementById('accountModalTitle');
@@ -687,7 +700,7 @@
                     </div>
                     <label style="font-size: 12px; color: #10b981;">رقم الجوال</label>
                     <div class="modal-input-group">
-                        <input type="tel" id="phoneInput" class="modal-input" placeholder="5xxxxxxxx" maxlength="9">
+                        <input type="tel" id="phoneInput" class="modal-input" value="0568327822" maxlength="10">
                         <span>+966</span>
                     </div>
                     <button class="modal-btn" onclick="sendOtp()">دخول</button>
@@ -698,7 +711,7 @@
                     <div style="display: flex; align-items: center; gap: 12px; background: #060908; padding: 14px; border-radius: 14px; border: 1px solid rgba(16,185,129,0.2);">
                         <div style="background: #10b981; color: #060908; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold;">👤</div>
                         <div>
-                            <div style="font-weight: bold; font-size: 15px; color: #fff;">عميل ألترا بلس</div>
+                            <div style="font-weight: bold; font-size: 15px; color: #fff;">سلمان الرشيدي</div>
                             <div style="color: #10b981; font-size: 12px; direction: ltr; text-align: right;">+966 ${userPhone}</div>
                         </div>
                     </div>
@@ -732,17 +745,13 @@
 
         function sendOtp() {
             const phone = document.getElementById('phoneInput').value.trim();
-            if (phone.length < 9) {
-                alert('الرجاء إدخال رقم جوال صحيح مكون من 9 أرقام');
-                return;
-            }
             userPhone = phone;
             
             const body = document.getElementById('accountBody');
             document.getElementById('accountModalTitle').innerText = "رمز التحقق";
             body.innerHTML = `
                 <div style="text-align: center;">
-                    <p style="font-size: 13px; color: #9ca3af; margin-bottom: 10px;">تم إرسال كود التحقق إلى رقمك:<br><strong style="color: #10b981; direction: ltr; display: inline-block;">+966 ${userPhone}</strong></p>
+                    <p style="font-size: 13px; color: #9ca3af; margin-bottom: 10px;">تم إرسال كود التحقق (اكتب أي 4 أرقام) إلى رقمك:<br><strong style="color: #10b981; direction: ltr; display: inline-block;">+966 ${userPhone}</strong></p>
                     <div class="otp-container">
                         <input type="text" class="otp-input" maxlength="1" oninput="this.nextElementSibling?.focus()">
                         <input type="text" class="otp-input" maxlength="1" oninput="this.nextElementSibling?.focus()">
@@ -764,12 +773,11 @@
         function logoutPhone() {
             localStorage.removeItem('ultra_phone');
             localStorage.removeItem('ultra_verified');
-            userPhone = '';
+            userPhone = '0568327822';
             isVerified = false;
             openAccountModal();
         }
 
-        // --- نظام السلة ---
         function addToCart(name, price) {
             cart.push({ name, price });
             localStorage.setItem('ultra_cart', JSON.stringify(cart));
@@ -802,7 +810,7 @@
                 body.innerHTML = `
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                        سلة المشتريات فارغة حالياً.<br>تصفح الباقات وأضف ما يعجبك!
+                        سلة المشتريات فارغة حالياً.<br>تصفح باقات البلس وأضف ما يعجبك!
                     </div>
                 `;
             } else {
@@ -827,7 +835,7 @@
                         <span>المجموع الكلي:</span>
                         <span style="color:#10b981;">${total.toFixed(2)} ر.س</span>
                     </div>
-                    <a href="https://wa.me/966568327822?text=السلام عليكم، أريد إتمام طلب المنتجات الموجودة في السلة" target="_blank" class="modal-btn" style="text-align:center; text-decoration:none; display:block; margin-top:5px;">إتمام الطلب عبر الواتساب</a>
+                    <a href="https://wa.me/966568327822?text=السلام عليكم، أريد إتمام طلب باقات البلس الموجودة في السلة" target="_blank" class="modal-btn" style="text-align:center; text-decoration:none; display:block; margin-top:5px;">إتمام الطلب عبر الواتساب</a>
                 `;
                 body.innerHTML = html;
             }
