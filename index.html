@@ -4,8 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ألترا بلس | ULTRA PLUS</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        body.landing-body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .landing-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .landing-logo {
+            width: 85px;
+            height: 85px;
+            background-color: #131f24;
+            border: 2px solid #1abc9c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 20px rgba(26, 188, 156, 0.2);
+        }
+
+        .landing-logo i {
+            font-size: 38px;
+            color: #1abc9c;
+        }
+
+        .landing-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .landing-title span {
+            color: #ffffff;
+        }
+
+        .verified-badge {
+            background-color: #101a23;
+            border: 1px solid #163836;
+            color: #1abc9c;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-badge i {
+            color: #1abc9c;
+        }
+
+        .landing-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #131b26;
+            border: 1px solid #1f2c3d;
+            color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .landing-btn:hover {
+            border-color: #1abc9c;
+        }
+
+        .btn-right-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .btn-right-content i {
+            color: #1abc9c;
+            background-color: #102626;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .btn-left-content i {
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            background-color: #131b26;
+            border: 1px solid #1f2c3d;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            border-color: #1abc9c;
+            color: #1abc9c;
+        }
+
+        .landing-footer {
+            color: #6b7280;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body class="landing-body">
 
@@ -23,7 +164,7 @@
             <i class="fa-solid fa-circle-check"></i> موثق رسمياً لتقديم الخدمات والاشتراكات
         </div>
 
-        <!-- زر الطلب (يوجه لصفحة المتجر store.html مباشرة) -->
+        <!-- زر الطلب -->
         <a href="store.html" class="landing-btn">
             <div class="btn-left-content"><i class="fa-solid fa-chevron-left"></i></div>
             <div class="btn-right-content">
@@ -47,9 +188,9 @@
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-    </div>
 
-    <footer class="landing-footer">جميع الحقوق محفوظة © 2026</footer>
+        <footer class="landing-footer">جميع الحقوق محفوظة © 2026</footer>
+    </div>
 
 </body>
 </html>
