@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر ألترا بلس | ULTRA PLUS</title>
+    <title>ألترا بلس | ULTRA PLUS</title>
     <style>
         * {
             margin: 0;
@@ -272,7 +272,7 @@
         .whatsapp-float:hover {
             transform: scale(1.08);
         }
-        /* شريط التنقل السفلي الفخم */
+        /* شريط التنقل السفلي */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -318,8 +318,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
             align-items: center;
@@ -331,13 +331,15 @@
             border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 20px;
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
             padding: 24px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             animation: fadeIn 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.95); }
@@ -348,11 +350,12 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
         .modal-header h3 {
             font-size: 16px;
-            color: #10b981;
+            color: #fff;
+            font-weight: bold;
         }
         .close-modal {
             background: none;
@@ -363,8 +366,8 @@
             align-items: center;
         }
         .close-modal svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: #71717a;
             transition: fill 0.2s;
         }
@@ -376,42 +379,105 @@
             color: #d1d5db;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
+        }
+        .modal-input-group {
+            display: flex;
+            background: #060908;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .modal-input-group span {
+            background: #0f1714;
+            padding: 12px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 14px;
+            border-left: 1px solid rgba(16, 185, 129, 0.2);
         }
         .modal-input {
             width: 100%;
-            background: #060908;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 10px;
-            padding: 10px 14px;
+            background: transparent;
+            border: none;
+            padding: 12px;
             color: #fff;
-            font-size: 14px;
+            font-size: 15px;
             outline: none;
-        }
-        .modal-input:focus {
-            border-color: #10b981;
+            direction: ltr;
+            text-align: right;
         }
         .modal-btn {
             background: #10b981;
             color: #060908;
             border: none;
-            border-radius: 10px;
-            padding: 10px;
+            border-radius: 12px;
+            padding: 12px;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             transition: background 0.2s;
+            text-align: center;
         }
         .modal-btn:hover {
             background: #34d399;
+        }
+        /* خانات التحقق OTP */
+        .otp-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            direction: ltr;
+            margin: 10px 0;
+        }
+        .otp-input {
+            width: 55px;
+            height: 55px;
+            background: #060908;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            outline: none;
+        }
+        .otp-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 10px rgba(16,185,129,0.3);
+        }
+        /* القائمة الجانبية للحساب */
+        .account-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #060908;
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .account-menu-item:hover {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .account-menu-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #10b981;
         }
         .cart-item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: #060908;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
         }
         .remove-item-btn {
@@ -426,16 +492,21 @@
             width: 16px;
             height: 16px;
             fill: #ef4444;
-            transition: fill 0.2s;
         }
-        .remove-item-btn:hover svg {
-            fill: #f87171;
-        }
-        .empty-cart {
+        .empty-state {
             text-align: center;
             color: #71717a;
-            padding: 20px 0;
+            padding: 25px 0;
             font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .empty-state svg {
+            width: 36px;
+            height: 36px;
+            fill: #71717a;
         }
     </style>
 </head>
@@ -446,7 +517,7 @@
         🔥 كود خصم اليوم الوطني: ULTRA96 ⚡ تفعيل فوري وسريع
     </div>
 
-    <!-- الهيدر بالأيقونات الرسمية -->
+    <!-- الهيدر -->
     <header>
         <div class="header-icons">
             <button class="header-icon-btn" onclick="openAccountModal()" title="حسابي">
@@ -552,7 +623,7 @@
     <div id="accountModal" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-header">
-                <h3>حساب العملاء</h3>
+                <h3 id="accountModalTitle">تسجيل الدخول</h3>
                 <button class="close-modal" onclick="closeModals()">
                     <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
                 </button>
@@ -584,7 +655,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="text" id="searchInput" class="modal-input" placeholder="اكتب اسم الباقة للبحث..." oninput="filterProducts()">
+                <input type="text" id="searchInput" class="modal-input" placeholder="اكتب اسم الباقة للبحث..." oninput="filterProducts()" style="direction: rtl;">
                 <div id="searchResults" style="max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; margin-top: 5px;"></div>
             </div>
         </div>
@@ -593,51 +664,112 @@
     <!-- سكريبت التشغيل -->
     <script>
         let cart = JSON.parse(localStorage.getItem('ultra_cart')) || [];
+        let userPhone = localStorage.getItem('ultra_phone') || '';
+        let isVerified = localStorage.getItem('ultra_verified') === 'true';
         updateCartBadge();
 
         function closeModals() {
             document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
         }
 
+        // --- نظام حسابي المطور (مطابق للصور) ---
         function openAccountModal() {
             const modal = document.getElementById('accountModal');
+            const title = document.getElementById('accountModalTitle');
             const body = document.getElementById('accountBody');
-            let savedPhone = localStorage.getItem('user_phone');
 
-            if (!savedPhone) {
+            if (!isVerified) {
+                title.innerText = "تسجيل الدخول";
                 body.innerHTML = `
-                    <p>أهلاً بك في ألترا بلس! يرجى إدخال رقم جوالك لتسجيل الدخول:</p>
-                    <input type="tel" id="phoneInput" class="modal-input" placeholder="05xxxxxxxx">
-                    <button class="modal-btn" onclick="savePhone()">حفظ ودخول</button>
+                    <div style="text-align: center; margin-bottom: 5px;">
+                        <svg viewBox="0 0 24 24" style="width: 48px; height: 48px; fill: #10b981; margin-bottom: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        <p style="font-size: 13px; color: #9ca3af;">رقم الجوال مطلوب لاكمال العملية</p>
+                    </div>
+                    <label style="font-size: 12px; color: #10b981;">رقم الجوال</label>
+                    <div class="modal-input-group">
+                        <input type="tel" id="phoneInput" class="modal-input" placeholder="5xxxxxxxx" maxlength="9">
+                        <span>+966</span>
+                    </div>
+                    <button class="modal-btn" onclick="sendOtp()">دخول</button>
                 `;
             } else {
+                title.innerText = "حسابي";
                 body.innerHTML = `
-                    <div style="background:#060908; padding:12px; border-radius:10px; border:1px solid rgba(16,185,129,0.2);">
-                        <p style="color:#71717a; font-size:11px;">رقم الجوال المسجل:</p>
-                        <p style="font-size:15px; font-weight:bold; color:#10b981; direction:ltr; text-align:right;">${savedPhone}</p>
+                    <div style="display: flex; align-items: center; gap: 12px; background: #060908; padding: 14px; border-radius: 14px; border: 1px solid rgba(16,185,129,0.2);">
+                        <div style="background: #10b981; color: #060908; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold;">👤</div>
+                        <div>
+                            <div style="font-weight: bold; font-size: 15px; color: #fff;">عميل ألترا بلس</div>
+                            <div style="color: #10b981; font-size: 12px; direction: ltr; text-align: right;">+966 ${userPhone}</div>
+                        </div>
                     </div>
-                    <p style="font-size:12px; color:#10b981;">✓ حسابك موثق ونشط وجاهز للطلب الفوري.</p>
-                    <button class="modal-btn" style="background:#ef4444; color:#fff;" onclick="logoutPhone()">تسجيل الخروج</button>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 5px;">
+                        <a class="account-menu-item" onclick="alert('لا توجد إشعارات جديدة حالياً')">
+                            <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                            الإشعارات
+                        </a>
+                        <a class="account-menu-item" onclick="alert('ليس لديك طلبات سابقة')">
+                            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/></svg>
+                            الطلبات
+                        </a>
+                        <a class="account-menu-item" onclick="alert('لا توجد طلبات بانتظار الدفع')">
+                            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                            طلبات بانتظار الدفع
+                        </a>
+                        <a class="account-menu-item" onclick="alert('قائمة الأمنيات فارغة')">
+                            <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            الأمنيات
+                        </a>
+                        <a class="account-menu-item" onclick="logoutPhone()">
+                            <svg viewBox="0 0 24 24" style="fill: #ef4444;"><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                            <span style="color: #ef4444;">تسجيل الخروج</span>
+                        </a>
+                    </div>
                 `;
             }
             modal.style.display = 'flex';
         }
 
-        function savePhone() {
+        function sendOtp() {
             const phone = document.getElementById('phoneInput').value.trim();
             if (phone.length < 9) {
-                alert('الرجاء إدخال رقم جوال صحيح');
+                alert('الرجاء إدخال رقم جوال صحيح مكون من 9 أرقام');
                 return;
             }
-            localStorage.setItem('user_phone', phone);
+            userPhone = phone;
+            
+            const body = document.getElementById('accountBody');
+            document.getElementById('accountModalTitle').innerText = "رمز التحقق";
+            body.innerHTML = `
+                <div style="text-align: center;">
+                    <p style="font-size: 13px; color: #9ca3af; margin-bottom: 10px;">تم إرسال كود التحقق إلى رقمك:<br><strong style="color: #10b981; direction: ltr; display: inline-block;">+966 ${userPhone}</strong></p>
+                    <div class="otp-container">
+                        <input type="text" class="otp-input" maxlength="1" oninput="this.nextElementSibling?.focus()">
+                        <input type="text" class="otp-input" maxlength="1" oninput="this.nextElementSibling?.focus()">
+                        <input type="text" class="otp-input" maxlength="1" oninput="this.nextElementSibling?.focus()">
+                        <input type="text" class="otp-input" maxlength="1" oninput="verifyOtp()">
+                    </div>
+                    <button class="modal-btn" style="margin-top: 10px; width: 100%;" onclick="verifyOtp()">تحقق ودخول</button>
+                </div>
+            `;
+        }
+
+        function verifyOtp() {
+            isVerified = true;
+            localStorage.setItem('ultra_phone', userPhone);
+            localStorage.setItem('ultra_verified', 'true');
             openAccountModal();
         }
 
         function logoutPhone() {
-            localStorage.removeItem('user_phone');
+            localStorage.removeItem('ultra_phone');
+            localStorage.removeItem('ultra_verified');
+            userPhone = '';
+            isVerified = false;
             openAccountModal();
         }
 
+        // --- نظام السلة ---
         function addToCart(name, price) {
             cart.push({ name, price });
             localStorage.setItem('ultra_cart', JSON.stringify(cart));
@@ -667,7 +799,12 @@
             const body = document.getElementById('cartBody');
 
             if (cart.length === 0) {
-                body.innerHTML = `<div class="empty-cart">سلة المشتريات فارغة حالياً.<br>تصفح الباقات وأضف ما يعجبك!</div>`;
+                body.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                        سلة المشتريات فارغة حالياً.<br>تصفح الباقات وأضف ما يعجبك!
+                    </div>
+                `;
             } else {
                 let html = '';
                 let total = 0;
