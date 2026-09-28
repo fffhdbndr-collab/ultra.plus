@@ -3,342 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر ألترا بلس</title>
+    <title>متجر ألترا بلس | ULTRA PLUS</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            background-color: #0b0f19;
-            font-family: Tahoma, sans-serif;
-            direction: rtl;
-            color: #fff;
-            margin: 0;
-            padding-bottom: 70px;
-        }
-
-        .store-wrapper {
-            max-width: 450px;
-            margin: 0 auto;
-            background-color: #0b0f19;
-            position: relative;
+            background-color: #060908;
+            color: #ffffff;
             min-height: 100vh;
+            padding-bottom: 90px;
         }
-
-        .top-announcement-bar {
-            background-color: #10b981;
-            color: #000;
+        /* شريط العروض العلوي */
+        .top-banner {
+            background: linear-gradient(90deg, #047857, #10b981);
+            color: #060908;
             font-size: 11px;
-            font-weight: bold;
+            font-weight: 800;
             text-align: center;
-            padding: 6px;
-        }
-
-        .store-header {
+            padding: 8px 10px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .store-icons {
-            display: flex;
-            gap: 15px;
-            font-size: 18px;
-            color: #94a3b8;
-        }
-
-        .store-title-top {
-            text-align: left;
-        }
-
-        .subtitle-small {
-            font-size: 10px;
-            color: #94a3b8;
-            display: block;
-        }
-
-        .main-title {
-            font-size: 15px;
-            margin: 0;
-            color: #fff;
-        }
-
-        .section-banner {
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        .section-banner h2 {
-            font-size: 17px;
-            margin: 0 0 5px 0;
-            color: #fff;
-        }
-
-        .section-banner p {
-            font-size: 12px;
-            color: #34d399;
-            margin: 0;
-        }
-
-        .store-container {
-            display: flex;
-            gap: 12px;
             justify-content: center;
-            padding: 0 10px;
-            flex-wrap: wrap;
-        }
-
-        .product-card {
-            background-color: #121824;
-            border: 1px solid #1e293b;
-            border-radius: 16px;
-            width: 47%;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .badge-discount {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #ef4444;
-            color: white;
-            padding: 2px 6px;
-            font-size: 11px;
-            font-weight: bold;
-            border-radius: 6px;
-            z-index: 10;
-        }
-
-        .card-header {
-            height: 110px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .gold-bg {
-            background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
-            border-bottom: 2px solid #34d399;
-        }
-
-        .silver-bg {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 2px solid #64748b;
-        }
-
-        .rating {
-            background: rgba(0, 0, 0, 0.4);
-            width: fit-content;
-            padding: 2px 6px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: #facc15;
-        }
-
-        .package-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: #e2e8f0;
-        }
-
-        .card-body {
-            padding: 12px;
-            text-align: center;
-        }
-
-        .card-body h3 {
-            font-size: 13px;
-            margin-bottom: 4px;
-            color: #f1f5f9;
-        }
-
-        .sub-title {
-            font-size: 11px;
-            color: #94a3b8;
-            margin-bottom: 12px;
-        }
-
-        .price-box {
-            margin-bottom: 12px;
-        }
-
-        .current-price {
-            font-size: 15px;
-            font-weight: bold;
-            color: #34d399;
-            margin-left: 6px;
-        }
-
-        .old-price {
-            font-size: 11px;
-            color: #64748b;
-            text-decoration: line-through;
-        }
-
-        .order-btn {
-            background: transparent;
-            border: 1px solid #34d399;
-            color: #34d399;
-            width: 100%;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
             align-items: center;
-            justify-content: center;
             gap: 6px;
-            transition: 0.2s ease;
+            box-shadow: 0 2px 15px rgba(16, 185, 129, 0.25);
         }
-
-        .order-btn:hover {
-            background-color: #34d399;
-            color: #0b0f19;
+        /* هيدر المتجر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
+            background: rgba(6, 9, 8, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            background-color: #22c55e;
-            color: white;
-            width: 45px;
-            height: 45px;
+        .header-icons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .header-icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .header-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #10b981;
+            transition: fill 0.2s;
+        }
+        .header-icon-btn:hover svg {
+            fill: #34d399;
+        }
+        .badge-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: #ef4444;
+            color: #fff;
+            font-size: 9px;
+            font-weight: bold;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 100;
         }
-
-        /* الشريط السفلي بتصميم الأيقونات الاحترافية */
+        .logo-area {
+            text-align: left;
+        }
+        .logo-area h1 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .logo-area span {
+            font-size: 10px;
+            color: #10b981;
+            display: block;
+            font-weight: 600;
+        }
+        /* عنوان القسم */
+        .section-title {
+            text-align: center;
+            margin: 25px 0 15px 0;
+            padding: 0 15px;
+        }
+        .section-title h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .section-title p {
+            font-size: 12px;
+            color: #10b981;
+        }
+        /* شبكة المنتجات */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 0 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* بطاقة المنتج */
+        .product-card {
+            background: #0f1714;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+        .product-banner {
+            height: 120px;
+            background: linear-gradient(135deg, #0b1310 0%, #11221a 100%);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .badge-discount {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ef4444;
+            color: white;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .badge-rating {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-size: 10px;
+            width: fit-content;
+            color: #fbbf24;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .card-title-top {
+            font-size: 13px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin: auto;
+        }
+        .product-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+            background: #0d1411;
+        }
+        .product-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .product-sub {
+            font-size: 10px;
+            color: #9ca3af;
+            text-align: center;
+        }
+        .price-box {
+            text-align: center;
+            margin: 4px 0;
+        }
+        .current-price {
+            font-size: 15px;
+            font-weight: bold;
+            color: #10b981;
+        }
+        .old-price {
+            font-size: 10px;
+            color: #71717a;
+            text-decoration: line-through;
+            display: block;
+        }
+        .order-btn {
+            background: transparent;
+            border: 1px solid #10b981;
+            color: #10b981;
+            width: 100%;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            margin-top: auto;
+        }
+        .order-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: #10b981;
+            transition: fill 0.2s;
+        }
+        .order-btn:hover {
+            background-color: #10b981;
+            color: #060908;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+        .order-btn:hover svg {
+            fill: #060908;
+        }
+        /* زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #10b981;
+            color: #060908;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+            text-decoration: none;
+            z-index: 100;
+            transition: transform 0.2s;
+        }
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+            fill: #060908;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+        }
+        /* شريط التنقل السفلي الفخم */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            background-color: #121824;
-            border-top: 1px solid #1e293b;
+            width: 100%;
+            background-color: #080d0b;
+            border-top: 1px solid rgba(16, 185, 129, 0.15);
             display: flex;
             justify-content: space-around;
             padding: 8px 0;
             z-index: 99;
+            direction: ltr;
         }
-
         .nav-item {
+            text-decoration: none;
+            color: #71717a;
+            font-size: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #94a3b8;
-            font-size: 11px;
-            position: relative;
-            text-decoration: none;
-            gap: 3px;
+            gap: 4px;
+            direction: rtl;
+            cursor: pointer;
+            transition: color 0.2s;
         }
-
         .nav-item svg {
             width: 20px;
             height: 20px;
-            fill: currentColor;
+            fill: #71717a;
+            transition: fill 0.2s;
+        }
+        .nav-item.active, .nav-item:hover {
+            color: #10b981;
+        }
+        .nav-item.active svg, .nav-item:hover svg {
+            fill: #10b981;
         }
 
-        .nav-item small {
-            font-size: 10px;
+        /* نافذة منبثقة فخمة (Modals) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
         }
-
-        .nav-item.active {
-            color: #34d399;
+        .modal-box {
+            background: #0d1411;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 380px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
         }
-
-        /* نقطة التنبيه الحمراء للسلة */
-        .cart-badge {
-            position: absolute;
-            top: -2px;
-            right: 12px;
-            background-color: #ef4444;
-            color: white;
-            font-size: 8px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+        }
+        .modal-header h3 {
+            font-size: 16px;
+            color: #10b981;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            color: #71717a;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
+        }
+        .close-modal svg {
+            width: 18px;
+            height: 18px;
+            fill: #71717a;
+            transition: fill 0.2s;
+        }
+        .close-modal:hover svg {
+            fill: #fff;
+        }
+        .modal-body {
+            font-size: 13px;
+            color: #d1d5db;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .modal-input {
+            width: 100%;
+            background: #060908;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+        .modal-input:focus {
+            border-color: #10b981;
+        }
+        .modal-btn {
+            background: #10b981;
+            color: #060908;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
             font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .modal-btn:hover {
+            background: #34d399;
+        }
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #060908;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .remove-item-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+        .remove-item-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #ef4444;
+            transition: fill 0.2s;
+        }
+        .remove-item-btn:hover svg {
+            fill: #f87171;
+        }
+        .empty-cart {
+            text-align: center;
+            color: #71717a;
+            padding: 20px 0;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
-<div class="store-wrapper">
-    <!-- الشريط العلوي للإعلانات -->
-    <div class="top-announcement-bar">
-        <span>🎉 كود خصم اليوم الوطني: SA96 ⚡ تفعيل فوري وسريع</span>
+    <!-- شريط الإعلانات العلوي -->
+    <div class="top-banner">
+        🔥 كود خصم اليوم الوطني: ULTRA96 ⚡ تفعيل فوري وسريع
     </div>
 
-    <!-- شريط المتجر الرئيسي -->
-    <div class="store-header">
-        <div class="store-icons">
-            <span class="icon">👤</span>
-            <span class="icon">🔍</span>
-            <span class="icon">≡</span>
+    <!-- الهيدر بالأيقونات الرسمية -->
+    <header>
+        <div class="header-icons">
+            <button class="header-icon-btn" onclick="openAccountModal()" title="حسابي">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            </button>
+            <button class="header-icon-btn" onclick="openSearchModal()" title="بحث">
+                <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            </button>
+            <button class="header-icon-btn" onclick="alert('ألترا بلس - المتجر الرقمي الأكثر موثوقية.')" title="القائمة">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
         </div>
-        <div class="store-title-top">
-            <span class="subtitle-small">التطبيق الأكثر مبيعاً</span>
-            <h1 class="main-title">ULTRA PLUS | ألترا بلس</h1>
+        <div class="logo-area">
+            <h1>ULTRA PLUS | ألترا بلس</h1>
+            <span>التطبيق الأكثر مبيعاً</span>
         </div>
-    </div>
+    </header>
 
-    <!-- عنوان قسم المنتجات -->
-    <div class="section-banner">
+    <!-- عنوان القسم -->
+    <div class="section-title">
         <h2>متجر ألترا بلس | ULTRA PLUS</h2>
-        <p>⚡ تسليم وتفعيل فوري بنفس الثانية</p>
+        <p>⚡ تفعيل فوري وآمن بضغطة زر</p>
     </div>
 
-    <!-- حاوية البطاقات (الباقات) -->
-    <div class="store-container">
+    <!-- شبكة المنتجات -->
+    <div class="products-grid" id="productsGrid">
         
-        <!-- الباقة الذهبية -->
-        <div class="product-card">
-            <div class="badge-discount">68%-</div>
-            <div class="card-header gold-bg">
-                <div class="rating">5 ★</div>
-                <div class="package-title">الباقة الذهبية</div>
+        <!-- المنتج الأول -->
+        <div class="product-card" data-name="تطبيقات بلس للأيفون الذهبي" data-price="30.99">
+            <div class="product-banner">
+                <span class="badge-discount">68%-</span>
+                <span class="badge-rating">★ 5</span>
+                <div class="card-title-top">الباقة الذهبية</div>
             </div>
-            <div class="card-body">
-                <h3>تطبيقات بلس للأيفون (الذهبي)</h3>
-                <p class="sub-title">★ باقة ذهبية</p>
+            <div class="product-body">
+                <div class="product-name">تطبيقات بلس للأيفون (الذهبي)</div>
+                <div class="product-sub">باقة ذهبية ⭐</div>
                 <div class="price-box">
                     <span class="current-price">30.99 ر.س</span>
                     <span class="old-price">279 ر.س</span>
                 </div>
-                <button class="order-btn">
-                    أطلب الآن 🛒
+                <button class="order-btn" onclick="addToCart('تطبيقات بلس للأيفون (الذهبي)', 30.99)">
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    أضف للسلة
                 </button>
             </div>
         </div>
 
-        <!-- الباقة الفضية -->
-        <div class="product-card">
-            <div class="badge-discount">64%-</div>
-            <div class="card-header silver-bg">
-                <div class="rating">5 ★</div>
-                <div class="package-title">الباقة الفضية (سنة)</div>
+        <!-- المنتج الثاني -->
+        <div class="product-card" data-name="تطبيقات بلس للأيفون الفضي" data-price="20.99">
+            <div class="product-banner">
+                <span class="badge-discount">64%-</span>
+                <span class="badge-rating">★ 5</span>
+                <div class="card-title-top">الباقة الفضية (سنة)</div>
             </div>
-            <div class="card-body">
-                <h3>تطبيقات بلس للأيفون (الفضي)</h3>
-                <p class="sub-title">باقة فضية</p>
+            <div class="product-body">
+                <div class="product-name">تطبيقات بلس للأيفون (الفضي)</div>
+                <div class="product-sub">باقة فضية</div>
                 <div class="price-box">
                     <span class="current-price">20.99 ر.س</span>
                     <span class="old-price">139 ر.س</span>
                 </div>
-                <button class="order-btn">
-                    أطلب الآن 🛒
+                <button class="order-btn" onclick="addToCart('تطبيقات بلس للأيفون (الفضي)', 20.99)">
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    أضف للسلة
                 </button>
             </div>
         </div>
@@ -346,40 +519,211 @@
     </div>
 
     <!-- زر الواتساب العائم -->
-    <div class="whatsapp-float">
-        💬
-    </div>
+    <a href="https://wa.me/966568327822" class="whatsapp-float" target="_blank" title="تواصل واتساب">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
 
-    <!-- الشريط السفلي بالأيقونات الرسمية المرتبة -->
-    <div class="bottom-nav">
-        <!-- الرئيسية -->
-        <a href="#" class="nav-item active">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <small>الرئيسية</small>
+    <!-- شريط التنقل السفلي -->
+    <nav class="bottom-nav">
+        <a class="nav-item" onclick="openAccountModal()">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            حسابي
         </a>
-        <!-- التصنيفات -->
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24"><path d="M12 2l-5.5 9h11z"/><path d="M12 12.5L2 19h20z"/></svg>
-            <small>التصنيفات</small>
-        </a>
-        <!-- بحث -->
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-            <small>بحث</small>
-        </a>
-        <!-- السلة -->
-        <a href="#" class="nav-item">
-            <span class="cart-badge">0</span>
+        <a class="nav-item" onclick="openCartModal()">
             <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-            <small>السلة</small>
+            السلة
+            <span id="cartBadge" class="badge-count" style="display: none;">0</span>
         </a>
-        <!-- حسابي -->
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <small>حسابي</small>
+        <a class="nav-item" onclick="openSearchModal()">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            بحث
         </a>
-    </div>
-</div>
+        <a href="store.html" class="nav-item active">
+            <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+            التصنيفات
+        </a>
+        <a href="index.html" class="nav-item">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            الرئيسية
+        </a>
+    </nav>
 
+    <!-- نافذة حسابي -->
+    <div id="accountModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>حساب العملاء</h3>
+                <button class="close-modal" onclick="closeModals()">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="modal-body" id="accountBody"></div>
+        </div>
+    </div>
+
+    <!-- نافذة السلة -->
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>سلة المشتريات</h3>
+                <button class="close-modal" onclick="closeModals()">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="modal-body" id="cartBody"></div>
+        </div>
+    </div>
+
+    <!-- نافذة البحث -->
+    <div id="searchModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>بحث عن باقة</h3>
+                <button class="close-modal" onclick="closeModals()">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="searchInput" class="modal-input" placeholder="اكتب اسم الباقة للبحث..." oninput="filterProducts()">
+                <div id="searchResults" style="max-height: 150px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; margin-top: 5px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- سكريبت التشغيل -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('ultra_cart')) || [];
+        updateCartBadge();
+
+        function closeModals() {
+            document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
+        }
+
+        function openAccountModal() {
+            const modal = document.getElementById('accountModal');
+            const body = document.getElementById('accountBody');
+            let savedPhone = localStorage.getItem('user_phone');
+
+            if (!savedPhone) {
+                body.innerHTML = `
+                    <p>أهلاً بك في ألترا بلس! يرجى إدخال رقم جوالك لتسجيل الدخول:</p>
+                    <input type="tel" id="phoneInput" class="modal-input" placeholder="05xxxxxxxx">
+                    <button class="modal-btn" onclick="savePhone()">حفظ ودخول</button>
+                `;
+            } else {
+                body.innerHTML = `
+                    <div style="background:#060908; padding:12px; border-radius:10px; border:1px solid rgba(16,185,129,0.2);">
+                        <p style="color:#71717a; font-size:11px;">رقم الجوال المسجل:</p>
+                        <p style="font-size:15px; font-weight:bold; color:#10b981; direction:ltr; text-align:right;">${savedPhone}</p>
+                    </div>
+                    <p style="font-size:12px; color:#10b981;">✓ حسابك موثق ونشط وجاهز للطلب الفوري.</p>
+                    <button class="modal-btn" style="background:#ef4444; color:#fff;" onclick="logoutPhone()">تسجيل الخروج</button>
+                `;
+            }
+            modal.style.display = 'flex';
+        }
+
+        function savePhone() {
+            const phone = document.getElementById('phoneInput').value.trim();
+            if (phone.length < 9) {
+                alert('الرجاء إدخال رقم جوال صحيح');
+                return;
+            }
+            localStorage.setItem('user_phone', phone);
+            openAccountModal();
+        }
+
+        function logoutPhone() {
+            localStorage.removeItem('user_phone');
+            openAccountModal();
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            localStorage.setItem('ultra_cart', JSON.stringify(cart));
+            updateCartBadge();
+            alert('تمت إضافة "' + name + '" إلى السلة بنجاح!');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('ultra_cart', JSON.stringify(cart));
+            updateCartBadge();
+            openCartModal();
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            if (cart.length > 0) {
+                badge.style.display = 'flex';
+                badge.innerText = cart.length;
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function openCartModal() {
+            const modal = document.getElementById('cartModal');
+            const body = document.getElementById('cartBody');
+
+            if (cart.length === 0) {
+                body.innerHTML = `<div class="empty-cart">سلة المشتريات فارغة حالياً.<br>تصفح الباقات وأضف ما يعجبك!</div>`;
+            } else {
+                let html = '';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    html += `
+                        <div class="cart-item-row">
+                            <div>
+                                <div style="font-weight:bold; font-size:12px;">${item.name}</div>
+                                <div style="color:#10b981; font-size:11px;">${item.price} ر.س</div>
+                            </div>
+                            <button class="remove-item-btn" onclick="removeFromCart(${index})" title="حذف">
+                                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            </button>
+                        </div>
+                    `;
+                });
+                html += `
+                    <div style="display:flex; justify-content:space-between; font-weight:bold; margin-top:5px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+                        <span>المجموع الكلي:</span>
+                        <span style="color:#10b981;">${total.toFixed(2)} ر.س</span>
+                    </div>
+                    <a href="https://wa.me/966568327822?text=السلام عليكم، أريد إتمام طلب المنتجات الموجودة في السلة" target="_blank" class="modal-btn" style="text-align:center; text-decoration:none; display:block; margin-top:5px;">إتمام الطلب عبر الواتساب</a>
+                `;
+                body.innerHTML = html;
+            }
+            modal.style.display = 'flex';
+        }
+
+        function openSearchModal() {
+            document.getElementById('searchModal').style.display = 'flex';
+            document.getElementById('searchInput').focus();
+            filterProducts();
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const resultsBox = document.getElementById('searchResults');
+            const cards = document.querySelectorAll('.product-card');
+            let foundHtml = '';
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const price = card.getAttribute('data-price');
+                if (name.includes(query)) {
+                    foundHtml += `
+                        <div style="background:#060908; padding:10px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; border:1px solid rgba(16,185,129,0.1);">
+                            <span style="font-size:12px; font-weight:bold;">${card.getAttribute('data-name')}</span>
+                            <span style="color:#10b981; font-size:12px;">${price} ر.س</span>
+                        </div>
+                    `;
+                }
+            });
+
+            resultsBox.innerHTML = foundHtml || `<div style="text-align:center; color:#71717a; font-size:12px; padding:10px;">لا توجد نتائج مطابقة</div>`;
+        }
+    </script>
 </body>
 </html>
