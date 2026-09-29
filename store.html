@@ -1666,3 +1666,27 @@ document
 </script>
 </body>
 </html>
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+  const SUPABASE_URL = 'https://ndfatxijpkqguhgwemys.supabase.co'
+  const SUPABASE_ANON_KEY = 'sb_publishable_DLsx6gzExShBDM...' 
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+  async function fetchProducts() {
+    const { data: products, error } = await supabase
+      .from('products')
+      .select('*')
+
+    if (error) {
+      console.error('خطأ في جلب المنتجات:', error.message)
+      return
+    }
+
+    console.log('المنتجات الموجودة:', products)
+  }
+
+  fetchProducts();
+</script>
+
