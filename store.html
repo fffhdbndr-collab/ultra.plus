@@ -1,259 +1,1769 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر ألترا بلس | الاشتراكات</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #060908;
-            color: #ffffff;
-            min-height: 100vh;
-            padding-bottom: 90px;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
-            background: rgba(6, 9, 8, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo-text h1 {
-            font-size: 15px;
-            font-weight: 900;
-            color: #fff;
-        }
-        .logo-text span {
-            font-size: 10px;
-            color: #10b981;
-            display: block;
-        }
-        .section-title {
-            text-align: center;
-            margin: 25px 0 15px 0;
-            padding: 0 15px;
-        }
-        .section-title h2 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-        .section-title p {
-            font-size: 12px;
-            color: #10b981;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .product-card {
-            background: #0f1714;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        .product-card:hover {
-            border-color: #10b981;
-            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.15);
-        }
-        .product-banner {
-            height: 110px;
-            background: linear-gradient(135deg, #0b1310 0%, #11221a 100%);
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-            position: relative;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .badge-discount {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ef4444;
-            color: white;
-            font-size: 10px;
-            padding: 2px 7px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-        .card-title-top {
-            font-size: 13px;
-            font-weight: bold;
-            color: #fff;
-            text-align: center;
-            margin: auto;
-        }
-        .product-body {
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex-grow: 1;
-        }
-        .product-name {
-            font-size: 12px;
-            font-weight: bold;
-            color: #fff;
-            text-align: center;
-        }
-        .product-sub {
-            font-size: 10px;
-            color: #9ca3af;
-            text-align: center;
-        }
-        .price-box {
-            text-align: center;
-            margin: 4px 0;
-        }
-        .current-price {
-            font-size: 14px;
-            font-weight: bold;
-            color: #10b981;
-        }
-        .old-price {
-            font-size: 10px;
-            color: #71717a;
-            text-decoration: line-through;
-            display: block;
-        }
-        .order-btn {
-            background: transparent;
-            border: 1px solid #10b981;
-            color: #10b981;
-            width: 100%;
-            padding: 8px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-            margin-top: auto;
-        }
-        .order-btn:hover {
-            background-color: #10b981;
-            color: #060908;
-        }
-        /* شريط التنقل السفلي */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #080d0b;
-            border-top: 1px solid rgba(16, 185, 129, 0.15);
-            display: flex;
-            justify-content: space-around;
-            padding: 8px 0;
-            z-index: 99;
-            direction: ltr;
-        }
-        .nav-item {
-            text-decoration: none;
-            color: #71717a;
-            font-size: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            direction: rtl;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .nav-item svg {
-            width: 20px;
-            height: 20px;
-            fill: #71717a;
-            transition: fill 0.2s;
-        }
-        .nav-item.active, .nav-item:hover {
-            color: #10b981;
-        }
-        .nav-item.active svg, .nav-item:hover svg {
-            fill: #10b981;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTRA PLUS | ألترا بلس</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --bg:#07070a;
+  --bg2:#0b0b10;
+  --card:#101016;
+  --card2:#14141c;
+  --border:rgba(255,255,255,.08);
+  --text:#f7f7fb;
+  --muted:#92929f;
+  --purple:#8b5cf6;
+  --purple2:#a78bfa;
+  --green:#34d399;
+  --danger:#ef4444;
+  --radius:18px;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:
+    radial-gradient(circle at 80% 0%,rgba(124,58,237,.10),transparent 28%),
+    radial-gradient(circle at 10% 40%,rgba(139,92,246,.05),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font-family:'Tajawal',sans-serif;
+  overflow-x:hidden;
+}
+button,input{
+  font-family:inherit;
+}
+button{
+  cursor:pointer;
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+/* ================= HEADER ================= */
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,7,10,.78);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{
+  width:min(1180px,92%);
+  margin:auto;
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:-.5px;
+}
+.logo-mark{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#8b5cf6,#5b21b6);
+  box-shadow:0 0 30px rgba(139,92,246,.25);
+}
+.logo-mark svg{
+  width:21px;
+}
+.logo span{
+  color:#a78bfa;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.nav-links button{
+  border:0;
+  background:transparent;
+  color:#9b9ba6;
+  padding:11px 15px;
+  border-radius:12px;
+  transition:.25s;
+  font-size:14px;
+}
+.nav-links button:hover,
+.nav-links button.active{
+  color:white;
+  background:rgba(139,92,246,.10);
+}
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.icon-btn{
+  position:relative;
+  width:42px;
+  height:42px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.025);
+  color:white;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  transition:.25s;
+}
+.icon-btn:hover{
+  border-color:rgba(139,92,246,.45);
+  background:rgba(139,92,246,.10);
+  box-shadow:0 0 22px rgba(139,92,246,.12);
+  transform:translateY(-1px);
+}
+.icon-btn svg{
+  width:19px;
+  height:19px;
+  stroke-width:1.6;
+}
+.cart-count{
+  position:absolute;
+  top:-5px;
+  right:-4px;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  border-radius:20px;
+  background:#8b5cf6;
+  color:#fff;
+  font-size:10px;
+  display:grid;
+  place-items:center;
+  border:2px solid var(--bg);
+}
+.mobile-menu{
+  display:none;
+}
+/* ================= HERO ================= */
+.hero{
+  width:min(1180px,92%);
+  margin:65px auto 35px;
+  min-height:470px;
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 75% 40%,rgba(139,92,246,.23),transparent 35%),
+    linear-gradient(120deg,#0b0b10,#0e0b15);
+  display:flex;
+  align-items:center;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border:1px solid rgba(139,92,246,.12);
+  border-radius:50%;
+  left:-200px;
+  bottom:-300px;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:65px;
+  max-width:700px;
+}
+.badge{
+  width:max-content;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border-radius:50px;
+  background:rgba(139,92,246,.09);
+  border:1px solid rgba(139,92,246,.18);
+  color:#c4b5fd;
+  font-size:12px;
+  margin-bottom:22px;
+}
+.badge-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#a78bfa;
+  box-shadow:0 0 10px #8b5cf6;
+}
+.hero h1{
+  font-size:clamp(40px,6vw,70px);
+  line-height:1;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
+.hero h1 span{
+  color:#a78bfa;
+}
+.hero p{
+  color:#9b9ba6;
+  line-height:2;
+  max-width:570px;
+  font-size:16px;
+}
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:13px 21px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:.25s;
+  font-size:14px;
+}
+.btn svg{
+  width:17px;
+}
+.btn-primary{
+  color:white;
+  background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+  box-shadow:0 10px 35px rgba(109,40,217,.25);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 15px 45px rgba(109,40,217,.35);
+}
+.btn-secondary{
+  color:#ddd;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(139,92,246,.25);
+}
+/* ================= SECTIONS ================= */
+.section{
+  width:min(1180px,92%);
+  margin:80px auto;
+}
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:25px;
+}
+.section-title{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-.8px;
+}
+.section-sub{
+  color:#777782;
+  font-size:13px;
+  margin-top:7px;
+}
+.view-all{
+  color:#a78bfa;
+  font-size:13px;
+}
+/* ================= CATEGORIES ================= */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.category{
+  padding:23px 16px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,#101016,#0d0d12);
+  text-align:center;
+  transition:.25s;
+}
+.category:hover{
+  transform:translateY(-3px);
+  border-color:rgba(139,92,246,.35);
+  box-shadow:0 15px 40px rgba(0,0,0,.25),0 0 30px rgba(139,92,246,.07);
+}
+.category-icon{
+  width:47px;
+  height:47px;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:#c4b5fd;
+  background:rgba(139,92,246,.09);
+}
+.category-icon svg{
+  width:21px;
+  stroke-width:1.5;
+}
+.category strong{
+  font-size:14px;
+}
+.category small{
+  display:block;
+  margin-top:5px;
+  color:#70707c;
+  font-size:11px;
+}
+/* ================= PRODUCTS ================= */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+.product{
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:linear-gradient(145deg,#111117,#0d0d12);
+  overflow:hidden;
+  transition:.28s;
+  position:relative;
+}
+.product:hover{
+  transform:translateY(-5px);
+  border-color:rgba(139,92,246,.30);
+  box-shadow:0 20px 50px rgba(0,0,0,.3),0 0 35px rgba(139,92,246,.07);
+}
+.product-image{
+  height:190px;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(139,92,246,.20),transparent 45%),
+    #0b0b10;
+}
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.product-symbol{
+  width:65px;
+  height:65px;
+  display:grid;
+  place-items:center;
+  border-radius:20px;
+  background:linear-gradient(145deg,#18131f,#0e0e14);
+  border:1px solid rgba(167,139,250,.16);
+  color:#a78bfa;
+  box-shadow:0 0 45px rgba(139,92,246,.13);
+}
+.product-symbol svg{
+  width:30px;
+  height:30px;
+  stroke-width:1.3;
+}
+.discount{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#8b5cf6;
+  color:white;
+  font-size:10px;
+}
+.product-info{
+  padding:16px;
+}
+.product-category{
+  color:#797985;
+  font-size:11px;
+  margin-bottom:7px;
+}
+.product-name{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.product-desc{
+  color:#72727e;
+  font-size:11px;
+  line-height:1.7;
+  min-height:37px;
+}
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:16px;
+}
+.price{
+  font-size:16px;
+  font-weight:700;
+}
+.old-price{
+  color:#686873;
+  text-decoration:line-through;
+  font-size:11px;
+  margin-right:5px;
+  font-weight:400;
+}
+.add-btn{
+  width:38px;
+  height:38px;
+  border:1px solid rgba(139,92,246,.18);
+  background:rgba(139,92,246,.08);
+  color:#c4b5fd;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  transition:.25s;
+}
+.add-btn:hover{
+  background:#8b5cf6;
+  color:white;
+  transform:scale(1.04);
+}
+.add-btn svg{
+  width:17px;
+  stroke-width:1.6;
+}
+/* ================= FEATURES ================= */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+.feature{
+  border:1px solid var(--border);
+  background:#0d0d12;
+  padding:28px;
+  border-radius:18px;
+}
+.feature-icon{
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:rgba(139,92,246,.08);
+  color:#a78bfa;
+  margin-bottom:18px;
+}
+.feature-icon svg{
+  width:20px;
+  stroke-width:1.4;
+}
+.feature h3{
+  font-size:15px;
+  margin-bottom:8px;
+}
+.feature p{
+  color:#777783;
+  font-size:12px;
+  line-height:1.9;
+}
+/* ================= BANNER ================= */
+.banner{
+  border:1px solid rgba(139,92,246,.18);
+  border-radius:23px;
+  padding:35px;
+  background:
+    radial-gradient(circle at 80% 50%,rgba(139,92,246,.18),transparent 40%),
+    linear-gradient(120deg,#100d17,#0d0d12);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+.banner h2{
+  font-size:27px;
+  margin-bottom:8px;
+}
+.banner p{
+  color:#858591;
+  font-size:13px;
+}
+/* ================= REVIEWS ================= */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+.review{
+  border:1px solid var(--border);
+  background:#0d0d12;
+  border-radius:18px;
+  padding:22px;
+}
+.stars{
+  color:#a78bfa;
+  letter-spacing:2px;
+  font-size:12px;
+}
+.review p{
+  color:#9696a1;
+  font-size:13px;
+  line-height:2;
+  margin:15px 0;
+}
+.user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.avatar{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(139,92,246,.12);
+  color:#c4b5fd;
+  font-size:12px;
+}
+.user small{
+  color:#73737e;
+  display:block;
+  margin-top:2px;
+}
+/* ================= FAQ ================= */
+.faq{
+  max-width:800px;
+  margin:auto;
+}
+.faq-item{
+  border-bottom:1px solid var(--border);
+}
+.faq-question{
+  width:100%;
+  padding:21px 4px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:0;
+  background:none;
+  color:white;
+  font-size:14px;
+  text-align:right;
+}
+.faq-question svg{
+  width:17px;
+  transition:.25s;
+  color:#888894;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  color:#777783;
+  font-size:13px;
+  line-height:2;
+  transition:.3s;
+}
+.faq-item.open .faq-answer{
+  max-height:150px;
+  padding:0 4px 18px;
+}
+.faq-item.open .faq-question svg{
+  transform:rotate(45deg);
+  color:#a78bfa;
+}
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--border);
+  margin-top:100px;
+  padding:50px 0 25px;
+}
+.footer-inner{
+  width:min(1180px,92%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:35px;
+}
+.footer-brand p{
+  color:#6f6f7b;
+  font-size:12px;
+  line-height:2;
+  max-width:330px;
+  margin-top:15px;
+}
+.footer-col h4{
+  font-size:13px;
+  margin-bottom:16px;
+}
+.footer-col a{
+  display:block;
+  color:#70707b;
+  font-size:12px;
+  margin-bottom:11px;
+  transition:.2s;
+}
+.footer-col a:hover{
+  color:#a78bfa;
+}
+.copyright{
+  width:min(1180px,92%);
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+  color:#555561;
+  font-size:11px;
+  display:flex;
+  justify-content:space-between;
+}
+/* ================= CART ================= */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(5px);
+  z-index:1500;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+.cart{
+  position:fixed;
+  top:0;
+  left:0;
+  width:min(420px,92%);
+  height:100%;
+  background:#0d0d12;
+  border-right:1px solid var(--border);
+  z-index:1600;
+  transform:translateX(-100%);
+  transition:.35s cubic-bezier(.2,.8,.2,1);
+  display:flex;
+  flex-direction:column;
+}
+.cart.show{
+  transform:translateX(0);
+}
+.cart-head{
+  height:75px;
+  padding:0 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+.cart-head h3{
+  font-size:17px;
+}
+.close{
+  width:38px;
+  height:38px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:#111118;
+  color:white;
+  display:grid;
+  place-items:center;
+}
+.close svg{
+  width:17px;
+}
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:18px;
+}
+.empty{
+  height:100%;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#666672;
+}
+.empty svg{
+  width:45px;
+  margin-bottom:12px;
+  color:#777783;
+}
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.cart-item-icon{
+  width:47px;
+  height:47px;
+  flex-shrink:0;
+  border-radius:13px;
+  background:rgba(139,92,246,.08);
+  display:grid;
+  place-items:center;
+  color:#a78bfa;
+}
+.cart-item-icon svg{
+  width:21px;
+}
+.cart-item-info{
+  flex:1;
+}
+.cart-item-info strong{
+  font-size:12px;
+  display:block;
+}
+.cart-item-info small{
+  color:#777783;
+  font-size:10px;
+}
+.remove{
+  background:none;
+  border:0;
+  color:#666672;
+}
+.remove:hover{
+  color:#ef4444;
+}
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--border);
+}
+.total{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:15px;
+  font-size:14px;
+}
+.total strong{
+  font-size:18px;
+}
+/* ================= MODAL ================= */
+.modal-wrap{
+  position:fixed;
+  inset:0;
+  z-index:1700;
+  display:grid;
+  place-items:center;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+  padding:20px;
+}
+.modal-wrap.show{
+  opacity:1;
+  visibility:visible;
+}
+.modal{
+  width:min(520px,100%);
+  background:#101016;
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  transform:translateY(15px) scale(.98);
+  transition:.3s;
+}
+.modal-wrap.show .modal{
+  transform:none;
+}
+.modal-top{
+  height:220px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle,rgba(139,92,246,.20),transparent 55%),
+    #0c0c11;
+  position:relative;
+}
+.modal-top .close{
+  position:absolute;
+  top:14px;
+  left:14px;
+}
+.modal-icon{
+  width:80px;
+  height:80px;
+  display:grid;
+  place-items:center;
+  background:#14131b;
+  border:1px solid rgba(139,92,246,.2);
+  border-radius:24px;
+  color:#a78bfa;
+}
+.modal-icon svg{
+  width:37px;
+}
+.modal-body{
+  padding:25px;
+}
+.modal-body h2{
+  font-size:22px;
+}
+.modal-body p{
+  color:#80808c;
+  font-size:13px;
+  line-height:2;
+  margin:10px 0 20px;
+}
+/* ================= SEARCH ================= */
+.search-box{
+  position:fixed;
+  top:90px;
+  right:50%;
+  transform:translateX(50%) translateY(-15px);
+  z-index:1200;
+  width:min(600px,90%);
+  background:#101016;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:10px;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+  box-shadow:0 20px 70px rgba(0,0,0,.5);
+}
+.search-box.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(50%);
+}
+.search-box input{
+  width:100%;
+  background:#0b0b10;
+  border:1px solid var(--border);
+  color:white;
+  padding:14px;
+  border-radius:11px;
+  outline:none;
+}
+.search-box input:focus{
+  border-color:rgba(139,92,246,.5);
+}
+/* ================= TOAST ================= */
+.toast{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:3000;
+  padding:13px 17px;
+  border:1px solid rgba(139,92,246,.25);
+  background:#111118;
+  border-radius:13px;
+  color:white;
+  font-size:12px;
+  transform:translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+.toast.show{
+  transform:none;
+  opacity:1;
+}
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .features,
+  .reviews{
+    grid-template-columns:1fr;
+  }
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+  .nav-links{
+    display:none;
+  }
+  .mobile-menu{
+    display:grid;
+  }
+  .hero-content{
+    padding:45px 30px;
+  }
+}
+@media(max-width:600px){
+  .nav{
+    height:68px;
+  }
+  .logo{
+    font-size:16px;
+  }
+  .logo-mark{
+    width:34px;
+    height:34px;
+  }
+  .hero{
+    margin-top:25px;
+    min-height:430px;
+    border-radius:22px;
+  }
+  .hero h1{
+    font-size:42px;
+    letter-spacing:-2px;
+  }
+  .hero p{
+    font-size:13px;
+  }
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .product-image{
+    height:145px;
+  }
+  .product-info{
+    padding:12px;
+  }
+  .product-name{
+    font-size:13px;
+  }
+  .banner{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:25px;
+  }
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+  .copyright{
+    flex-direction:column;
+    gap:8px;
+  }
+  .section{
+    margin:60px auto;
+  }
+}
+</style>
 </head>
 <body>
-
-    <header>
-        <div class="logo-text">
-            <h1>ULTRA PLUS</h1>
-            <span>متجر الاشتراكات الرقمية</span>
-        </div>
-    </header>
-
-    <div class="section-title">
-        <h2>قسم اشتراكات البلس</h2>
-        <p>⚡ تفعيل فوري وآمن لباقات الأيفون</p>
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <nav class="nav">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M7 3h10v4H7z"/>
+          <path d="M9 7v14M15 7v14M6 21h12"/>
+        </svg>
+      </div>
+      ألترا <span>بلس</span>
+    </a>
+    <div class="nav-links">
+      <button class="active" onclick="goHome()">الرئيسية</button>
+      <button onclick="scrollToSection('products')">المنتجات</button>
+      <button onclick="scrollToSection('categories')">الأقسام</button>
+      <button onclick="scrollToSection('features')">مميزاتنا</button>
+      <button onclick="scrollToSection('faq')">الأسئلة</button>
     </div>
-
-    <div class="products-grid">
-        <!-- الباقة الأولى -->
-        <div class="product-card">
-            <div class="product-banner">
-                <span class="badge-discount">68%-</span>
-                <div class="card-title-top">باقة بلس الذهبية</div>
-            </div>
-            <div class="product-body">
-                <div class="product-name">تطبيقات بلس للأيفون (الذهبي)</div>
-                <div class="product-sub">+2000 تطبيق وبدون جلبريك ⭐</div>
-                <div class="price-box">
-                    <span class="current-price">30.99 ر.س</span>
-                    <span class="old-price">279 ر.س</span>
-                </div>
-                <button class="order-btn" onclick="window.open('https://wa.me/966568327822?text=السلام عليكم، أريد طلب باقة بلس الذهبية للأيفون', '_blank')">اطلب الآن</button>
-            </div>
-        </div>
-
-        <!-- الباقة الثانية -->
-        <div class="product-card">
-            <div class="product-banner">
-                <span class="badge-discount">64%-</span>
-                <div class="card-title-top">باقة بلس الفضية</div>
-            </div>
-            <div class="product-body">
-                <div class="product-name">تطبيقات بلس للأيفون (الفضي)</div>
-                <div class="product-sub">اشتراك سنة كاملة بضمان شامل</div>
-                <div class="price-box">
-                    <span class="current-price">20.99 ر.س</span>
-                    <span class="old-price">139 ر.س</span>
-                </div>
-                <button class="order-btn" onclick="window.open('https://wa.me/966568327822?text=السلام عليكم، أريد طلب باقة بلس الفضية للأيفون', '_blank')">اطلب الآن</button>
-            </div>
-        </div>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleSearch()" aria-label="بحث">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="6.5"/>
+          <path d="m16 16 5 5"/>
+        </svg>
+      </button>
+      <button class="icon-btn" onclick="openCart()" aria-label="السلة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M4 5h2l2 11h10l2-8H7"/>
+          <circle cx="10" cy="20" r="1"/>
+          <circle cx="18" cy="20" r="1"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn mobile-menu" onclick="toggleMobileMenu()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
     </div>
-
-    <!-- شريط التنقل السفلي -->
-    <nav class="bottom-nav">
-        <a href="store.html" class="nav-item active">
-            <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
-            التصنيفات
-        </a>
-        <a href="index.html" class="nav-item">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            الرئيسية
-        </a>
-    </nav>
-
+  </nav>
+</header>
+<!-- ================= SEARCH ================= -->
+<div class="search-box" id="searchBox">
+  <input id="searchInput" type="search" placeholder="ابحث عن منتج..." oninput="searchProducts(this.value)">
+</div>
+<!-- ================= HERO ================= -->
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      متجر رقمي بتجربة مختلفة
+    </div>
+    <h1>
+      كل شيء تحتاجه<br>
+      في <span>مكان واحد.</span>
+    </h1>
+    <p>
+      أهلاً بك في ألترا بلس — وجهتك للمنتجات والخدمات الرقمية.
+      تجربة شراء سريعة، تصميم عصري، ودعم جاهز لمساعدتك.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="scrollToSection('products')">
+        تصفح المنتجات
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+      <button class="btn btn-secondary" onclick="scrollToSection('categories')">
+        استكشف الأقسام
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ================= CATEGORIES ================= -->
+<section class="section" id="categories">
+  <div class="section-head">
+    <div>
+      <div class="section-title">تصفح الأقسام</div>
+      <div class="section-sub">اختر القسم المناسب لك</div>
+    </div>
+  </div>
+  <div class="categories">
+    <div class="category" onclick="filterCategory('plus')">
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="5" y="3" width="14" height="18" rx="2"/>
+          <path d="M9 7h6M9 11h6M9 15h3"/>
+        </svg>
+      </div>
+      <strong>اشتراكات بلس</strong>
+      <small>اشتراكات رقمية</small>
+    </div>
+    <div class="category" onclick="filterCategory('games')">
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M8 8h8a5 5 0 0 1 5 5l-1 5a2 2 0 0 1-3.5 1.2L14 16H10l-2.5 3.2A2 2 0 0 1 4 18l-1-5a5 5 0 0 1 5-5Z"/>
+          <path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>
+        </svg>
+      </div>
+      <strong>الألعاب</strong>
+      <small>ألعاب وخدمات</small>
+    </div>
+    <div class="category" onclick="filterCategory('social')">
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="8" r="3"/>
+          <path d="M5 20a7 7 0 0 1 14 0"/>
+        </svg>
+      </div>
+      <strong>السوشيال</strong>
+      <small>خدمات اجتماعية</small>
+    </div>
+    <div class="category" onclick="filterCategory('media')">
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m10 9 5 3-5 3V9Z"/>
+        </svg>
+      </div>
+      <strong>الترفيه</strong>
+      <small>أفلام ومسلسلات</small>
+    </div>
+    <div class="category" onclick="filterCategory('other')">
+      <div class="category-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="8"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+      </div>
+      <strong>خدمات أخرى</strong>
+      <small>المزيد من الخدمات</small>
+    </div>
+  </div>
+</section>
+<!-- ================= PRODUCTS ================= -->
+<section class="section" id="products">
+  <div class="section-head">
+    <div>
+      <div class="section-title">الأكثر طلباً</div>
+      <div class="section-sub">منتجات مختارة بعناية</div>
+    </div>
+    <button class="view-all" onclick="showAllProducts()">عرض الكل</button>
+  </div>
+  <div class="products" id="productsGrid"></div>
+</section>
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+  <div class="section-head">
+    <div>
+      <div class="section-title">ليش ألترا بلس؟</div>
+      <div class="section-sub">تجربة مصممة للراحة والسرعة</div>
+    </div>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"/>
+        </svg>
+      </div>
+      <h3>تسليم سريع</h3>
+      <p>
+        بعد إتمام الطلب تحصل على تفاصيل طلبك بأسرع وقت ممكن.
+      </p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/>
+          <path d="m8 12 2.5 2.5L16 9"/>
+        </svg>
+      </div>
+      <h3>شراء آمن</h3>
+      <p>
+        تجربة دفع مصممة لتكون واضحة وسهلة للعميل.
+      </p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M20 11a8 8 0 1 0 1 5"/>
+          <path d="M20 4v7h-7"/>
+        </svg>
+      </div>
+      <h3>دعم مستمر</h3>
+      <p>
+        فريق الدعم جاهز لمساعدتك والاستجابة لاستفساراتك.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- ================= BANNER ================= -->
+<section class="section">
+  <div class="banner">
+    <div>
+      <h2>جاهز تبدأ؟</h2>
+      <p>اكتشف منتجات ألترا بلس واختر الخدمة المناسبة لك.</p>
+    </div>
+    <button class="btn btn-primary" onclick="scrollToSection('products')">
+      تسوق الآن
+    </button>
+  </div>
+</section>
+<!-- ================= REVIEWS ================= -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="section-title">آراء العملاء</div>
+      <div class="section-sub">بعض تجارب عملائنا</div>
+    </div>
+  </div>
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        المتجر مرتب جداً والطلب كان سهل وسريع، التصميم فخم والخدمة ممتازة.
+      </p>
+      <div class="user">
+        <div class="avatar">م</div>
+        <div>
+          <strong>محمد</strong>
+          <small>عميل موثق</small>
+        </div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        تجربة ممتازة والدعم متعاون، وكل شيء واضح من أول دخول للمتجر.
+      </p>
+      <div class="user">
+        <div class="avatar">ع</div>
+        <div>
+          <strong>عبدالله</strong>
+          <small>عميل موثق</small>
+        </div>
+      </div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        واجهة جميلة جداً والشراء سهل، خصوصاً على الجوال.
+      </p>
+      <div class="user">
+        <div class="avatar">س</div>
+        <div>
+          <strong>سعود</strong>
+          <small>عميل موثق</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="section-head">
+    <div>
+      <div class="section-title">الأسئلة الشائعة</div>
+      <div class="section-sub">كل ما تحتاج تعرفه قبل الطلب</div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        كيف يتم تسليم الطلب؟
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        بعد إتمام عملية الشراء يتم عرض تفاصيل الطلب حسب نوع المنتج والخدمة.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        هل أستطيع التواصل مع الدعم؟
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        نعم، يمكنك إضافة رابط واتساب أو أي قناة دعم خاصة بمتجرك.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        هل المتجر يعمل على الجوال؟
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        نعم، التصميم متجاوب بالكامل ومصمم للجوال والتابلت والكمبيوتر.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        هل يمكن إضافة Apple Pay؟
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        نعم، لكن الدفع الحقيقي يحتاج ربط المتجر ببوابة دفع تدعم Apple Pay.
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 3h10v4H7z"/>
+            <path d="M9 7v14M15 7v14M6 21h12"/>
+          </svg>
+        </div>
+        ألترا <span>بلس</span>
+      </a>
+      <p>
+        متجر رقمي بتصميم عصري وتجربة شراء بسيطة وسريعة.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>المتجر</h4>
+      <a href="#products">المنتجات</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#features">مميزاتنا</a>
+    </div>
+    <div class="footer-col">
+      <h4>المساعدة</h4>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="#">الشروط والأحكام</a>
+      <a href="#">سياسة الخصوصية</a>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل</h4>
+      <a href="#">واتساب</a>
+      <a href="#">تيليجرام</a>
+      <a href="#">إنستغرام</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <span>© 2026 ULTRA PLUS</span>
+    <span>جميع الحقوق محفوظة</span>
+  </div>
+</footer>
+<!-- ================= CART ================= -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<aside class="cart" id="cart">
+  <div class="cart-head">
+    <h3>سلة المشتريات</h3>
+    <button class="close" onclick="closeCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="m6 6 12 12M18 6 6 18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="total">
+      <span>الإجمالي</span>
+      <strong><span id="cartTotal">0</span> ر.س</strong>
+    </div>
+    <button class="btn btn-primary" style="width:100%" onclick="checkout()">
+      إتمام الطلب
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
+    </button>
+  </div>
+</aside>
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal-wrap" id="modal">
+  <div class="modal">
+    <div class="modal-top">
+      <button class="close" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="m6 6 12 12M18 6 6 18"/>
+        </svg>
+      </button>
+      <div class="modal-icon" id="modalIcon"></div>
+    </div>
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="product-bottom">
+        <div class="price">
+          <span id="modalPrice"></span> ر.س
+        </div>
+        <button class="btn btn-primary" id="modalAdd">
+          إضافة للسلة
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
+const products = [
+  {
+    id:1,
+    name:"VIP PLUS",
+    category:"plus",
+    categoryName:"اشتراكات بلس",
+    price:65,
+    oldPrice:85,
+    discount:"خصم",
+    icon:"phone",
+    desc:"باقة رقمية مميزة مع مجموعة من الخدمات."
+  },
+  {
+    id:2,
+    name:"Snap PLUS",
+    category:"social",
+    categoryName:"السوشيال",
+    price:55,
+    oldPrice:70,
+    discount:"خصم",
+    icon:"chat",
+    desc:"اشتراك رقمي لمدة شهر."
+  },
+  {
+    id:3,
+    name:"Gaming VIP",
+    category:"games",
+    categoryName:"الألعاب",
+    price:49,
+    oldPrice:65,
+    discount:"عرض",
+    icon:"game",
+    desc:"خدمة رقمية مخصصة لمحبي الألعاب."
+  },
+  {
+    id:4,
+    name:"Streaming",
+    category:"media",
+    categoryName:"الترفيه",
+    price:39,
+    oldPrice:55,
+    discount:"خصم",
+    icon:"play",
+    desc:"اشتراك ترفيهي رقمي."
+  },
+  {
+    id:5,
+    name:"Design PRO",
+    category:"other",
+    categoryName:"خدمات أخرى",
+    price:79,
+    oldPrice:100,
+    discount:"عرض",
+    icon:"design",
+    desc:"خدمات وأدوات رقمية للتصميم."
+  },
+  {
+    id:6,
+    name:"iPad PLUS",
+    category:"plus",
+    categoryName:"اشتراكات بلس",
+    price:35,
+    oldPrice:45,
+    discount:"خصم",
+    icon:"tablet",
+    desc:"باقة مخصصة لأجهزة الآيباد."
+  },
+  {
+    id:7,
+    name:"Social VIP",
+    category:"social",
+    categoryName:"السوشيال",
+    price:45,
+    oldPrice:60,
+    discount:"عرض",
+    icon:"user",
+    desc:"خدمة رقمية للسوشيال ميديا."
+  },
+  {
+    id:8,
+    name:"Cloud Gaming",
+    category:"games",
+    categoryName:"الألعاب",
+    price:59,
+    oldPrice:75,
+    discount:"خصم",
+    icon:"cloud",
+    desc:"خدمة ألعاب رقمية لمدة شهر."
+  }
+];
+/* =========================================================
+   ICONS
+========================================================= */
+function icon(type){
+  const icons = {
+    phone:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="7" y="3" width="10" height="18" rx="2"/>
+        <path d="M10 6h4M11 18h2"/>
+      </svg>`,
+    chat:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M20 11a7 7 0 0 1-7 7H7l-4 3 1-5a7 7 0 1 1 16-5Z"/>
+        <path d="M8 11h.01M12 11h.01M16 11h.01"/>
+      </svg>`,
+    game:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M8 8h8a5 5 0 0 1 5 5l-1 5a2 2 0 0 1-3.5 1.2L14 16H10l-2.5 3.2A2 2 0 0 1 4 18l-1-5a5 5 0 0 1 5-5Z"/>
+        <path d="M8 11v4M6 13h4M16 12h.01M18 14h.01"/>
+      </svg>`,
+    play:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <path d="m10 9 5 3-5 3V9Z"/>
+      </svg>`,
+    design:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="m4 20 5.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"/>
+        <path d="m14 7 3 3"/>
+      </svg>`,
+    tablet:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <rect x="5" y="3" width="14" height="18" rx="2"/>
+        <path d="M10 18h4"/>
+      </svg>`,
+    user:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="8" r="3"/>
+        <path d="M5 20a7 7 0 0 1 14 0"/>
+      </svg>`,
+    cloud:`
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M7 18h10a4 4 0 0 0 .7-7.94A6 6 0 0 0 6.1 8.5 4.5 4.5 0 0 0 7 18Z"/>
+      </svg>`
+  };
+  return icons[type] || icons.phone;
+}
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+let currentProducts = [...products];
+function renderProducts(list = currentProducts){
+  const grid = document.getElementById("productsGrid");
+  grid.innerHTML = "";
+  if(!list.length){
+    grid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:70px;
+        color:#777;
+        border:1px solid var(--border);
+        border-radius:18px;
+      ">
+        لا توجد منتجات مطابقة للبحث
+      </div>
+    `;
+    return;
+  }
+  list.forEach(product => {
+    grid.innerHTML += `
+      <article class="product">
+        <div class="product-image">
+          <div class="product-symbol">
+            ${icon(product.icon)}
+          </div>
+          <span class="discount">
+            ${product.discount}
+          </span>
+        </div>
+        <div class="product-info">
+          <div class="product-category">
+            ${product.categoryName}
+          </div>
+          <div class="product-name">
+            ${product.name}
+          </div>
+          <div class="product-desc">
+            ${product.desc}
+          </div>
+          <div class="product-bottom">
+            <div class="price">
+              ${product.price}
+              <span class="old-price">
+                ${product.oldPrice}
+              </span>
+              <small>ر.س</small>
+            </div>
+            <button
+              class="add-btn"
+              onclick="addToCart(${product.id})"
+              title="إضافة للسلة"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    `;
+  });
+}
+/* =========================================================
+   CART
+========================================================= */
+let cart = [];
+function addToCart(id){
+  const product = products.find(p => p.id === id);
+  if(!product) return;
+  cart.push(product);
+  updateCart();
+  showToast("تمت إضافة المنتج للسلة");
+}
+function updateCart(){
+  document.getElementById("cartCount").textContent = cart.length;
+  const container = document.getElementById("cartItems");
+  if(cart.length === 0){
+    container.innerHTML = `
+      <div class="empty">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 5h2l2 11h10l2-8H7"/>
+            <circle cx="10" cy="20" r="1"/>
+            <circle cx="18" cy="20" r="1"/>
+          </svg>
+          <div>السلة فارغة</div>
+        </div>
+      </div>
+    `;
+    document.getElementById("cartTotal").textContent = "0";
+    return;
+  }
+  container.innerHTML = "";
+  cart.forEach((item,index)=>{
+    container.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-item-icon">
+          ${icon(item.icon)}
+        </div>
+        <div class="cart-item-info">
+          <strong>${item.name}</strong>
+          <small>${item.price} ر.س</small>
+        </div>
+        <button class="remove" onclick="removeFromCart(${index})">
+          <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="m6 6 12 12M18 6 6 18"/>
+          </svg>
+        </button>
+      </div>
+    `;
+  });
+  const total = cart.reduce((sum,item)=>sum+item.price,0);
+  document.getElementById("cartTotal").textContent = total;
+}
+function removeFromCart(index){
+  cart.splice(index,1);
+  updateCart();
+}
+function openCart(){
+  document.getElementById("cart").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+function closeCart(){
+  document.getElementById("cart").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+/* =========================================================
+   CHECKOUT
+========================================================= */
+function checkout(){
+  if(!cart.length){
+    showToast("السلة فارغة");
+    return;
+  }
+  showToast("هنا يتم ربط بوابة الدفع الحقيقية");
+}
+/* =========================================================
+   SEARCH
+========================================================= */
+function toggleSearch(){
+  const box = document.getElementById("searchBox");
+  box.classList.toggle("show");
+  if(box.classList.contains("show")){
+    setTimeout(()=>{
+      document.getElementById("searchInput").focus();
+    },100);
+  }
+}
+function searchProducts(value){
+  const query = value.trim().toLowerCase();
+  currentProducts = products.filter(product =>
+    product.name.toLowerCase().includes(query) ||
+    product.categoryName.toLowerCase().includes(query)
+  );
+  renderProducts(currentProducts);
+}
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+function filterCategory(category){
+  currentProducts = products.filter(p => p.category === category);
+  renderProducts(currentProducts);
+  scrollToSection("products");
+}
+function showAllProducts(){
+  currentProducts = [...products];
+  renderProducts(currentProducts);
+}
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+function openProduct(id){
+  const product = products.find(p=>p.id===id);
+  if(!product) return;
+  document.getElementById("modalIcon").innerHTML = icon(product.icon);
+  document.getElementById("modalTitle").textContent = product.name;
+  document.getElementById("modalDesc").textContent = product.desc;
+  document.getElementById("modalPrice").textContent = product.price;
+  document.getElementById("modalAdd").onclick = ()=>{
+    addToCart(product.id);
+    closeModal();
+  };
+  document.getElementById("modal").classList.add("show");
+}
+function closeModal(){
+  document.getElementById("modal").classList.remove("show");
+}
+/* =========================================================
+   FAQ
+========================================================= */
+function toggleFaq(button){
+  const item = button.parentElement;
+  item.classList.toggle("open");
+}
+/* =========================================================
+   NAVIGATION
+========================================================= */
+function scrollToSection(id){
+  document.getElementById(id)?.scrollIntoView({
+    behavior:"smooth"
+  });
+}
+function goHome(){
+  document.getElementById("home").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+function toggleMobileMenu(){
+  const links = document.querySelector(".nav-links");
+  if(links.style.display === "flex"){
+    links.style.display = "";
+  }else{
+    links.style.position = "fixed";
+    links.style.top = "68px";
+    links.style.right = "4%";
+    links.style.left = "4%";
+    links.style.padding = "10px";
+    links.style.background = "#101016";
+    links.style.border = "1px solid var(--border)";
+    links.style.borderRadius = "15px";
+    links.style.display = "flex";
+    links.style.flexDirection = "column";
+    links.style.zIndex = "1100";
+  }
+}
+/* =========================================================
+   OVERLAY
+========================================================= */
+function closeAll(){
+  closeCart();
+  closeModal();
+}
+/* =========================================================
+   TOAST
+========================================================= */
+let toastTimer;
+function showToast(message){
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{
+    toast.classList.remove("show");
+  },2200);
+}
+/* =========================================================
+   INITIALIZE
+========================================================= */
+renderProducts();
+updateCart();
+/* ESC CLOSE */
+document.addEventListener("keydown",(e)=>{
+  if(e.key === "Escape"){
+    closeAll();
+    document.getElementById("searchBox").classList.remove("show");
+  }
+});
+</script>
 </body>
 </html>
