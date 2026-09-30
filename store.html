@@ -2318,6 +2318,35 @@ document.addEventListener("keydown",event => {
 });
 
 updateCart();
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+  const supabaseUrl = 'https://biffntikbgpptpezzcyk.supabase.co'
+  const supabaseKey = 'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  // ربط أزرار تسجيل الدخول وحفظ البيانات
+  window.handleUltraLogin = async function(email, password) {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) {
+      alert('خطأ في تسجيل الدخول: ' + error.message)
+      return
+    }
+    alert('تم تسجيل الدخول بنجاح!')
+    location.reload()
+  }
+
+  window.handleUltraRegister = async function(email, password, fullName) {
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (error) {
+      alert('خطأ في التسجيل: ' + error.message)
+      return
+    }
+    if (data.user) {
+      await supabase.from('profiles').insert([{ id: data.user.id, full_name: fullName }])
+      alert('تم إنشاء الحساب وحفظ البيانات بنجاح!')
+      location.reload()
+    }
+  }
 
 </script>
 
