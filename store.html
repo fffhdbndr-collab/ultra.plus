@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ULTRA PLUS | ألترا بلس</title>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap');
-
 :root{
   --bg:#030708;
   --card:#091113;
@@ -20,17 +18,14 @@
   --gold2:#f3cf79;
   --silver:#bfc8cc;
 }
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
-
 html{
   scroll-behavior:smooth;
 }
-
 body{
   background:
     radial-gradient(circle at 80% 0%,rgba(32,215,193,.09),transparent 28%),
@@ -40,22 +35,17 @@ body{
   font-family:'Tajawal',sans-serif;
   overflow-x:hidden;
 }
-
 button,input{
   font-family:inherit;
 }
-
 button{
   cursor:pointer;
 }
-
 a{
   color:inherit;
   text-decoration:none;
 }
-
 /* ================= HEADER ================= */
-
 .header{
   position:sticky;
   top:0;
@@ -64,7 +54,6 @@ a{
   backdrop-filter:blur(22px);
   border-bottom:1px solid rgba(255,255,255,.055);
 }
-
 .nav{
   width:min(1180px,92%);
   height:76px;
@@ -74,7 +63,6 @@ a{
   justify-content:space-between;
   gap:25px;
 }
-
 .logo{
   display:flex;
   align-items:center;
@@ -83,13 +71,6 @@ a{
   font-weight:800;
   white-space:nowrap;
 }
-
-.logo small{
-  color:#667976;
-  font-size:11px;
-  font-weight:500;
-}
-
 .logo-mark{
   width:40px;
   height:40px;
@@ -100,17 +81,14 @@ a{
   background:linear-gradient(145deg,var(--turquoise2),var(--turquoise));
   box-shadow:0 0 25px rgba(32,215,193,.14);
 }
-
 .logo-mark svg{
   width:21px;
   height:21px;
 }
-
 .nav-links{
   display:flex;
   gap:5px;
 }
-
 .nav-links button{
   border:0;
   background:transparent;
@@ -120,18 +98,15 @@ a{
   font-size:13px;
   transition:.25s;
 }
-
 .nav-links button:hover,
 .nav-links button.active{
   color:#dffff9;
   background:rgba(32,215,193,.075);
 }
-
 .nav-actions{
   display:flex;
   gap:9px;
 }
-
 .icon-btn{
   position:relative;
   width:42px;
@@ -144,20 +119,17 @@ a{
   border-radius:12px;
   transition:.25s;
 }
-
 .icon-btn:hover{
   color:var(--turquoise2);
   border-color:rgba(32,215,193,.3);
   background:rgba(32,215,193,.07);
   box-shadow:0 0 24px rgba(32,215,193,.08);
 }
-
 .icon-btn svg{
   width:19px;
   height:19px;
   stroke-width:1.5;
 }
-
 .cart-count{
   position:absolute;
   right:-4px;
@@ -174,13 +146,10 @@ a{
   font-size:9px;
   font-weight:800;
 }
-
 .mobile-menu{
   display:none;
 }
-
 /* ================= HERO ================= */
-
 .hero{
   width:min(1180px,92%);
   min-height:470px;
@@ -195,7 +164,6 @@ a{
     radial-gradient(circle at 75% 42%,rgba(32,215,193,.14),transparent 34%),
     linear-gradient(125deg,#071011,#040809);
 }
-
 .hero:after{
   content:"";
   position:absolute;
@@ -206,7 +174,6 @@ a{
   border-radius:50%;
   border:1px solid rgba(32,215,193,.08);
 }
-
 .hero-glow{
   position:absolute;
   right:7%;
@@ -216,13 +183,11 @@ a{
   background:rgba(32,215,193,.035);
   filter:blur(50px);
 }
-
 .hero-content{
   position:relative;
   z-index:2;
   padding:60px;
 }
-
 .badge{
   width:max-content;
   display:flex;
@@ -236,7 +201,6 @@ a{
   color:#86eee1;
   font-size:11px;
 }
-
 .badge-dot{
   width:6px;
   height:6px;
@@ -244,32 +208,27 @@ a{
   background:var(--turquoise);
   box-shadow:0 0 12px var(--turquoise);
 }
-
 .hero h1{
   font-size:clamp(39px,6vw,68px);
   line-height:1.04;
   letter-spacing:-3px;
   margin-bottom:20px;
 }
-
 .hero h1 span{
   color:var(--turquoise2);
 }
-
 .hero p{
   max-width:580px;
   color:#849492;
   font-size:15px;
   line-height:2;
 }
-
 .hero-buttons{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   margin-top:30px;
 }
-
 .btn{
   min-height:45px;
   padding:12px 20px;
@@ -281,11 +240,9 @@ a{
   font-size:13px;
   transition:.25s;
 }
-
 .btn svg{
   width:17px;
 }
-
 .btn-primary{
   border:1px solid rgba(32,215,193,.2);
   background:linear-gradient(135deg,#20d7c1,#13ad9c);
@@ -293,50 +250,31 @@ a{
   font-weight:800;
   box-shadow:0 10px 35px rgba(32,215,193,.12);
 }
-
 .btn-primary:hover{
   transform:translateY(-2px);
   box-shadow:0 15px 45px rgba(32,215,193,.2);
 }
-
-.btn-secondary{
-  color:#d2dedc;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.035);
-}
-
-.btn-secondary:hover{
-  color:var(--turquoise2);
-  border-color:rgba(32,215,193,.25);
-}
-
 /* ================= SECTIONS ================= */
-
 .section{
   width:min(1180px,92%);
   margin:78px auto;
 }
-
 .section-head{
   display:flex;
   align-items:end;
   justify-content:space-between;
   margin-bottom:25px;
 }
-
 .section-title{
   font-size:25px;
   font-weight:700;
 }
-
 .section-sub{
   margin-top:6px;
   color:#687977;
   font-size:12px;
 }
-
 /* ================= CATEGORY ================= */
-
 .category-single{
   width:100%;
   display:flex;
@@ -348,13 +286,11 @@ a{
   border-radius:17px;
   background:linear-gradient(100deg,rgba(32,215,193,.045),rgba(255,255,255,.015));
 }
-
 .category-info{
   display:flex;
   align-items:center;
   gap:15px;
 }
-
 .category-icon{
   width:48px;
   height:48px;
@@ -365,58 +301,48 @@ a{
   background:rgba(32,215,193,.07);
   border:1px solid rgba(32,215,193,.1);
 }
-
 .category-icon svg{
   width:22px;
 }
-
 .category-info strong{
   display:block;
   font-size:15px;
 }
-
 .category-info small{
   display:block;
   margin-top:4px;
   color:#657573;
   font-size:11px;
 }
-
 /* ================= PRODUCTS ================= */
-
-/* تصغير بسيط للباقات فقط */
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  max-width:800px;
+  gap:14px;
+  max-width:700px;
   margin:auto;
 }
-
 .product{
   position:relative;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.07);
-  border-radius:17px;
+  border-radius:15px;
   background:linear-gradient(145deg,#091112,#060b0c);
   transition:.3s;
 }
-
 .product:hover{
   transform:translateY(-5px);
   border-color:rgba(32,215,193,.25);
   box-shadow:0 25px 55px rgba(0,0,0,.3);
 }
-
 .product.featured{
   border-color:rgba(215,168,79,.23);
   background:
     radial-gradient(circle at 50% 0%,rgba(215,168,79,.055),transparent 38%),
     linear-gradient(145deg,#110f0a,#080b0b);
 }
-
 .product-image{
-  height:205px;
+  height:175px;
   position:relative;
   display:grid;
   place-items:center;
@@ -424,173 +350,146 @@ a{
     radial-gradient(circle,rgba(32,215,193,.09),transparent 48%),
     #05090a;
 }
-
 .featured .product-image{
   background:
     radial-gradient(circle,rgba(215,168,79,.13),transparent 48%),
     #090807;
 }
-
 .product-symbol{
-  width:76px;
-  height:76px;
+  width:64px;
+  height:64px;
   display:grid;
   place-items:center;
-  border-radius:23px;
+  border-radius:19px;
   color:var(--turquoise2);
   background:linear-gradient(145deg,#0d1919,#071011);
   border:1px solid rgba(32,215,193,.18);
 }
-
 .featured .product-symbol{
   color:var(--gold2);
   background:linear-gradient(145deg,#171208,#0c0a06);
   border-color:rgba(215,168,79,.22);
 }
-
 .product-symbol svg{
-  width:35px;
-  height:35px;
+  width:30px;
+  height:30px;
 }
-
 .product-label{
   position:absolute;
-  top:13px;
-  right:13px;
-  padding:5px 9px;
+  top:11px;
+  right:11px;
+  padding:5px 8px;
   border-radius:8px;
-  font-size:9px;
+  font-size:8px;
   font-weight:700;
 }
-
 .gold-label{
   color:#ffe3a0;
   border:1px solid rgba(215,168,79,.22);
   background:rgba(215,168,79,.08);
 }
-
 .silver-label{
   color:#dfe8ea;
   border:1px solid rgba(191,200,204,.17);
   background:rgba(191,200,204,.06);
 }
-
 .product-info{
-  padding:18px;
+  padding:15px;
 }
-
 .product-category{
   color:#667876;
-  font-size:10px;
-  margin-bottom:7px;
+  font-size:9px;
+  margin-bottom:6px;
 }
-
 .product-name{
-  font-size:20px;
+  font-size:18px;
   font-weight:800;
-  margin-bottom:9px;
+  margin-bottom:8px;
 }
-
 .gold-name{
   color:var(--gold2);
 }
-
 .silver-name{
   color:var(--silver);
 }
-
 .product-desc{
   color:#7e8d8b;
-  font-size:12px;
-  line-height:1.9;
-  min-height:45px;
+  font-size:11px;
+  line-height:1.8;
+  min-height:40px;
 }
-
 .product-features{
   display:flex;
   flex-wrap:wrap;
-  gap:7px;
-  margin-top:14px;
+  gap:6px;
+  margin-top:12px;
 }
-
 .product-feature{
   display:flex;
   align-items:center;
   gap:5px;
-  padding:6px 9px;
+  padding:5px 8px;
   border-radius:8px;
   background:rgba(255,255,255,.025);
   border:1px solid rgba(255,255,255,.055);
   color:#9eadaa;
-  font-size:9px;
+  font-size:8px;
 }
-
 .product-feature svg{
-  width:12px;
-  height:12px;
+  width:11px;
+  height:11px;
 }
-
 .product-bottom{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-top:18px;
-  padding-top:15px;
+  margin-top:15px;
+  padding-top:13px;
   border-top:1px solid rgba(255,255,255,.055);
 }
-
 .price{
-  font-size:20px;
+  font-size:18px;
   font-weight:800;
 }
-
 .price small{
   color:#687876;
-  font-size:10px;
+  font-size:9px;
   font-weight:500;
 }
-
 .add-btn{
-  width:40px;
-  height:40px;
+  width:37px;
+  height:37px;
   display:grid;
   place-items:center;
-  border-radius:11px;
+  border-radius:10px;
   color:var(--turquoise2);
   border:1px solid rgba(32,215,193,.16);
   background:rgba(32,215,193,.055);
   transition:.25s;
 }
-
 .add-btn:hover{
   color:#02100e;
   background:var(--turquoise);
   transform:scale(1.04);
 }
-
 .featured .add-btn{
   color:var(--gold2);
   border-color:rgba(215,168,79,.18);
   background:rgba(215,168,79,.055);
 }
-
 .featured .add-btn:hover{
   color:#120d04;
   background:var(--gold2);
 }
-
 .add-btn svg{
-  width:18px;
+  width:17px;
 }
-
 /* ================= FEATURES ================= */
-
 .features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:15px;
 }
-
 .feature{
   padding:26px;
   border:1px solid rgba(255,255,255,.06);
@@ -598,12 +497,10 @@ a{
   background:#071011;
   transition:.25s;
 }
-
 .feature:hover{
   border-color:rgba(32,215,193,.17);
   transform:translateY(-3px);
 }
-
 .feature-icon{
   width:43px;
   height:43px;
@@ -614,24 +511,19 @@ a{
   color:var(--turquoise2);
   background:rgba(32,215,193,.06);
 }
-
 .feature-icon svg{
   width:20px;
 }
-
 .feature h3{
   font-size:14px;
   margin-bottom:7px;
 }
-
 .feature p{
   color:#6e7d7b;
   font-size:11px;
   line-height:2;
 }
-
 /* ================= BANNER ================= */
-
 .banner{
   display:flex;
   align-items:center;
@@ -644,28 +536,22 @@ a{
     radial-gradient(circle at 80% 50%,rgba(32,215,193,.10),transparent 40%),
     #071011;
 }
-
 .banner h2{
   font-size:26px;
   margin-bottom:7px;
 }
-
 .banner p{
   color:#71817f;
   font-size:12px;
 }
-
 /* ================= FAQ ================= */
-
 .faq{
   max-width:800px;
   margin:auto;
 }
-
 .faq-item{
   border-bottom:1px solid rgba(255,255,255,.06);
 }
-
 .faq-question{
   width:100%;
   display:flex;
@@ -678,13 +564,11 @@ a{
   font-size:13px;
   text-align:right;
 }
-
 .faq-question svg{
   width:17px;
   color:#71817f;
   transition:.25s;
 }
-
 .faq-answer{
   max-height:0;
   overflow:hidden;
@@ -693,25 +577,20 @@ a{
   line-height:2;
   transition:.3s;
 }
-
 .faq-item.open .faq-answer{
   max-height:150px;
   padding:0 3px 18px;
 }
-
 .faq-item.open .faq-question svg{
   transform:rotate(45deg);
   color:var(--turquoise2);
 }
-
 /* ================= FOOTER ================= */
-
 footer{
   margin-top:100px;
   padding:50px 0 25px;
   border-top:1px solid rgba(255,255,255,.055);
 }
-
 .footer-inner{
   width:min(1180px,92%);
   margin:auto;
@@ -719,7 +598,6 @@ footer{
   grid-template-columns:2fr 1fr 1fr;
   gap:35px;
 }
-
 .footer-brand p{
   max-width:330px;
   margin-top:15px;
@@ -727,19 +605,36 @@ footer{
   font-size:11px;
   line-height:2;
 }
-
 .footer-col h4{
   font-size:12px;
   margin-bottom:15px;
 }
-
 .footer-col a{
   display:block;
   color:#647370;
   font-size:11px;
   margin-bottom:10px;
 }
-
+.whatsapp-link{
+  width:42px;
+  height:42px;
+  display:grid !important;
+  place-items:center;
+  border:1px solid rgba(32,215,193,.14);
+  border-radius:11px;
+  background:rgba(32,215,193,.045);
+  color:var(--turquoise2) !important;
+  transition:.25s;
+}
+.whatsapp-link:hover{
+  color:#02100e !important;
+  background:var(--turquoise);
+  transform:translateY(-2px);
+}
+.whatsapp-link svg{
+  width:21px;
+  height:21px;
+}
 .copyright{
   width:min(1180px,92%);
   display:flex;
@@ -750,9 +645,7 @@ footer{
   color:#465451;
   font-size:10px;
 }
-
 /* ================= CART ================= */
-
 .overlay{
   position:fixed;
   inset:0;
@@ -763,12 +656,10 @@ footer{
   visibility:hidden;
   transition:.3s;
 }
-
 .overlay.show{
   opacity:1;
   visibility:visible;
 }
-
 .cart{
   position:fixed;
   top:0;
@@ -783,11 +674,9 @@ footer{
   transform:translateX(-100%);
   transition:.35s;
 }
-
 .cart.show{
   transform:translateX(0);
 }
-
 .cart-head{
   height:75px;
   padding:0 22px;
@@ -796,11 +685,9 @@ footer{
   justify-content:space-between;
   border-bottom:1px solid rgba(255,255,255,.055);
 }
-
 .cart-head h3{
   font-size:16px;
 }
-
 .close{
   width:38px;
   height:38px;
@@ -811,17 +698,14 @@ footer{
   border:1px solid rgba(255,255,255,.07);
   border-radius:11px;
 }
-
 .close svg{
   width:17px;
 }
-
 .cart-items{
   flex:1;
   overflow:auto;
   padding:18px;
 }
-
 .empty{
   height:100%;
   display:grid;
@@ -830,12 +714,10 @@ footer{
   color:#5f6e6c;
   font-size:12px;
 }
-
 .empty svg{
   width:45px;
   margin-bottom:12px;
 }
-
 .cart-item{
   display:flex;
   align-items:center;
@@ -843,7 +725,6 @@ footer{
   padding:13px 0;
   border-bottom:1px solid rgba(255,255,255,.045);
 }
-
 .cart-item-icon{
   width:47px;
   height:47px;
@@ -854,32 +735,26 @@ footer{
   color:var(--turquoise2);
   background:rgba(32,215,193,.06);
 }
-
 .cart-item-info{
   flex:1;
 }
-
 .cart-item-info strong{
   display:block;
   font-size:12px;
 }
-
 .cart-item-info small{
   color:#667572;
   font-size:10px;
 }
-
 .remove{
   border:0;
   background:none;
   color:#5f6d6b;
 }
-
 .cart-footer{
   padding:20px;
   border-top:1px solid rgba(255,255,255,.055);
 }
-
 .total{
   display:flex;
   justify-content:space-between;
@@ -887,14 +762,11 @@ footer{
   margin-bottom:15px;
   font-size:13px;
 }
-
 .total strong{
   font-size:19px;
   color:var(--turquoise2);
 }
-
 /* ================= LOGIN ================= */
-
 .login-wrap{
   position:fixed;
   inset:0;
@@ -908,12 +780,10 @@ footer{
   visibility:hidden;
   transition:.25s;
 }
-
 .login-wrap.show{
   opacity:1;
   visibility:visible;
 }
-
 .login-box{
   width:min(430px,100%);
   padding:28px;
@@ -922,25 +792,21 @@ footer{
   background:#091113;
   box-shadow:0 30px 100px rgba(0,0,0,.5);
 }
-
 .login-head{
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:25px;
 }
-
 .login-head h2{
   font-size:21px;
 }
-
 .login-head span{
   color:#6d7d7a;
   font-size:11px;
   margin-top:5px;
   display:block;
 }
-
 .login-close{
   width:36px;
   height:36px;
@@ -951,18 +817,15 @@ footer{
   background:#0b1516;
   color:#c9d5d3;
 }
-
 .login-field{
   margin-bottom:14px;
 }
-
 .login-field label{
   display:block;
   margin-bottom:7px;
   color:#94a29f;
   font-size:11px;
 }
-
 .login-field input{
   width:100%;
   height:46px;
@@ -973,25 +836,20 @@ footer{
   border:1px solid rgba(255,255,255,.07);
   border-radius:10px;
 }
-
 .login-field input:focus{
   border-color:rgba(32,215,193,.35);
 }
-
 .login-submit{
   width:100%;
   margin-top:8px;
 }
-
 .login-note{
   margin-top:14px;
   text-align:center;
   color:#596966;
   font-size:10px;
 }
-
 /* ================= SEARCH ================= */
-
 .search-box{
   position:fixed;
   top:90px;
@@ -1008,13 +866,11 @@ footer{
   visibility:hidden;
   transition:.25s;
 }
-
 .search-box.show{
   opacity:1;
   visibility:visible;
   transform:translateX(50%);
 }
-
 .search-box input{
   width:100%;
   padding:14px;
@@ -1024,9 +880,7 @@ footer{
   border:1px solid rgba(255,255,255,.06);
   border-radius:10px;
 }
-
 /* ================= TOAST ================= */
-
 .toast{
   position:fixed;
   right:25px;
@@ -1043,106 +897,109 @@ footer{
   pointer-events:none;
   transition:.3s;
 }
-
 .toast.show{
   transform:none;
   opacity:1;
 }
-
 /* ================= MOBILE ================= */
-
 @media(max-width:900px){
-
   .nav-links{
     display:none;
   }
-
   .mobile-menu{
     display:grid;
   }
-
   .products{
     grid-template-columns:1fr 1fr;
+    max-width:700px;
   }
-
   .features{
     grid-template-columns:1fr;
   }
-
   .footer-inner{
     grid-template-columns:1fr 1fr;
   }
 }
-
 @media(max-width:600px){
-
   .nav{
     height:68px;
   }
-
   .logo{
-    font-size:14px;
+    font-size:13px;
   }
-
-  .logo small{
-    display:none;
-  }
-
   .logo-mark{
     width:35px;
     height:35px;
   }
-
   .nav-actions{
     gap:5px;
   }
-
   .icon-btn{
     width:39px;
     height:39px;
   }
-
   .hero{
     min-height:420px;
     margin-top:25px;
     border-radius:21px;
   }
-
   .hero-content{
     padding:40px 27px;
   }
-
   .hero h1{
     font-size:40px;
     letter-spacing:-2px;
   }
-
   .hero p{
     font-size:12px;
   }
-
   .products{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
   }
-
   .product-image{
-    height:195px;
+    height:145px;
   }
-
+  .product-symbol{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+  }
+  .product-symbol svg{
+    width:25px;
+    height:25px;
+  }
+  .product-info{
+    padding:12px;
+  }
+  .product-name{
+    font-size:16px;
+  }
+  .product-desc{
+    font-size:9px;
+  }
+  .product-feature{
+    font-size:7px;
+    padding:5px 6px;
+  }
+  .price{
+    font-size:16px;
+  }
+  .add-btn{
+    width:34px;
+    height:34px;
+  }
   .category-single{
     padding:18px;
   }
-
   .banner{
     flex-direction:column;
     align-items:flex-start;
     padding:26px;
   }
-
   .footer-inner{
     grid-template-columns:1fr 1fr;
   }
-
   .copyright{
     flex-direction:column;
     gap:7px;
@@ -1150,819 +1007,567 @@ footer{
 }
 </style>
 </head>
-
 <body>
-
 <!-- ================= HEADER ================= -->
-
 <header class="header">
-
 <nav class="nav">
-
 <a href="#home" class="logo">
-
 <div class="logo-mark">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M7 3h10v4H7z"/>
 <path d="M9 7v14M15 7v14M6 21h12"/>
 </svg>
 </div>
-
-ULTRA PLUS
-<small>| ألترا بلس</small>
-
+ULTRA PLUS | ألترا بلس
 </a>
-
 <div class="nav-links">
-
 <button class="active" data-action="home">
 الرئيسية
 </button>
-
 <button data-action="products">
 بلس
 </button>
-
 <button data-action="features">
 مميزاتنا
 </button>
-
 <button data-action="faq">
 الأسئلة
 </button>
-
 </div>
-
 <div class="nav-actions">
-
 <button class="icon-btn" id="accountBtn" aria-label="الحساب">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <circle cx="12" cy="8" r="3.5"/>
 <path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6"/>
 </svg>
 </button>
-
 <button class="icon-btn" id="searchBtn" aria-label="البحث">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <circle cx="11" cy="11" r="6.5"/>
 <path d="m16 16 5 5"/>
 </svg>
 </button>
-
 <button class="icon-btn" id="cartBtn" aria-label="السلة">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M4 5h2l2 11h10l2-8H7"/>
 <circle cx="10" cy="20" r="1"/>
 <circle cx="18" cy="20" r="1"/>
 </svg>
-
 <span class="cart-count" id="cartCount">0</span>
 </button>
-
 <button class="icon-btn mobile-menu" id="mobileBtn">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M4 7h16M4 12h16M4 17h16"/>
 </svg>
 </button>
-
 </div>
-
 </nav>
-
 </header>
-
-
 <!-- ================= SEARCH ================= -->
-
 <div class="search-box" id="searchBox">
 <input id="searchInput" type="search" placeholder="ابحث عن الباقة...">
 </div>
-
-
 <!-- ================= HERO ================= -->
-
 <main>
-
 <section class="hero" id="home">
-
 <div class="hero-glow"></div>
-
 <div class="hero-content">
-
 <div class="badge">
 <span class="badge-dot"></span>
-ULTRA PLUS — تجربة رقمية مختلفة
+ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </div>
-
 <h1>
 اشتراكك يبدأ<br>
-من <span>ULTRA PLUS.</span>
+من <span>ULTRA PLUS | ألترا بلس</span>
 </h1>
-
 <p>
 اختر باقتك واستمتع بمكتبة ضخمة من التطبيقات
 مع تفعيل فوري وتجربة شراء بسيطة وسريعة.
 </p>
-
 <div class="hero-buttons">
-
 <button class="btn btn-primary" data-action="products">
 استعرض الباقات
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M5 12h14M13 6l6 6-6 6"/>
 </svg>
 </button>
-
-<button class="btn btn-secondary" data-action="features">
-لماذا ULTRA PLUS؟
-</button>
-
 </div>
-
 </div>
-
 </section>
-
-
 <!-- ================= CATEGORY ================= -->
-
 <section class="section">
-
 <div class="section-head">
-
 <div>
-
 <div class="section-title">
 القسم
 </div>
-
 <div class="section-sub">
 اختر الباقة المناسبة لك
 </div>
-
 </div>
-
 </div>
-
 <div class="category-single">
-
 <div class="category-info">
-
 <div class="category-icon">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <rect x="5" y="3" width="14" height="18" rx="2"/>
 <path d="M9 7h6M9 11h6M9 15h3"/>
 </svg>
 </div>
-
 <div>
-
 <strong>
 ULTRA PLUS | ألترا بلس
 </strong>
-
 <small>
 اشتراكات بلس الرقمية
 </small>
-
 </div>
-
 </div>
-
 <div style="color:#55dfd0;font-size:11px">
 باقتان متاحتان
 </div>
-
 </div>
-
 </section>
-
-
 <!-- ================= PRODUCTS ================= -->
-
 <section class="section" id="products">
-
 <div class="section-head">
-
 <div>
-
 <div class="section-title">
-باقات ULTRA PLUS
+باقات ULTRA PLUS | ألترا بلس
 </div>
-
 <div class="section-sub">
 اختر الباقة المناسبة لك وفعّلها
 </div>
-
 </div>
-
 </div>
-
-
 <div class="products">
-
 <!-- GOLD -->
-
 <article class="product featured">
-
 <div class="product-image">
-
 <span class="product-label gold-label">
 الأكثر تميزاً
 </span>
-
 <div class="product-symbol">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 3 14.8 8.5 21 9.4l-4.5 4.3 1.1 6.1L12 17l-5.6 2.8 1.1-6.1L3 9.4l6.2-.9L12 3Z"/>
 </svg>
-
 </div>
-
 </div>
-
 <div class="product-info">
-
 <div class="product-category">
-ULTRA PLUS
+ULTRA PLUS | ألترا بلس
 </div>
-
 <div class="product-name gold-name">
 الباقة الذهبية
 </div>
-
 <div class="product-desc">
 أكثر من 7000 تطبيق وخدمة رقمية،
 مع تفعيل فوري وتجربة استخدام مميزة.
 </div>
-
 <div class="product-features">
-
 <div class="product-feature">
 ✓ أكثر من 7000 تطبيق
 </div>
-
 <div class="product-feature">
 ✓ تفعيل فوري
 </div>
-
 <div class="product-feature">
 ✓ خدمة رقمية
 </div>
-
 </div>
-
 <div class="product-bottom">
-
 <div class="price">
 30.99 <small>ر.س</small>
 </div>
-
 <button class="add-btn" data-product="1">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 </div>
-
 </div>
-
 </article>
-
-
 <!-- SILVER -->
-
 <article class="product">
-
 <div class="product-image">
-
 <span class="product-label silver-label">
 الباقة الفضية
 </span>
-
 <div class="product-symbol">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <circle cx="12" cy="12" r="7"/>
 <path d="M12 8v8M8 12h8"/>
 </svg>
-
 </div>
-
 </div>
-
 <div class="product-info">
-
 <div class="product-category">
-ULTRA PLUS
+ULTRA PLUS | ألترا بلس
 </div>
-
 <div class="product-name silver-name">
 الباقة الفضية
 </div>
-
 <div class="product-desc">
 أكثر من 4000 تطبيق وخدمة رقمية،
 مع تفعيل بعد الطلب وسعر اقتصادي.
 </div>
-
 <div class="product-features">
-
 <div class="product-feature">
 ✓ أكثر من 4000 تطبيق
 </div>
-
 <div class="product-feature">
 ✓ تفعيل بعد الطلب
 </div>
-
 <div class="product-feature">
 ✓ سعر اقتصادي
 </div>
-
 </div>
-
 <div class="product-bottom">
-
 <div class="price">
 20.99 <small>ر.س</small>
 </div>
-
 <button class="add-btn" data-product="2">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 </div>
-
 </div>
-
 </article>
-
 </div>
-
 </section>
-
-
 <!-- ================= FEATURES ================= -->
-
 <section class="section" id="features">
-
 <div class="section-head">
-
 <div>
-
 <div class="section-title">
-تجربة ULTRA PLUS
+تجربة ULTRA PLUS | ألترا بلس
 </div>
-
 <div class="section-sub">
 مصممة لتكون بسيطة وسريعة
 </div>
-
 </div>
-
 </div>
-
 <div class="features">
-
 <div class="feature">
-
 <div class="feature-icon">
 ⚡
 </div>
-
 <h3>
 تفعيل فوري
 </h3>
-
 <p>
 بعد إتمام الطلب يتم تجهيز التفعيل حسب تفاصيل الباقة.
 </p>
-
 </div>
-
 <div class="feature">
-
 <div class="feature-icon">
 ✓
 </div>
-
 <h3>
 تجربة آمنة
 </h3>
-
 <p>
 واجهة واضحة وخطوات شراء بسيطة بدون تعقيد.
 </p>
-
 </div>
-
 <div class="feature">
-
 <div class="feature-icon">
 ↻
 </div>
-
 <h3>
 دعم العملاء
 </h3>
-
 <p>
-للدعم والتواصل عبر واتساب:
-0569327822
+للدعم والتواصل عبر واتساب.
 </p>
-
 </div>
-
 </div>
-
 </section>
-
-
 <!-- ================= BANNER ================= -->
-
 <section class="section">
-
 <div class="banner">
-
 <div>
-
 <h2>
 اختر باقتك الآن
 </h2>
-
 <p>
-ذهبية أو فضية — ULTRA PLUS جاهز لخدمتك.
+ذهبية أو فضية — ULTRA PLUS | ألترا بلس جاهز لخدمتك.
 </p>
-
 </div>
-
 <button class="btn btn-primary" data-action="products">
 عرض الباقات
 </button>
-
 </div>
-
 </section>
-
-
 <!-- ================= FAQ ================= -->
-
 <section class="section" id="faq">
-
 <div class="section-head">
-
 <div>
-
 <div class="section-title">
 الأسئلة الشائعة
 </div>
-
 <div class="section-sub">
 كل ما تحتاج معرفته
 </div>
-
 </div>
-
 </div>
-
 <div class="faq">
-
 <div class="faq-item">
-
 <button class="faq-question">
-
 ما الفرق بين الذهبية والفضية؟
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 <div class="faq-answer">
-
 الباقة الذهبية تحتوي على أكثر من 7000 تطبيق مع تفعيل فوري،
 بينما الباقة الفضية تحتوي على أكثر من 4000 تطبيق ويتم تفعيلها بعد الطلب.
-
 </div>
-
 </div>
-
-
 <div class="faq-item">
-
 <button class="faq-question">
-
 هل التفعيل فوري؟
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 <div class="faq-answer">
-
 الباقة الذهبية يتم تفعيلها فوراً،
 أما الباقة الفضية فيتم تفعيلها بعد الطلب.
-
 </div>
-
 </div>
-
-
 <div class="faq-item">
-
 <button class="faq-question">
-
 كم سعر الباقة الذهبية؟
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 <div class="faq-answer">
-
 سعر الباقة الذهبية هو 30.99 ريال سعودي.
-
 </div>
-
 </div>
-
-
 <div class="faq-item">
-
 <button class="faq-question">
-
 كم سعر الباقة الفضية؟
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
-
 </button>
-
 <div class="faq-answer">
-
 سعر الباقة الفضية هو 20.99 ريال سعودي.
-
 </div>
-
 </div>
-
+<div class="faq-item">
+<button class="faq-question">
+أقدر أطلب وأفعل بجهاز ثاني؟
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+</button>
+<div class="faq-answer">
+نعم، اطلب من أي جهاز وفعّل الكود بجهازك.
 </div>
-
+</div>
+<div class="faq-item">
+<button class="faq-question">
+متى وكيف أستلم؟
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+</button>
+<div class="faq-answer">
+فوري، توصلك رسالة نصية بالكود والشرح.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">
+كم مدة الاشتراك؟
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+</button>
+<div class="faq-answer">
+باقة المتجر تخدمك سنة كاملة.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">
+متوفر دعم فني؟
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+</button>
+<div class="faq-answer">
+موجودين لخدمتك طوال فترة اشتراكك.
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">
+فيه ضمان؟
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+</button>
+<div class="faq-answer">
+أكيد، ضمان يعوضك باشتراك بديل.
+</div>
+</div>
+</div>
 </section>
-
 </main>
-
-
 <!-- ================= FOOTER ================= -->
-
 <footer>
-
 <div class="footer-inner">
-
 <div class="footer-brand">
-
 <a href="#home" class="logo">
-
 <div class="logo-mark">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M7 3h10v4H7z"/>
 <path d="M9 7v14M15 7v14M6 21h12"/>
 </svg>
-
 </div>
-
-ULTRA PLUS
-<small>| ألترا بلس</small>
-
+ULTRA PLUS | ألترا بلس
 </a>
-
 <p>
 متجر ULTRA PLUS | ألترا بلس — اشتراكات رقمية بتجربة
 عصرية وبسيطة وسريعة.
 </p>
-
 </div>
-
-
 <div class="footer-col">
-
 <h4>
 المتجر
 </h4>
-
 <a href="#products">
 الباقات
 </a>
-
 <a href="#features">
 مميزاتنا
 </a>
-
 <a href="#faq">
 الأسئلة الشائعة
 </a>
-
 </div>
-
-
 <div class="footer-col">
-
 <h4>
 التواصل
 </h4>
-
-<a href="https://wa.me/966569327822" target="_blank">
-واتساب: 0569327822
+<a
+  class="whatsapp-link"
+  href="https://wa.me/966569327822"
+  target="_blank"
+  rel="noopener"
+  aria-label="واتساب"
+  title="واتساب"
+>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M20.5 11.2a8.5 8.5 0 0 1-12.6 7.4L4 20l1.4-3.7A8.5 8.5 0 1 1 20.5 11.2Z"/>
+<path d="M9 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.6.7c.6 1.1 1.4 1.8 2.5 2.4l.7-.6c.2-.2.4-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.5.3-1.1.4-1.7.2-2.1-.6-4.8-2.8-6.1-4.9-.4-.7-.7-1.5-.7-2.3 0-.7.2-1.3.5-1.9Z"/>
+</svg>
 </a>
-
 <a href="#">
 تيليجرام
 </a>
-
 <a href="#">
 إنستغرام
 </a>
-
 </div>
-
 </div>
-
-
 <div class="copyright">
-
 <span>
-© 2026 ULTRA PLUS
+© 2026 ULTRA PLUS | ألترا بلس
 </span>
-
 <span>
 جميع الحقوق محفوظة
 </span>
-
 </div>
-
 </footer>
-
-
 <!-- ================= CART ================= -->
-
 <div class="overlay" id="overlay"></div>
-
 <aside class="cart" id="cart">
-
 <div class="cart-head">
-
 <h3>
 سلة المشتريات
 </h3>
-
 <button class="close" id="closeCart">
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="m6 6 12 12M18 6 6 18"/>
 </svg>
-
 </button>
-
 </div>
-
 <div class="cart-items" id="cartItems"></div>
-
 <div class="cart-footer">
-
 <div class="total">
-
 <span>
 الإجمالي
 </span>
-
 <strong>
 <span id="cartTotal">0.00</span> ر.س
 </strong>
-
 </div>
-
 <button class="btn btn-primary" id="checkoutBtn" style="width:100%">
-
 إتمام الطلب
-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M5 12h14M13 6l6 6-6 6"/>
 </svg>
-
 </button>
-
 </div>
-
 </aside>
-
-
 <!-- ================= LOGIN ================= -->
-
 <div class="login-wrap" id="loginWrap">
-
 <div class="login-box">
-
 <div class="login-head">
-
 <div>
-
 <h2>
 تسجيل الدخول
 </h2>
-
 <span>
-ادخل إلى حسابك في ULTRA PLUS
+ادخل إلى حسابك في ULTRA PLUS | ألترا بلس
 </span>
-
 </div>
-
 <button class="login-close" id="closeLogin">
-
 <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="m6 6 12 12M18 6 6 18"/>
 </svg>
-
 </button>
-
 </div>
-
-
 <div class="login-field">
-
 <label>
 البريد الإلكتروني
 </label>
-
 <input
 id="loginEmail"
 type="email"
 placeholder="example@email.com"
 >
-
 </div>
-
-
 <div class="login-field">
-
 <label>
 كلمة المرور
 </label>
-
 <input
 id="loginPassword"
 type="password"
 placeholder="••••••••"
 >
-
 </div>
-
-
 <button class="btn btn-primary login-submit" id="loginSubmit">
 تسجيل الدخول
 </button>
-
-
 <button class="btn btn-secondary login-submit" id="registerBtn">
 إنشاء حساب جديد
 </button>
-
-
 <div class="login-note">
 نظام الحسابات سيتم ربطه بـ Supabase في الخطوة التالية.
 </div>
-
 </div>
-
 </div>
-
-
 <!-- ================= TOAST ================= -->
-
 <div class="toast" id="toast"></div>
-
-
 <script>
-
 /* ================= PRODUCTS ================= */
-
 const products = [
-
 {
 id:1,
 name:"الباقة الذهبية",
@@ -1970,7 +1575,6 @@ price:30.99,
 icon:"gold",
 desc:"أكثر من 7000 تطبيق وخدمة رقمية مع تفعيل فوري."
 },
-
 {
 id:2,
 name:"الباقة الفضية",
@@ -1978,17 +1582,10 @@ price:20.99,
 icon:"silver",
 desc:"أكثر من 4000 تطبيق وخدمة رقمية مع تفعيل بعد الطلب."
 }
-
 ];
-
-
 /* ================= CART ================= */
-
 let cart = [];
-
-
 /* ================= ELEMENTS ================= */
-
 const cartElement = document.getElementById("cart");
 const overlay = document.getElementById("overlay");
 const cartItems = document.getElementById("cartItems");
@@ -1998,496 +1595,247 @@ const toast = document.getElementById("toast");
 const searchBox = document.getElementById("searchBox");
 const searchInput = document.getElementById("searchInput");
 const loginWrap = document.getElementById("loginWrap");
-
-
 /* ================= TOAST ================= */
-
 let toastTimer;
-
 function showToast(message){
-
   toast.textContent = message;
-
   toast.classList.add("show");
-
   clearTimeout(toastTimer);
-
   toastTimer = setTimeout(() => {
-
     toast.classList.remove("show");
-
   },2200);
-
 }
-
-
 /* ================= CART ================= */
-
 function addToCart(id){
-
   const product = products.find(p => p.id === id);
-
   if(!product) return;
-
   cart.push(product);
-
   updateCart();
-
   showToast("تمت إضافة الباقة للسلة");
-
   openCart();
-
 }
-
-
 function removeFromCart(index){
-
   cart.splice(index,1);
-
   updateCart();
-
 }
-
-
 function updateCart(){
-
   cartCount.textContent = cart.length;
-
   if(cart.length === 0){
-
     cartItems.innerHTML = `
-
       <div class="empty">
-
         <div>
-
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-
             <path d="M4 5h2l2 11h10l2-8H7"/>
-
             <circle cx="10" cy="20" r="1"/>
-
             <circle cx="18" cy="20" r="1"/>
-
           </svg>
-
           <div>السلة فارغة</div>
-
         </div>
-
       </div>
-
     `;
-
     cartTotal.textContent = "0.00";
-
     return;
-
   }
-
-
   cartItems.innerHTML = "";
-
   let total = 0;
-
-
   cart.forEach((item,index) => {
-
     total += item.price;
-
     cartItems.innerHTML += `
-
       <div class="cart-item">
-
         <div class="cart-item-icon">
-
           ${item.icon === "gold" ? "★" : "＋"}
-
         </div>
-
         <div class="cart-item-info">
-
           <strong>${item.name}</strong>
-
           <small>${item.price.toFixed(2)} ر.س</small>
-
         </div>
-
         <button class="remove" data-remove="${index}">
-
           <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-
             <path d="m6 6 12 12M18 6 6 18"/>
-
           </svg>
-
         </button>
-
       </div>
-
     `;
-
   });
-
-
   cartTotal.textContent = total.toFixed(2);
-
-
   document.querySelectorAll("[data-remove]").forEach(button => {
-
     button.addEventListener("click",() => {
-
       removeFromCart(Number(button.dataset.remove));
-
     });
-
   });
-
 }
-
-
 function openCart(){
-
   cartElement.classList.add("show");
-
   overlay.classList.add("show");
-
 }
-
-
 function closeCart(){
-
   cartElement.classList.remove("show");
-
   overlay.classList.remove("show");
-
 }
-
-
 /* ================= CHECKOUT ================= */
-
 function checkout(){
-
   if(cart.length === 0){
-
     showToast("السلة فارغة");
-
     return;
-
   }
-
   showToast("سيتم ربط بوابة الدفع الحقيقية لاحقاً");
-
 }
-
-
 /* ================= SEARCH ================= */
-
 function toggleSearch(){
-
   searchBox.classList.toggle("show");
-
   if(searchBox.classList.contains("show")){
-
     setTimeout(() => {
-
       searchInput.focus();
-
     },100);
-
   }
-
 }
-
-
 function searchProducts(value){
-
   const query = value.trim().toLowerCase();
-
   document.querySelectorAll(".product").forEach((card,index) => {
-
     const product = products[index];
-
     const found =
       product.name.toLowerCase().includes(query) ||
       product.desc.toLowerCase().includes(query);
-
     card.style.display = found ? "" : "none";
-
   });
-
 }
-
-
 /* ================= NAVIGATION ================= */
-
 function scrollToSection(id){
-
   const section = document.getElementById(id);
-
   if(!section) return;
-
   section.scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
-
 }
-
-
 function setActive(button){
-
   document.querySelectorAll(".nav-links button")
     .forEach(btn => btn.classList.remove("active"));
-
   if(button){
-
     button.classList.add("active");
-
   }
-
 }
-
-
 /* ================= MOBILE ================= */
-
 function toggleMobileMenu(){
-
   const links = document.querySelector(".nav-links");
-
   if(links.classList.contains("mobile-open")){
-
     links.classList.remove("mobile-open");
-
     links.style.display = "";
-
     return;
-
   }
-
   links.classList.add("mobile-open");
-
   links.style.position = "fixed";
-
   links.style.top = "68px";
-
   links.style.right = "4%";
-
   links.style.left = "4%";
-
   links.style.padding = "9px";
-
   links.style.background = "#091113";
-
   links.style.border = "1px solid rgba(32,215,193,.13)";
-
   links.style.borderRadius = "14px";
-
   links.style.display = "flex";
-
   links.style.flexDirection = "column";
-
   links.style.zIndex = "1100";
-
 }
-
-
 /* ================= LOGIN ================= */
-
 function openLogin(){
-
   loginWrap.classList.add("show");
-
 }
-
-
 function closeLogin(){
-
   loginWrap.classList.remove("show");
-
 }
-
-
 /* ================= EVENTS ================= */
-
 document.querySelectorAll(".add-btn").forEach(button => {
-
   button.addEventListener("click",() => {
-
     addToCart(Number(button.dataset.product));
-
   });
-
 });
-
-
 document.querySelectorAll("[data-action]").forEach(button => {
-
   button.addEventListener("click",() => {
-
     const action = button.dataset.action;
-
     if(action === "home"){
       scrollToSection("home");
     }
-
     if(action === "products"){
       scrollToSection("products");
     }
-
     if(action === "features"){
       scrollToSection("features");
     }
-
     if(action === "faq"){
       scrollToSection("faq");
     }
-
     if(button.closest(".nav-links")){
       setActive(button);
     }
-
   });
-
 });
-
-
 /* الحساب */
-
 document.getElementById("accountBtn")
 .addEventListener("click",openLogin);
-
-
 /* إغلاق الحساب */
-
 document.getElementById("closeLogin")
 .addEventListener("click",closeLogin);
-
-
 /* الضغط خارج نافذة الحساب */
-
 loginWrap.addEventListener("click",event => {
-
   if(event.target === loginWrap){
     closeLogin();
   }
-
 });
-
-
 /* البحث */
-
 document.getElementById("searchBtn")
 .addEventListener("click",toggleSearch);
-
-
 /* البحث أثناء الكتابة */
-
 searchInput.addEventListener("input",event => {
-
   searchProducts(event.target.value);
-
 });
-
-
 /* السلة */
-
 document.getElementById("cartBtn")
 .addEventListener("click",openCart);
-
-
 /* إغلاق السلة */
-
 document.getElementById("closeCart")
 .addEventListener("click",closeCart);
-
-
 /* overlay */
-
 overlay.addEventListener("click",closeCart);
-
-
 /* إتمام الطلب */
-
 document.getElementById("checkoutBtn")
 .addEventListener("click",checkout);
-
-
 /* القائمة */
-
 document.getElementById("mobileBtn")
 .addEventListener("click",toggleMobileMenu);
-
-
 /* FAQ */
-
 document.querySelectorAll(".faq-question").forEach(button => {
-
   button.addEventListener("click",() => {
-
     button.parentElement.classList.toggle("open");
-
   });
-
 });
-
-
 /* تسجيل الدخول مؤقتاً */
-
 document.getElementById("loginSubmit")
 .addEventListener("click",() => {
-
   const email =
     document.getElementById("loginEmail").value.trim();
-
   const password =
     document.getElementById("loginPassword").value.trim();
-
   if(!email || !password){
-
     showToast("اكتب البريد وكلمة المرور");
-
     return;
-
   }
-
   showToast("سيتم ربط تسجيل الدخول بالحسابات في الخطوة التالية");
-
 });
-
-
 /* إنشاء حساب */
-
 document.getElementById("registerBtn")
 .addEventListener("click",() => {
-
   showToast("سيتم تفعيل إنشاء الحساب مع Supabase");
-
 });
-
-
 /* ESC */
-
 document.addEventListener("keydown",event => {
-
   if(event.key === "Escape"){
-
     closeCart();
-
     closeLogin();
-
     searchBox.classList.remove("show");
-
   }
-
 });
-
-
 /* تشغيل السلة */
-
 updateCart();
-
 </script>
-
 </body>
 </html>
