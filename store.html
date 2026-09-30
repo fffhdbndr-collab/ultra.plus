@@ -1,3 +1,6 @@
+يا كفو، تم تظبيط الكود كاملاً ودمج ربط سوبابيس (Supabase) والأزرار بطريقة نظيفة ومرتبة 100% بدون أي مساس بتصميم المتجر أو عناصره الأصلية.
+انسخ هذا الكود بالكامل، و**استبدل به محتوى ملف store.html عندك في جيت هب بالكامل**، ثم اضغط **Commit changes**:
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -1870,7 +1873,7 @@ placeholder="••••••••"
 </button>
 
 <div class="login-note">
-نظام الحسابات سيتم ربطه بـ Supabase في الخطوة التالية.
+نظام الحسابات مربوط مع Supabase بنجاح.
 </div>
 
 </div>
@@ -1878,10 +1881,37 @@ placeholder="••••••••"
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+const supabaseUrl = 'https://biffntikbgpptpezzcyk.supabase.co'
+const supabaseKey = 'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+window.handleUltraLogin = async function(email, password) {
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) {
+    alert('خطأ في تسجيل الدخول: ' + error.message)
+    return
+  }
+  alert('تم تسجيل الدخول بنجاح!')
+  location.reload()
+}
+
+window.handleUltraRegister = async function(email, password, fullName) {
+  const { data, error } = await supabase.auth.signUp({ email, password })
+  if (error) {
+    alert('خطأ في التسجيل: ' + error.message)
+    return
+  }
+  if (data.user) {
+    await supabase.from('profiles').insert([{ id: data.user.id, full_name: fullName }])
+    alert('تم إنشاء الحساب وحفظ البيانات بنجاح!')
+    location.reload()
+  }
+}
 
 const products = [
-
 {
 id:1,
 name:"الباقة الذهبية",
@@ -1889,7 +1919,6 @@ price:30.99,
 icon:"gold",
 desc:"أكثر من 7000 تطبيق وخدمة رقمية مع تفعيل فوري."
 },
-
 {
 id:2,
 name:"الباقة الفضية",
@@ -1897,7 +1926,6 @@ price:20.99,
 icon:"silver",
 desc:"أكثر من 4000 تطبيق وخدمة رقمية مع تفعيل بعد الطلب."
 }
-
 ];
 
 let cart = [];
@@ -1915,440 +1943,238 @@ const loginWrap = document.getElementById("loginWrap");
 let toastTimer;
 
 function showToast(message){
-
   toast.textContent = message;
-
   toast.classList.add("show");
-
   clearTimeout(toastTimer);
-
   toastTimer = setTimeout(() => {
-
     toast.classList.remove("show");
-
   },2200);
-
 }
 
 function addToCart(id){
-
   const product = products.find(p => p.id === id);
-
   if(!product) return;
-
   cart.push(product);
-
   updateCart();
-
   showToast("تمت إضافة الباقة للسلة");
-
   openCart();
-
 }
 
 function removeFromCart(index){
-
   cart.splice(index,1);
-
   updateCart();
-
 }
 
 function updateCart(){
-
   cartCount.textContent = cart.length;
-
   if(cart.length === 0){
-
     cartItems.innerHTML = `
-
       <div class="empty">
-
         <div>
-
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-
             <path d="M4 5h2l2 11h10l2-8H7"/>
-
             <circle cx="10" cy="20" r="1"/>
-
             <circle cx="18" cy="20" r="1"/>
-
           </svg>
-
           <div>السلة فارغة</div>
-
         </div>
-
       </div>
-
     `;
-
     cartTotal.textContent = "0.00";
-
     return;
-
   }
 
   cartItems.innerHTML = "";
-
   let total = 0;
 
   cart.forEach((item,index) => {
-
     total += item.price;
-
     cartItems.innerHTML += `
-
       <div class="cart-item">
-
         <div class="cart-item-icon">
-
           ${item.icon === "gold" ? "★" : "＋"}
-
         </div>
-
         <div class="cart-item-info">
-
           <strong>${item.name}</strong>
-
           <small>${item.price.toFixed(2)} ر.س</small>
-
         </div>
-
         <button class="remove" data-remove="${index}">
-
           <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-
             <path d="m6 6 12 12M18 6 6 18"/>
-
           </svg>
-
         </button>
-
       </div>
-
     `;
-
   });
 
   cartTotal.textContent = total.toFixed(2);
 
   document.querySelectorAll("[data-remove]").forEach(button => {
-
     button.addEventListener("click",() => {
-
       removeFromCart(Number(button.dataset.remove));
-
     });
-
   });
-
 }
 
 function openCart(){
-
   cartElement.classList.add("show");
-
   overlay.classList.add("show");
-
 }
 
 function closeCart(){
-
   cartElement.classList.remove("show");
-
   overlay.classList.remove("show");
-
 }
 
 function checkout(){
-
   if(cart.length === 0){
-
     showToast("السلة فارغة");
-
     return;
-
   }
-
   showToast("سيتم ربط بوابة الدفع الحقيقية لاحقاً");
-
 }
 
 function toggleSearch(){
-
   searchBox.classList.toggle("show");
-
   if(searchBox.classList.contains("show")){
-
     setTimeout(() => {
-
       searchInput.focus();
-
     },100);
-
   }
-
 }
 
 function searchProducts(value){
-
   const query = value.trim().toLowerCase();
-
   document.querySelectorAll(".product").forEach((card,index) => {
-
     const product = products[index];
-
     const found =
       product.name.toLowerCase().includes(query) ||
       product.desc.toLowerCase().includes(query);
-
     card.style.display = found ? "" : "none";
-
   });
-
 }
 
 function scrollToSection(id){
-
   const section = document.getElementById(id);
-
   if(!section) return;
-
   section.scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
-
 }
 
 function setActive(button){
-
   document.querySelectorAll(".nav-links button")
     .forEach(btn => btn.classList.remove("active"));
-
   if(button){
-
     button.classList.add("active");
-
   }
-
 }
 
 function toggleMobileMenu(){
-
   const links = document.querySelector(".nav-links");
-
   if(links.classList.contains("mobile-open")){
-
     links.classList.remove("mobile-open");
-
     links.style.display = "";
-
     return;
-
   }
-
   links.classList.add("mobile-open");
-
   links.style.position = "fixed";
-
   links.style.top = "68px";
-
   links.style.right = "4%";
-
   links.style.left = "4%";
-
   links.style.padding = "9px";
-
   links.style.background = "#091113";
-
   links.style.border = "1px solid rgba(32,215,193,.13)";
-
   links.style.borderRadius = "14px";
-
   links.style.display = "flex";
-
   links.style.flexDirection = "column";
-
   links.style.zIndex = "1100";
-
 }
 
 function openLogin(){
-
   loginWrap.classList.add("show");
-
 }
 
 function closeLogin(){
-
   loginWrap.classList.remove("show");
-
 }
 
 document.querySelectorAll(".add-btn").forEach(button => {
-
   button.addEventListener("click",() => {
-
     addToCart(Number(button.dataset.product));
-
   });
-
 });
 
 document.querySelectorAll("[data-action]").forEach(button => {
-
   button.addEventListener("click",() => {
-
     const action = button.dataset.action;
-
-    if(action === "home"){
-      scrollToSection("home");
-    }
-
-    if(action === "products"){
-      scrollToSection("products");
-    }
-
-    if(action === "features"){
-      scrollToSection("features");
-    }
-
-    if(action === "faq"){
-      scrollToSection("faq");
-    }
-
-    if(button.closest(".nav-links")){
-      setActive(button);
-    }
-
+    if(action === "home") scrollToSection("home");
+    if(action === "products") scrollToSection("products");
+    if(action === "features") scrollToSection("features");
+    if(action === "faq") scrollToSection("faq");
+    if(button.closest(".nav-links")) setActive(button);
   });
-
 });
 
-document.getElementById("accountBtn")
-.addEventListener("click",openLogin);
-
-document.getElementById("closeLogin")
-.addEventListener("click",closeLogin);
+document.getElementById("accountBtn").addEventListener("click",openLogin);
+document.getElementById("closeLogin").addEventListener("click",closeLogin);
 
 loginWrap.addEventListener("click",event => {
-
-  if(event.target === loginWrap){
-    closeLogin();
-  }
-
+  if(event.target === loginWrap) closeLogin();
 });
 
-document.getElementById("searchBtn")
-.addEventListener("click",toggleSearch);
+document.getElementById("searchBtn").addEventListener("click",toggleSearch);
 
 searchInput.addEventListener("input",event => {
-
   searchProducts(event.target.value);
-
 });
 
-document.getElementById("cartBtn")
-.addEventListener("click",openCart);
-
-document.getElementById("closeCart")
-.addEventListener("click",closeCart);
-
+document.getElementById("cartBtn").addEventListener("click",openCart);
+document.getElementById("closeCart").addEventListener("click",closeCart);
 overlay.addEventListener("click",closeCart);
-
-document.getElementById("checkoutBtn")
-.addEventListener("click",checkout);
-
-document.getElementById("mobileBtn")
-.addEventListener("click",toggleMobileMenu);
+document.getElementById("checkoutBtn").addEventListener("click",checkout);
+document.getElementById("mobileBtn").addEventListener("click",toggleMobileMenu);
 
 document.querySelectorAll(".faq-question").forEach(button => {
-
   button.addEventListener("click",() => {
-
     button.parentElement.classList.toggle("open");
-
   });
-
 });
 
-document.getElementById("loginSubmit")
-.addEventListener("click",() => {
-
-  const email =
-    document.getElementById("loginEmail").value.trim();
-
-  const password =
-    document.getElementById("loginPassword").value.trim();
-
+document.getElementById("loginSubmit").addEventListener("click",() => {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
   if(!email || !password){
-
     showToast("اكتب البريد وكلمة المرور");
-
     return;
-
   }
-
-  showToast("سيتم ربط تسجيل الدخول بالحسابات في الخطوة التالية");
-
+  window.handleUltraLogin(email, password);
 });
 
-document.getElementById("registerBtn")
-.addEventListener("click",() => {
-
-  showToast("سيتم تفعيل إنشاء الحساب مع Supabase");
-
+document.getElementById("registerBtn").addEventListener("click",() => {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+  if(!email || !password){
+    showToast("اكتب البريد وكلمة المرور للإنشاء");
+    return;
+  }
+  const fullName = email.split('@')[0];
+  window.handleUltraRegister(email, password, fullName);
 });
 
 document.addEventListener("keydown",event => {
-
   if(event.key === "Escape"){
-
     closeCart();
-
     closeLogin();
-
     searchBox.classList.remove("show");
-
   }
-
 });
 
 updateCart();
-  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
-  const supabaseUrl = 'https://biffntikbgpptpezzcyk.supabase.co'
-  const supabaseKey = 'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
-  const supabase = createClient(supabaseUrl, supabaseKey)
-
-  // ربط أزرار تسجيل الدخول وحفظ البيانات
-  window.handleUltraLogin = async function(email, password) {
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
-      alert('خطأ في تسجيل الدخول: ' + error.message)
-      return
-    }
-    alert('تم تسجيل الدخول بنجاح!')
-    location.reload()
-  }
-
-  window.handleUltraRegister = async function(email, password, fullName) {
-    const { data, error } = await supabase.auth.signUp({ email, password })
-    if (error) {
-      alert('خطأ في التسجيل: ' + error.message)
-      return
-    }
-    if (data.user) {
-      await supabase.from('profiles').insert([{ id: data.user.id, full_name: fullName }])
-      alert('تم إنشاء الحساب وحفظ البيانات بنجاح!')
-      location.reload()
-    }
-  }
-
 </script>
 
 </body>
 </html>
+
+```
