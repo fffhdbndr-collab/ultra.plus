@@ -2170,8 +2170,37 @@ document.addEventListener("keydown",event => {
 
 updateCart();
 </script>
+<script type="module">
+import { supabase } from './supabase.js'
+
+async function updatePricesFromSupabase() {
+  try {
+    const { data, error } = await supabase.from('products').select('*')
+    if (error || !data) return;
+
+    // البحث عن الكروت وتحديث أسعارها بناءً على البيانات في سوبابيس
+    data.forEach(product => {
+      // إذا كانت الباقة ذهبية أو فضية، نبحث عن السعر ونحدثه
+      if (product.name.includes("الذهبية")) {
+        const goldPriceEl = document.querySelector('.product.featured .price');
+        if (goldPriceEl) {
+          goldPriceEl.innerHTML = `${Number(product.price).toFixed(2)} <small>ر.س</small>`;
+        }
+      } else if (product.name.includes("الفضية")) {
+        const silverPriceEl = document.querySelector('.product:not(.featured) .price');
+        if (silverPriceEl) {
+          silverPriceEl.innerHTML = `${Number(product.price).toFixed(2)} <small>ر.س</small>`;
+        }
+      }
+    });
+  } catch (err) {
+    console.error("خطأ في التحديث:", err);
+  }
+}
+
+updatePricesFromSupabase();
+</script>
 
 </body>
 </html>
 
-```
