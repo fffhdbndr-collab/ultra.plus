@@ -988,11 +988,67 @@ footer{
   margin-top:8px;
 }
 
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.035);
+  color:#d5e1df;
+}
+
+.btn-secondary:hover{
+  border-color:rgba(32,215,193,.25);
+  background:rgba(32,215,193,.06);
+}
+
 .login-note{
   margin-top:14px;
   text-align:center;
   color:#596966;
   font-size:10px;
+}
+
+.otp-step{
+  display:none;
+}
+
+.otp-step.show{
+  display:block;
+}
+
+.email-step.hide{
+  display:none;
+}
+
+.otp-title{
+  margin-bottom:15px;
+  color:#9baaa7;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.otp-title strong{
+  color:var(--turquoise2);
+}
+
+.otp-input{
+  text-align:center;
+  direction:ltr;
+  letter-spacing:8px;
+  font-size:21px;
+  font-weight:700;
+}
+
+.change-email{
+  width:100%;
+  margin-top:10px;
+  min-height:42px;
+  border:0;
+  background:transparent;
+  color:#70807d;
+  font-size:11px;
+}
+
+.change-email:hover{
+  color:var(--turquoise2);
 }
 
 /* ================= SEARCH ================= */
@@ -1187,6 +1243,10 @@ footer{
     flex-direction:column;
     gap:7px;
   }
+
+  .login-box{
+    padding:22px;
+  }
 }
 </style>
 </head>
@@ -1222,20 +1282,25 @@ ULTRA PLUS | ألترا بلس
 <div class="nav-actions">
 
 <button class="icon-btn" id="accountBtn" aria-label="الحساب">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <circle cx="12" cy="8" r="3.5"/>
 <path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6"/>
 </svg>
+
 </button>
 
 <button class="icon-btn" id="searchBtn" aria-label="البحث">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <circle cx="11" cy="11" r="6.5"/>
 <path d="m16 16 5 5"/>
 </svg>
+
 </button>
 
 <button class="icon-btn" id="cartBtn" aria-label="السلة">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M4 5h2l2 11h10l2-8H7"/>
 <circle cx="10" cy="20" r="1"/>
@@ -1243,12 +1308,15 @@ ULTRA PLUS | ألترا بلس
 </svg>
 
 <span class="cart-count" id="cartCount">0</span>
+
 </button>
 
 <button class="icon-btn mobile-menu" id="mobileBtn">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M4 7h16M4 12h16M4 17h16"/>
 </svg>
+
 </button>
 
 </div>
@@ -1286,9 +1354,11 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 
 <button class="btn btn-primary" data-action="products">
 استعرض الباقات
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M5 12h14M13 6l6 6-6 6"/>
 </svg>
+
 </button>
 
 </div>
@@ -1311,10 +1381,12 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 <div class="category-info">
 
 <div class="category-icon">
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <rect x="5" y="3" width="14" height="18" rx="2"/>
 <path d="M9 7h6M9 11h6M9 15h3"/>
 </svg>
+
 </div>
 
 <div>
@@ -1336,6 +1408,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 <div class="section-head">
 
 <div>
+
 <div class="section-title">
 باقات ULTRA PLUS | ألترا بلس
 </div>
@@ -1343,6 +1416,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 <div class="section-sub">
 اختر الباقة المناسبة لك وفعّلها
 </div>
+
 </div>
 
 </div>
@@ -1474,6 +1548,7 @@ ULTRA PLUS | ألترا بلس
 <div class="section-head">
 
 <div>
+
 <div class="section-title">
 تجربة ULTRA PLUS | ألترا بلس
 </div>
@@ -1481,6 +1556,7 @@ ULTRA PLUS | ألترا بلس
 <div class="section-sub">
 مصممة لتكون بسيطة وسريعة
 </div>
+
 </div>
 
 </div>
@@ -1552,8 +1628,13 @@ ULTRA PLUS | ألترا بلس
 <div class="section-head">
 
 <div>
+
 <div class="section-title">الأسئلة الشائعة</div>
-<div class="section-sub">كل ما تحتاج معرفته</div>
+
+<div class="section-sub">
+كل ما تحتاج معرفته
+</div>
+
 </div>
 
 </div>
@@ -1561,122 +1642,167 @@ ULTRA PLUS | ألترا بلس
 <div class="faq">
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 ما الفرق بين الذهبية والفضية؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 الباقة الذهبية تحتوي على أكثر من 7000 تطبيق مع تفعيل فوري،
 بينما الباقة الفضية تحتوي على أكثر من 4000 تطبيق ويتم تفعيلها بعد الطلب.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 هل التفعيل فوري؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 الباقة الذهبية يتم تفعيلها فوراً،
 أما الباقة الفضية فيتم تفعيلها بعد الطلب.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 كم سعر الباقة الذهبية؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 سعر الباقة الذهبية هو 30.99 ريال سعودي.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 كم سعر الباقة الفضية؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 سعر الباقة الفضية هو 20.99 ريال سعودي.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 أقدر أطلب وأفعل بجهاز ثاني؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 نعم، اطلب من أي جهاز وفعّل الكود بجهازك.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 متى وكيف أستلم؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 فوري، توصلك رسالة نصية بالكود والشرح.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 كم مدة الاشتراك؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 باقة المتجر تخدمك سنة كاملة.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 متوفر دعم فني؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 موجودين لخدمتك طوال فترة اشتراكك.
 </div>
+
 </div>
 
 <div class="faq-item">
+
 <button class="faq-question">
+
 فيه ضمان؟
+
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
 </svg>
+
 </button>
 
 <div class="faq-answer">
 أكيد، ضمان يعوضك باشتراك بديل.
 </div>
+
 </div>
 
 </div>
@@ -1727,12 +1853,12 @@ ULTRA PLUS | ألترا بلس
 <h4>التواصل</h4>
 
 <a
-  class="whatsapp-link"
-  href="https://wa.me/966568327822"
-  target="_blank"
-  rel="noopener"
-  aria-label="واتساب"
-  title="واتساب"
+class="whatsapp-link"
+href="https://wa.me/966568327822"
+target="_blank"
+rel="noopener"
+aria-label="واتساب"
+title="واتساب"
 >
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -1811,6 +1937,8 @@ ULTRA PLUS | ألترا بلس
 </div>
 </aside>
 
+<!-- ================= LOGIN / OTP ================= -->
+
 <div class="login-wrap" id="loginWrap">
 
 <div class="login-box">
@@ -1819,10 +1947,10 @@ ULTRA PLUS | ألترا بلس
 
 <div>
 
-<h2>تسجيل الدخول</h2>
+<h2 id="loginTitle">تسجيل الدخول</h2>
 
-<span>
-ادخل إلى حسابك في ULTRA PLUS | ألترا بلس
+<span id="loginSubtitle">
+ادخل بريدك الإلكتروني لإرسال رمز التحقق
 </span>
 
 </div>
@@ -1837,6 +1965,10 @@ ULTRA PLUS | ألترا بلس
 
 </div>
 
+<!-- EMAIL STEP -->
+
+<div class="email-step" id="emailStep">
+
 <div class="login-field">
 
 <label>البريد الإلكتروني</label>
@@ -1844,33 +1976,76 @@ ULTRA PLUS | ألترا بلس
 <input
 id="loginEmail"
 type="email"
+autocomplete="email"
 placeholder="example@email.com"
 >
 
 </div>
 
+<button
+class="btn btn-primary login-submit"
+id="sendOtpBtn"
+>
+
+إرسال كود التحقق
+
+</button>
+
+<div class="login-note">
+سيصلك كود مكون من 6 أرقام على بريدك الإلكتروني.
+</div>
+
+</div>
+
+<!-- OTP STEP -->
+
+<div class="otp-step" id="otpStep">
+
+<div class="otp-title">
+تم إرسال كود التحقق إلى:
+<br>
+<strong id="otpEmailText"></strong>
+</div>
+
 <div class="login-field">
 
-<label>كلمة المرور</label>
+<label>رمز التحقق</label>
 
 <input
-id="loginPassword"
-type="password"
-placeholder="••••••••"
+id="otpCode"
+class="otp-input"
+type="text"
+inputmode="numeric"
+autocomplete="one-time-code"
+maxlength="6"
+placeholder="000000"
 >
 
 </div>
 
-<button class="btn btn-primary login-submit" id="loginSubmit">
-تسجيل الدخول
+<button
+class="btn btn-primary login-submit"
+id="verifyOtpBtn"
+>
+
+تأكيد الكود وتسجيل الدخول
+
 </button>
 
-<button class="btn btn-secondary login-submit" id="registerBtn">
-إنشاء حساب جديد
+<button
+class="change-email"
+id="changeEmailBtn"
+type="button"
+>
+
+تغيير البريد الإلكتروني
+
 </button>
 
 <div class="login-note">
-نظام الحسابات مربوط مع Supabase بنجاح.
+إذا لم يصلك الكود، تحقق من مجلد الرسائل غير المرغوب فيها.
+</div>
+
 </div>
 
 </div>
@@ -1879,36 +2054,29 @@ placeholder="••••••••"
 <div class="toast" id="toast"></div>
 
 <script type="module">
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
-const supabaseUrl = 'https://biffntikbgpptpezzcyk.supabase.co'
-const supabaseKey = 'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl =
+'https://biffntikbgpptpezzcyk.supabase.co'
 
-window.handleUltraLogin = async function(email, password) {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-  if (error) {
-    alert('خطأ في تسجيل الدخول: ' + error.message)
-    return
-  }
-  alert('تم تسجيل الدخول بنجاح!')
-  location.reload()
-}
+const supabaseKey =
+'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
 
-window.handleUltraRegister = async function(email, password, fullName) {
-  const { data, error } = await supabase.auth.signUp({ email, password })
-  if (error) {
-    alert('خطأ في التسجيل: ' + error.message)
-    return
-  }
-  if (data.user) {
-    await supabase.from('profiles').insert([{ id: data.user.id, full_name: fullName }])
-    alert('تم إنشاء الحساب وحفظ البيانات بنجاح!')
-    location.reload()
-  }
-}
+const supabase =
+createClient(supabaseUrl, supabaseKey)
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 const products = [
+
 {
 id:1,
 name:"الباقة الذهبية",
@@ -1916,6 +2084,7 @@ price:30.99,
 icon:"gold",
 desc:"أكثر من 7000 تطبيق وخدمة رقمية مع تفعيل فوري."
 },
+
 {
 id:2,
 name:"الباقة الفضية",
@@ -1923,284 +2092,1056 @@ price:20.99,
 icon:"silver",
 desc:"أكثر من 4000 تطبيق وخدمة رقمية مع تفعيل بعد الطلب."
 }
-];
 
-let cart = [];
+]
 
-const cartElement = document.getElementById("cart");
-const overlay = document.getElementById("overlay");
-const cartItems = document.getElementById("cartItems");
-const cartCount = document.getElementById("cartCount");
-const cartTotal = document.getElementById("cartTotal");
-const toast = document.getElementById("toast");
-const searchBox = document.getElementById("searchBox");
-const searchInput = document.getElementById("searchInput");
-const loginWrap = document.getElementById("loginWrap");
 
-let toastTimer;
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+let cart = []
+
+const cartElement =
+document.getElementById("cart")
+
+const overlay =
+document.getElementById("overlay")
+
+const cartItems =
+document.getElementById("cartItems")
+
+const cartCount =
+document.getElementById("cartCount")
+
+const cartTotal =
+document.getElementById("cartTotal")
+
+const toast =
+document.getElementById("toast")
+
+const searchBox =
+document.getElementById("searchBox")
+
+const searchInput =
+document.getElementById("searchInput")
+
+const loginWrap =
+document.getElementById("loginWrap")
+
+const emailStep =
+document.getElementById("emailStep")
+
+const otpStep =
+document.getElementById("otpStep")
+
+const loginEmail =
+document.getElementById("loginEmail")
+
+const otpCode =
+document.getElementById("otpCode")
+
+const otpEmailText =
+document.getElementById("otpEmailText")
+
+const loginTitle =
+document.getElementById("loginTitle")
+
+const loginSubtitle =
+document.getElementById("loginSubtitle")
+
+let toastTimer
+
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 function showToast(message){
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  },2200);
+
+toast.textContent = message
+
+toast.classList.add("show")
+
+clearTimeout(toastTimer)
+
+toastTimer =
+setTimeout(() => {
+
+toast.classList.remove("show")
+
+},2500)
+
 }
+
+
+/* =========================================================
+   CART
+========================================================= */
 
 function addToCart(id){
-  const product = products.find(p => p.id === id);
-  if(!product) return;
-  cart.push(product);
-  updateCart();
-  showToast("تمت إضافة الباقة للسلة");
-  openCart();
+
+const product =
+products.find(p => p.id === id)
+
+if(!product) return
+
+cart.push(product)
+
+updateCart()
+
+showToast("تمت إضافة الباقة للسلة")
+
+openCart()
+
 }
+
 
 function removeFromCart(index){
-  cart.splice(index,1);
-  updateCart();
+
+cart.splice(index,1)
+
+updateCart()
+
 }
+
 
 function updateCart(){
-  cartCount.textContent = cart.length;
-  if(cart.length === 0){
-    cartItems.innerHTML = `
-      <div class="empty">
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M4 5h2l2 11h10l2-8H7"/>
-            <circle cx="10" cy="20" r="1"/>
-            <circle cx="18" cy="20" r="1"/>
-          </svg>
-          <div>السلة فارغة</div>
-        </div>
-      </div>
-    `;
-    cartTotal.textContent = "0.00";
-    return;
-  }
 
-  cartItems.innerHTML = "";
-  let total = 0;
+cartCount.textContent =
+cart.length
 
-  cart.forEach((item,index) => {
-    total += item.price;
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <div class="cart-item-icon">
-          ${item.icon === "gold" ? "★" : "＋"}
-        </div>
-        <div class="cart-item-info">
-          <strong>${item.name}</strong>
-          <small>${item.price.toFixed(2)} ر.س</small>
-        </div>
-        <button class="remove" data-remove="${index}">
-          <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="m6 6 12 12M18 6 6 18"/>
-          </svg>
-        </button>
-      </div>
-    `;
-  });
+if(cart.length === 0){
 
-  cartTotal.textContent = total.toFixed(2);
+cartItems.innerHTML = `
 
-  document.querySelectorAll("[data-remove]").forEach(button => {
-    button.addEventListener("click",() => {
-      removeFromCart(Number(button.dataset.remove));
-    });
-  });
+<div class="empty">
+
+<div>
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+
+<path d="M4 5h2l2 11h10l2-8H7"/>
+
+<circle cx="10" cy="20" r="1"/>
+
+<circle cx="18" cy="20" r="1"/>
+
+</svg>
+
+<div>السلة فارغة</div>
+
+</div>
+
+</div>
+
+`
+
+cartTotal.textContent =
+"0.00"
+
+return
+
 }
+
+cartItems.innerHTML = ""
+
+let total = 0
+
+cart.forEach((item,index) => {
+
+total += item.price
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<div class="cart-item-icon">
+
+${item.icon === "gold" ? "★" : "＋"}
+
+</div>
+
+<div class="cart-item-info">
+
+<strong>${item.name}</strong>
+
+<small>${item.price.toFixed(2)} ر.س</small>
+
+</div>
+
+<button class="remove" data-remove="${index}">
+
+<svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+
+<path d="m6 6 12 12M18 6 6 18"/>
+
+</svg>
+
+</button>
+
+</div>
+
+`
+
+})
+
+cartTotal.textContent =
+total.toFixed(2)
+
+document.querySelectorAll("[data-remove]")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+removeFromCart(
+Number(button.dataset.remove)
+)
+
+})
+
+})
+
+}
+
 
 function openCart(){
-  cartElement.classList.add("show");
-  overlay.classList.add("show");
+
+cartElement.classList.add("show")
+
+overlay.classList.add("show")
+
 }
+
 
 function closeCart(){
-  cartElement.classList.remove("show");
-  overlay.classList.remove("show");
+
+cartElement.classList.remove("show")
+
+overlay.classList.remove("show")
+
 }
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
 
 function checkout(){
-  if(cart.length === 0){
-    showToast("السلة فارغة");
-    return;
-  }
-  showToast("سيتم ربط بوابة الدفع الحقيقية لاحقاً");
+
+if(cart.length === 0){
+
+showToast("السلة فارغة")
+
+return
+
 }
+
+showToast("سيتم ربط بوابة الدفع الحقيقية لاحقاً")
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
 
 function toggleSearch(){
-  searchBox.classList.toggle("show");
-  if(searchBox.classList.contains("show")){
-    setTimeout(() => {
-      searchInput.focus();
-    },100);
-  }
+
+searchBox.classList.toggle("show")
+
+if(searchBox.classList.contains("show")){
+
+setTimeout(() => {
+
+searchInput.focus()
+
+},100)
+
 }
+
+}
+
 
 function searchProducts(value){
-  const query = value.trim().toLowerCase();
-  document.querySelectorAll(".product").forEach((card,index) => {
-    const product = products[index];
-    const found =
-      product.name.toLowerCase().includes(query) ||
-      product.desc.toLowerCase().includes(query);
-    card.style.display = found ? "" : "none";
-  });
+
+const query =
+value.trim().toLowerCase()
+
+document
+.querySelectorAll(".product")
+.forEach((card,index) => {
+
+const product =
+products[index]
+
+const found =
+product.name.toLowerCase().includes(query) ||
+product.desc.toLowerCase().includes(query)
+
+card.style.display =
+found ? "" : "none"
+
+})
+
 }
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 function scrollToSection(id){
-  const section = document.getElementById(id);
-  if(!section) return;
-  section.scrollIntoView({
-    behavior:"smooth",
-    block:"start"
-  });
+
+const section =
+document.getElementById(id)
+
+if(!section) return
+
+section.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+})
+
 }
+
 
 function setActive(button){
-  document.querySelectorAll(".nav-links button")
-    .forEach(btn => btn.classList.remove("active"));
-  if(button){
-    button.classList.add("active");
-  }
+
+document
+.querySelectorAll(".nav-links button")
+.forEach(btn =>
+btn.classList.remove("active")
+)
+
+if(button){
+
+button.classList.add("active")
+
 }
+
+}
+
 
 function toggleMobileMenu(){
-  const links = document.querySelector(".nav-links");
-  if(links.classList.contains("mobile-open")){
-    links.classList.remove("mobile-open");
-    links.style.display = "";
-    return;
-  }
-  links.classList.add("mobile-open");
-  links.style.position = "fixed";
-  links.style.top = "68px";
-  links.style.right = "4%";
-  links.style.left = "4%";
-  links.style.padding = "9px";
-  links.style.background = "#091113";
-  links.style.border = "1px solid rgba(32,215,193,.13)";
-  links.style.borderRadius = "14px";
-  links.style.display = "flex";
-  links.style.flexDirection = "column";
-  links.style.zIndex = "1100";
+
+const links =
+document.querySelector(".nav-links")
+
+if(links.classList.contains("mobile-open")){
+
+links.classList.remove("mobile-open")
+
+links.style.display = ""
+
+return
+
 }
 
+links.classList.add("mobile-open")
+
+links.style.position = "fixed"
+
+links.style.top = "68px"
+
+links.style.right = "4%"
+
+links.style.left = "4%"
+
+links.style.padding = "9px"
+
+links.style.background = "#091113"
+
+links.style.border =
+"1px solid rgba(32,215,193,.13)"
+
+links.style.borderRadius = "14px"
+
+links.style.display = "flex"
+
+links.style.flexDirection = "column"
+
+links.style.zIndex = "1100"
+
+}
+
+
+/* =========================================================
+   LOGIN WINDOW
+========================================================= */
+
 function openLogin(){
-  loginWrap.classList.add("show");
+
+loginWrap.classList.add("show")
+
 }
 
 function closeLogin(){
-  loginWrap.classList.remove("show");
+
+loginWrap.classList.remove("show")
+
 }
 
-document.querySelectorAll(".add-btn").forEach(button => {
-  button.addEventListener("click",() => {
-    addToCart(Number(button.dataset.product));
-  });
-});
 
-document.querySelectorAll("[data-action]").forEach(button => {
-  button.addEventListener("click",() => {
-    const action = button.dataset.action;
-    if(action === "home") scrollToSection("home");
-    if(action === "products") scrollToSection("products");
-    if(action === "features") scrollToSection("features");
-    if(action === "faq") scrollToSection("faq");
-    if(button.closest(".nav-links")) setActive(button);
-  });
-});
+/* =========================================================
+   SEND OTP
+========================================================= */
 
-document.getElementById("accountBtn").addEventListener("click",openLogin);
-document.getElementById("closeLogin").addEventListener("click",closeLogin);
+async function sendOtp(){
 
-loginWrap.addEventListener("click",event => {
-  if(event.target === loginWrap) closeLogin();
-});
+const email =
+loginEmail.value.trim()
 
-document.getElementById("searchBtn").addEventListener("click",toggleSearch);
+if(!email){
 
-searchInput.addEventListener("input",event => {
-  searchProducts(event.target.value);
-});
+showToast("اكتب البريد الإلكتروني")
 
-document.getElementById("cartBtn").addEventListener("click",openCart);
-document.getElementById("closeCart").addEventListener("click",closeCart);
-overlay.addEventListener("click",closeCart);
-document.getElementById("checkoutBtn").addEventListener("click",checkout);
-document.getElementById("mobileBtn").addEventListener("click",toggleMobileMenu);
+return
 
-document.querySelectorAll(".faq-question").forEach(button => {
-  button.addEventListener("click",() => {
-    button.parentElement.classList.toggle("open");
-  });
-});
-
-document.getElementById("loginSubmit").addEventListener("click",() => {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-  if(!email || !password){
-    showToast("اكتب البريد وكلمة المرور");
-    return;
-  }
-  window.handleUltraLogin(email, password);
-});
-
-document.getElementById("registerBtn").addEventListener("click",() => {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-  if(!email || !password){
-    showToast("اكتب البريد وكلمة المرور للإنشاء");
-    return;
-  }
-  const fullName = email.split('@')[0];
-  window.handleUltraRegister(email, password, fullName);
-});
-
-document.addEventListener("keydown",event => {
-  if(event.key === "Escape"){
-    closeCart();
-    closeLogin();
-    searchBox.classList.remove("show");
-  }
-});
-
-updateCart();
-</script>
-<script type="module">
-import { supabase } from './supabase.js'
-
-async function updatePricesFromSupabase() {
-  try {
-    const { data, error } = await supabase.from('products').select('*')
-    if (error || !data) return;
-
-    // البحث عن الكروت وتحديث أسعارها بناءً على البيانات في سوبابيس
-    data.forEach(product => {
-      // إذا كانت الباقة ذهبية أو فضية، نبحث عن السعر ونحدثه
-      if (product.name.includes("الذهبية")) {
-        const goldPriceEl = document.querySelector('.product.featured .price');
-        if (goldPriceEl) {
-          goldPriceEl.innerHTML = `${Number(product.price).toFixed(2)} <small>ر.س</small>`;
-        }
-      } else if (product.name.includes("الفضية")) {
-        const silverPriceEl = document.querySelector('.product:not(.featured) .price');
-        if (silverPriceEl) {
-          silverPriceEl.innerHTML = `${Number(product.price).toFixed(2)} <small>ر.س</small>`;
-        }
-      }
-    });
-  } catch (err) {
-    console.error("خطأ في التحديث:", err);
-  }
 }
 
-updatePricesFromSupabase();
+if(!email.includes("@") || !email.includes(".")){
+
+showToast("اكتب بريد إلكتروني صحيح")
+
+return
+
+}
+
+const button =
+document.getElementById("sendOtpBtn")
+
+button.disabled = true
+
+button.textContent =
+"جاري إرسال الكود..."
+
+try{
+
+const { error } =
+await supabase.auth.signInWithOtp({
+
+email: email,
+
+options:{
+
+shouldCreateUser:true
+
+}
+
+})
+
+if(error){
+
+console.error(error)
+
+showToast(
+"تعذر إرسال الكود، حاول مرة أخرى"
+)
+
+button.disabled = false
+
+button.textContent =
+"إرسال كود التحقق"
+
+return
+
+}
+
+/* الانتقال إلى خانة الكود */
+
+otpEmailText.textContent =
+email
+
+emailStep.classList.add("hide")
+
+otpStep.classList.add("show")
+
+loginTitle.textContent =
+"أدخل كود التحقق"
+
+loginSubtitle.textContent =
+"أرسلنا لك كوداً مكوناً من 6 أرقام"
+
+otpCode.value = ""
+
+setTimeout(() => {
+
+otpCode.focus()
+
+},150)
+
+showToast("تم إرسال الكود إلى بريدك الإلكتروني")
+
+}catch(error){
+
+console.error(error)
+
+showToast(
+"حدث خطأ، حاول مرة أخرى"
+)
+
+button.disabled = false
+
+button.textContent =
+"إرسال كود التحقق"
+
+}
+
+}
+
+
+/* =========================================================
+   VERIFY OTP
+========================================================= */
+
+async function verifyOtp(){
+
+const email =
+loginEmail.value.trim()
+
+const code =
+otpCode.value.trim()
+
+if(code.length !== 6){
+
+showToast("اكتب كود التحقق المكون من 6 أرقام")
+
+return
+
+}
+
+const button =
+document.getElementById("verifyOtpBtn")
+
+button.disabled = true
+
+button.textContent =
+"جاري التحقق..."
+
+try{
+
+const { data,error } =
+await supabase.auth.verifyOtp({
+
+email:email,
+
+token:code,
+
+type:"email"
+
+})
+
+if(error){
+
+console.error(error)
+
+showToast(
+"الكود غير صحيح أو انتهت صلاحيته"
+)
+
+button.disabled = false
+
+button.textContent =
+"تأكيد الكود وتسجيل الدخول"
+
+return
+
+}
+
+/* نجاح تسجيل الدخول */
+
+if(data && data.session){
+
+showToast("تم تسجيل الدخول بنجاح ✓")
+
+setTimeout(() => {
+
+closeLogin()
+
+resetLoginForm()
+
+},900)
+
+}else{
+
+showToast(
+"تم التحقق، لكن لم يتم إنشاء الجلسة"
+)
+
+}
+
+}catch(error){
+
+console.error(error)
+
+showToast(
+"حدث خطأ أثناء التحقق"
+)
+
+}finally{
+
+button.disabled = false
+
+button.textContent =
+"تأكيد الكود وتسجيل الدخول"
+
+}
+
+}
+
+
+/* =========================================================
+   RESET LOGIN
+========================================================= */
+
+function resetLoginForm(){
+
+emailStep.classList.remove("hide")
+
+otpStep.classList.remove("show")
+
+loginTitle.textContent =
+"تسجيل الدخول"
+
+loginSubtitle.textContent =
+"ادخل بريدك الإلكتروني لإرسال رمز التحقق"
+
+otpCode.value = ""
+
+const button =
+document.getElementById("sendOtpBtn")
+
+button.disabled = false
+
+button.textContent =
+"إرسال كود التحقق"
+
+}
+
+
+/* =========================================================
+   CHANGE EMAIL
+========================================================= */
+
+function changeEmail(){
+
+resetLoginForm()
+
+setTimeout(() => {
+
+loginEmail.focus()
+
+},100)
+
+}
+
+
+/* =========================================================
+   CHECK CURRENT USER
+========================================================= */
+
+async function checkCurrentUser(){
+
+const { data } =
+await supabase.auth.getSession()
+
+if(data && data.session){
+
+console.log(
+"المستخدم مسجل دخول:",
+data.session.user.email
+)
+
+}
+
+}
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+supabase.auth.onAuthStateChange(
+(event,session) => {
+
+if(event === "SIGNED_IN" && session){
+
+console.log(
+"تم تسجيل الدخول:",
+session.user.email
+)
+
+}
+
+if(event === "SIGNED_OUT"){
+
+console.log("تم تسجيل الخروج")
+
+}
+
+})
+
+
+/* =========================================================
+   UPDATE PRODUCTS FROM SUPABASE
+========================================================= */
+
+async function updatePricesFromSupabase(){
+
+try{
+
+const { data,error } =
+await supabase
+.from("products")
+.select("*")
+
+if(error){
+
+console.log(
+"لم يتم تحديث الأسعار من Supabase:",
+error.message
+)
+
+return
+
+}
+
+if(!data || data.length === 0){
+
+return
+
+}
+
+data.forEach(product => {
+
+if(product.name.includes("الذهبية")){
+
+const price =
+Number(product.price)
+
+if(!Number.isNaN(price)){
+
+const localProduct =
+products.find(p => p.id === 1)
+
+if(localProduct){
+
+localProduct.price = price
+
+}
+
+const goldPriceEl =
+document.querySelector(
+".product.featured .price"
+)
+
+if(goldPriceEl){
+
+goldPriceEl.innerHTML =
+`${price.toFixed(2)} <small>ر.س</small>`
+
+}
+
+}
+
+}
+
+if(product.name.includes("الفضية")){
+
+const price =
+Number(product.price)
+
+if(!Number.isNaN(price)){
+
+const localProduct =
+products.find(p => p.id === 2)
+
+if(localProduct){
+
+localProduct.price = price
+
+}
+
+const silverPriceEl =
+document.querySelector(
+".product:not(.featured) .price"
+)
+
+if(silverPriceEl){
+
+silverPriceEl.innerHTML =
+`${price.toFixed(2)} <small>ر.س</small>`
+
+}
+
+}
+
+}
+
+})
+
+}catch(error){
+
+console.error(
+"خطأ في تحديث الأسعار:",
+error
+)
+
+}
+
+}
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+document
+.querySelectorAll(".add-btn")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+addToCart(
+Number(button.dataset.product)
+)
+
+})
+
+})
+
+
+document
+.querySelectorAll("[data-action]")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+const action =
+button.dataset.action
+
+if(action === "home")
+scrollToSection("home")
+
+if(action === "products")
+scrollToSection("products")
+
+if(action === "features")
+scrollToSection("features")
+
+if(action === "faq")
+scrollToSection("faq")
+
+if(button.closest(".nav-links"))
+setActive(button)
+
+})
+
+})
+
+
+document
+.getElementById("accountBtn")
+.addEventListener(
+"click",
+openLogin
+)
+
+
+document
+.getElementById("closeLogin")
+.addEventListener(
+"click",
+closeLogin
+)
+
+
+loginWrap.addEventListener(
+"click",
+event => {
+
+if(event.target === loginWrap){
+
+closeLogin()
+
+}
+
+})
+
+
+document
+.getElementById("searchBtn")
+.addEventListener(
+"click",
+toggleSearch
+)
+
+
+searchInput.addEventListener(
+"input",
+event => {
+
+searchProducts(
+event.target.value
+)
+
+})
+
+
+document
+.getElementById("cartBtn")
+.addEventListener(
+"click",
+openCart
+)
+
+
+document
+.getElementById("closeCart")
+.addEventListener(
+"click",
+closeCart
+)
+
+
+overlay.addEventListener(
+"click",
+closeCart
+)
+
+
+document
+.getElementById("checkoutBtn")
+.addEventListener(
+"click",
+checkout
+)
+
+
+document
+.getElementById("mobileBtn")
+.addEventListener(
+"click",
+toggleMobileMenu
+)
+
+
+/* FAQ */
+
+document
+.querySelectorAll(".faq-question")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+button.parentElement
+.classList.toggle("open")
+
+})
+
+})
+
+
+/* OTP */
+
+document
+.getElementById("sendOtpBtn")
+.addEventListener(
+"click",
+sendOtp
+)
+
+
+document
+.getElementById("verifyOtpBtn")
+.addEventListener(
+"click",
+verifyOtp
+)
+
+
+document
+.getElementById("changeEmailBtn")
+.addEventListener(
+"click",
+changeEmail
+)
+
+
+/* Enter */
+
+loginEmail.addEventListener(
+"keydown",
+event => {
+
+if(event.key === "Enter"){
+
+sendOtp()
+
+}
+
+})
+
+
+otpCode.addEventListener(
+"input",
+event => {
+
+event.target.value =
+event.target.value
+.replace(/\D/g,"")
+.slice(0,6)
+
+})
+
+
+otpCode.addEventListener(
+"keydown",
+event => {
+
+if(event.key === "Enter"){
+
+verifyOtp()
+
+}
+
+})
+
+
+/* ESC */
+
+document.addEventListener(
+"keydown",
+event => {
+
+if(event.key === "Escape"){
+
+closeCart()
+
+closeLogin()
+
+searchBox.classList.remove("show")
+
+}
+
+})
+
+
+/* =========================================================
+   START
+========================================================= */
+
+updateCart()
+
+checkCurrentUser()
+
+updatePricesFromSupabase()
+
 </script>
 
 </body>
 </html>
-
