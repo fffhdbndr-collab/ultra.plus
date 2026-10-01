@@ -49,6 +49,11 @@ button{
   cursor:pointer;
 }
 
+button:disabled{
+  cursor:not-allowed;
+  opacity:.6;
+}
+
 a{
   color:inherit;
   text-decoration:none;
@@ -369,9 +374,9 @@ a{
 
 .products{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
-  max-width:700px;
+  max-width:1000px;
   margin:auto;
 }
 
@@ -397,6 +402,10 @@ a{
     linear-gradient(145deg,#110f0a,#080b0b);
 }
 
+.product.netflix{
+  border-color:rgba(255,255,255,.09);
+}
+
 .product-image{
   height:175px;
   position:relative;
@@ -411,6 +420,12 @@ a{
   background:
     radial-gradient(circle,rgba(215,168,79,.13),transparent 48%),
     #090807;
+}
+
+.netflix .product-image{
+  background:
+    radial-gradient(circle,rgba(255,255,255,.07),transparent 48%),
+    #070a0b;
 }
 
 .product-symbol{
@@ -428,6 +443,14 @@ a{
   color:var(--gold2);
   background:linear-gradient(145deg,#171208,#0c0a06);
   border-color:rgba(215,168,79,.22);
+}
+
+.netflix .product-symbol{
+  color:#f5f5f5;
+  background:linear-gradient(145deg,#15191a,#090d0e);
+  border-color:rgba(255,255,255,.1);
+  font-size:13px;
+  font-weight:800;
 }
 
 .product-symbol svg{
@@ -457,6 +480,12 @@ a{
   background:rgba(191,200,204,.06);
 }
 
+.netflix-label{
+  color:#f0f0f0;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.045);
+}
+
 .product-info{
   padding:15px;
 }
@@ -479,6 +508,10 @@ a{
 
 .silver-name{
   color:var(--silver);
+}
+
+.netflix-name{
+  color:#f4f4f4;
 }
 
 .product-desc{
@@ -583,6 +616,17 @@ a{
   color:#02100e;
 }
 
+.netflix .buy-btn{
+  border-color:rgba(255,255,255,.12);
+  color:#f1f1f1;
+  background:rgba(255,255,255,.045);
+}
+
+.netflix .buy-btn:hover{
+  background:#f1f1f1;
+  color:#080b0c;
+}
+
 /* ================= FEATURES ================= */
 
 .features{
@@ -613,10 +657,7 @@ a{
   border-radius:12px;
   color:var(--turquoise2);
   background:rgba(32,215,193,.06);
-}
-
-.feature-icon svg{
-  width:20px;
+  font-size:16px;
 }
 
 .feature h3{
@@ -1092,6 +1133,12 @@ footer{
   border-color:rgba(215,168,79,.15);
 }
 
+.details-icon.netflix{
+  color:#f5f5f5;
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.1);
+}
+
 .details-title h2{
   font-size:19px;
 }
@@ -1194,88 +1241,243 @@ footer{
   color:#d5e1df;
 }
 
-/* ================= RECOMMENDED ================= */
+/* ================= ACCOUNT ================= */
 
-.recommended{
-  margin-top:28px;
-  padding-top:25px;
-  border-top:1px solid rgba(255,255,255,.055);
+.account-wrap{
+  position:fixed;
+  inset:0;
+  z-index:2200;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(9px);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
 }
 
-.recommended-title{
-  font-size:14px;
-  margin-bottom:14px;
+.account-wrap.show{
+  opacity:1;
+  visibility:visible;
 }
 
-.recommended-product{
+.account-box{
+  width:min(470px,100%);
+  max-height:90vh;
+  overflow:auto;
+  padding:25px;
+  border:1px solid rgba(32,215,193,.14);
+  border-radius:22px;
+  background:#091113;
+  box-shadow:0 30px 100px rgba(0,0,0,.55);
+}
+
+.account-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.account-welcome h2{
+  font-size:23px;
+  margin-bottom:5px;
+}
+
+.account-welcome p{
+  color:#6d7d7a;
+  font-size:11px;
+}
+
+.account-close{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0b1516;
+  color:#c9d5d3;
+}
+
+.account-user{
   display:flex;
   align-items:center;
   gap:13px;
-  padding:14px;
-  border:1px solid rgba(255,255,255,.065);
-  border-radius:14px;
-  background:#071011;
+  padding:16px;
+  margin-bottom:15px;
+  border:1px solid rgba(32,215,193,.1);
+  border-radius:15px;
+  background:linear-gradient(120deg,rgba(32,215,193,.055),rgba(255,255,255,.015));
 }
 
-.recommended-icon{
+.account-avatar{
   width:45px;
   height:45px;
   display:grid;
   place-items:center;
-  flex-shrink:0;
-  border-radius:12px;
-  color:#f5f5f5;
-  background:#101718;
-  border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;
+  color:var(--turquoise2);
+  background:rgba(32,215,193,.07);
+  border:1px solid rgba(32,215,193,.13);
 }
 
-.recommended-info{
-  flex:1;
-}
-
-.recommended-info strong{
+.account-user strong{
   display:block;
-  font-size:12px;
+  font-size:13px;
 }
 
-.recommended-info small{
+.account-user small{
   display:block;
   margin-top:4px;
   color:#687876;
   font-size:9px;
+  word-break:break-all;
 }
 
-.recommended-price{
-  font-size:13px;
-  font-weight:800;
-  white-space:nowrap;
+.account-menu{
+  display:grid;
+  gap:8px;
 }
 
-.recommended-actions{
+.account-row{
+  width:100%;
   display:flex;
-  gap:6px;
+  align-items:center;
+  gap:13px;
+  padding:15px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:13px;
+  background:#071011;
+  color:#dce6e4;
+  text-align:right;
+  transition:.25s;
 }
 
-.small-add{
-  width:35px;
-  height:35px;
+.account-row:hover{
+  border-color:rgba(32,215,193,.2);
+  background:rgba(32,215,193,.035);
+  transform:translateY(-1px);
+}
+
+.account-row-icon{
+  width:38px;
+  height:38px;
   display:grid;
   place-items:center;
-  border-radius:9px;
-  border:1px solid rgba(32,215,193,.15);
-  background:rgba(32,215,193,.05);
+  flex-shrink:0;
+  border-radius:10px;
   color:var(--turquoise2);
+  background:rgba(32,215,193,.055);
 }
 
-.small-buy{
-  height:35px;
-  padding:0 11px;
-  border-radius:9px;
-  border:1px solid rgba(32,215,193,.15);
-  background:var(--turquoise);
-  color:#02100e;
+.account-row-icon svg{
+  width:18px;
+  height:18px;
+}
+
+.account-row-text{
+  flex:1;
+}
+
+.account-row-text strong{
+  display:block;
+  font-size:12px;
+}
+
+.account-row-text small{
+  display:block;
+  margin-top:4px;
+  color:#647370;
   font-size:9px;
-  font-weight:800;
+}
+
+.account-arrow{
+  color:#53625f;
+}
+
+.account-logout{
+  margin-top:8px;
+  border-color:rgba(215,90,90,.12);
+  color:#d9aaaa;
+}
+
+.account-logout .account-row-icon{
+  color:#d99b9b;
+  background:rgba(215,90,90,.05);
+}
+
+.account-logout:hover{
+  border-color:rgba(215,90,90,.25);
+  background:rgba(215,90,90,.035);
+}
+
+/* ================= ACCOUNT SECTIONS ================= */
+
+.account-content{
+  display:none;
+  margin-top:16px;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:14px;
+  background:#071011;
+}
+
+.account-content.show{
+  display:block;
+}
+
+.account-content-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.account-content-head strong{
+  font-size:13px;
+}
+
+.account-content-head button{
+  border:0;
+  background:none;
+  color:#657572;
+  font-size:10px;
+}
+
+.account-empty{
+  padding:20px 5px;
+  text-align:center;
+  color:#657572;
+  font-size:10px;
+  line-height:2;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  z-index:3000;
+  max-width:calc(100% - 50px);
+  padding:13px 17px;
+  color:#eafffa;
+  background:#0a1516;
+  border:1px solid rgba(32,215,193,.22);
+  border-radius:12px;
+  font-size:11px;
+  transform:translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.toast.show{
+  transform:none;
+  opacity:1;
 }
 
 /* ================= SEARCH ================= */
@@ -1313,33 +1515,9 @@ footer{
   border-radius:10px;
 }
 
-/* ================= TOAST ================= */
-
-.toast{
-  position:fixed;
-  right:25px;
-  bottom:25px;
-  z-index:3000;
-  padding:13px 17px;
-  color:#eafffa;
-  background:#0a1516;
-  border:1px solid rgba(32,215,193,.22);
-  border-radius:12px;
-  font-size:11px;
-  transform:translateY(20px);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-}
-
-.toast.show{
-  transform:none;
-  opacity:1;
-}
-
 /* ================= MOBILE ================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
   .nav-links{
     display:none;
@@ -1407,49 +1585,49 @@ footer{
   }
 
   .products{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
+    grid-template-columns:1fr;
+    gap:11px;
   }
 
   .product-image{
-    height:145px;
+    height:155px;
   }
 
   .product-symbol{
-    width:55px;
-    height:55px;
+    width:57px;
+    height:57px;
     border-radius:16px;
   }
 
   .product-symbol svg{
-    width:25px;
-    height:25px;
+    width:26px;
+    height:26px;
   }
 
   .product-info{
-    padding:12px;
+    padding:13px;
   }
 
   .product-name{
-    font-size:16px;
+    font-size:17px;
   }
 
   .product-desc{
-    font-size:9px;
+    font-size:10px;
   }
 
   .product-feature{
-    font-size:7px;
-    padding:5px 6px;
+    font-size:8px;
+    padding:5px 7px;
   }
 
   .price{
-    font-size:16px;
+    font-size:17px;
   }
 
   .add-btn{
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
   }
 
   .category-single{
@@ -1492,17 +1670,12 @@ footer{
     flex:1;
   }
 
-  .recommended-product{
-    flex-wrap:wrap;
+  .account-box{
+    padding:20px;
   }
 
-  .recommended-info{
-    min-width:150px;
-  }
-
-  .recommended-actions{
-    width:100%;
-    justify-content:flex-end;
+  .account-welcome h2{
+    font-size:20px;
   }
 }
 </style>
@@ -1654,7 +1827,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </div>
 
 <div style="color:#55dfd0;font-size:11px">
-باقتان متاحتان
+3 منتجات متاحة
 </div>
 
 </div>
@@ -1667,11 +1840,11 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 <div>
 
 <div class="section-title">
-باقات ULTRA PLUS | ألترا بلس
+باقات ومنتجات ULTRA PLUS | ألترا بلس
 </div>
 
 <div class="section-sub">
-اضغط على الباقة لمعرفة التفاصيل
+اضغط على المنتج لمعرفة التفاصيل
 </div>
 
 </div>
@@ -1715,15 +1888,15 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </div>
 
 <div class="product-desc">
-أكثر من 7000 تطبيق وخدمة رقمية،
-مع تفعيل فوري وتجربة استخدام مميزة.
+أكثر من 6000 تطبيق معدل ومهكر،
+مع اشتراك فوري.
 </div>
 
 <div class="product-features">
 
-<div class="product-feature">✓ أكثر من 7000 تطبيق</div>
-<div class="product-feature">✓ تفعيل فوري</div>
-<div class="product-feature">✓ خدمة رقمية</div>
+<div class="product-feature">✓ أكثر من 6000 تطبيق</div>
+<div class="product-feature">✓ اشتراك فوري</div>
+<div class="product-feature">✓ ضمان الخدمة</div>
 
 </div>
 
@@ -1786,7 +1959,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 
 <div class="product-desc">
 أكثر من 4000 تطبيق وخدمة رقمية،
-مع تفعيل بعد الطلب وسعر اقتصادي.
+مع تفعيل بعد الطلب.
 </div>
 
 <div class="product-features">
@@ -1808,6 +1981,72 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </button>
 
 <button class="add-btn" data-product="2" aria-label="إضافة للسلة">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+
+</button>
+
+</div>
+</div>
+</article>
+
+<!-- NETFLIX -->
+
+<article class="product netflix product-card" data-product-id="3">
+
+<div class="product-image">
+
+<span class="product-label netflix-label">
+تسليم فوري
+</span>
+
+<div class="product-symbol">
+4K
+</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+اشتراكات رقمية
+</div>
+
+<div class="product-name netflix-name">
+اشتراك نتفلكس 4K
+</div>
+
+<div class="details-rating">
+★★★★
+<span>4.0</span>
+</div>
+
+<div class="product-desc">
+اشتراك نتفلكس 4K شهري،
+مع ضمان ذهبي وتسليم فوري.
+</div>
+
+<div class="product-features">
+
+<div class="product-feature">✓ ضمان ذهبي</div>
+<div class="product-feature">✓ تسليم فوري</div>
+<div class="product-feature">✓ جودة 4K</div>
+
+</div>
+
+<div class="product-bottom">
+
+<div class="price">
+7.99 <small>ر.س</small>
+</div>
+
+<button class="buy-btn" data-buy="3">
+اشترِ الآن
+</button>
+
+<button class="add-btn" data-product="3" aria-label="إضافة للسلة">
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 <path d="M12 5v14M5 12h14"/>
@@ -1844,12 +2083,12 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 
 <div class="feature">
 
-<div class="feature-icon">⚡</div>
+<div class="feature-icon">+</div>
 
 <h3>تفعيل فوري</h3>
 
 <p>
-بعد إتمام الطلب يتم تجهيز التفعيل حسب تفاصيل الباقة.
+بعد إتمام الطلب يتم تجهيز التفعيل حسب تفاصيل المنتج.
 </p>
 
 </div>
@@ -1887,16 +2126,16 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 
 <div>
 
-<h2>اختر باقتك الآن</h2>
+<h2>اختر منتجك الآن</h2>
 
 <p>
-ذهبية أو فضية — ULTRA PLUS | ألترا بلس جاهز لخدمتك.
+ذهبية أو فضية أو اشتراك نتفلكس 4K — ULTRA PLUS | ألترا بلس جاهز لخدمتك.
 </p>
 
 </div>
 
 <button class="btn btn-primary" data-action="products">
-عرض الباقات
+عرض المنتجات
 </button>
 
 </div>
@@ -1933,7 +2172,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </button>
 
 <div class="faq-answer">
-الباقة الذهبية تحتوي على أكثر من 7000 تطبيق مع تفعيل فوري،
+الباقة الذهبية تحتوي على أكثر من 6000 تطبيق مع اشتراك فوري،
 بينما الباقة الفضية تحتوي على أكثر من 4000 تطبيق ويتم تفعيلها بعد الطلب.
 </div>
 
@@ -1998,6 +2237,25 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 
 <button class="faq-question">
 
+كم سعر اشتراك نتفلكس 4K؟
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M12 5v14M5 12h14"/>
+</svg>
+
+</button>
+
+<div class="faq-answer">
+سعر اشتراك نتفلكس 4K هو 7.99 ريال سعودي،
+مع تسليم فوري وضمان ذهبي حسب تفاصيل المنتج.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question">
+
 أقدر أطلب وأفعل بجهاز ثاني؟
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -2007,7 +2265,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </button>
 
 <div class="faq-answer">
-نعم، اطلب من أي جهاز وفعّل الكود بجهازك.
+نعم، اطلب من أي جهاز وفعّل المنتج حسب تعليمات الطلب.
 </div>
 
 </div>
@@ -2019,13 +2277,14 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 متى وكيف أستلم؟
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-<path d="M12 5v14M5 12h14"/>
+<path d="M12 5v14M15 7v14M6 21h12"/>
 </svg>
 
 </button>
 
 <div class="faq-answer">
-فوري، توصلك رسالة نصية بالكود والشرح.
+المنتجات التي تحتوي على تسليم فوري يتم تجهيزها فور إتمام الطلب،
+أما الباقة الفضية فيتم تفعيلها بعد الطلب.
 </div>
 
 </div>
@@ -2043,7 +2302,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </button>
 
 <div class="faq-answer">
-باقة المتجر تخدمك سنة كاملة.
+باقة المتجر تخدمك سنة كاملة، ما لم يتم توضيح مدة مختلفة داخل المنتج.
 </div>
 
 </div>
@@ -2079,7 +2338,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 </button>
 
 <div class="faq-answer">
-أكيد، ضمان يعوضك باشتراك بديل.
+المنتجات التي يظهر فيها الضمان تتضمن الضمان الموضح في تفاصيل المنتج.
 </div>
 
 </div>
@@ -2121,7 +2380,7 @@ ULTRA PLUS | ألترا بلس
 
 <h4>المتجر</h4>
 
-<a href="#products">الباقات</a>
+<a href="#products">الباقات والمنتجات</a>
 <a href="#features">مميزاتنا</a>
 <a href="#faq">الأسئلة الشائعة</a>
 
@@ -2289,6 +2548,243 @@ id="sendMagicLinkBtn"
 </div>
 </div>
 
+<!-- ================= ACCOUNT ================= -->
+
+<div class="account-wrap" id="accountWrap">
+
+<div class="account-box">
+
+<div class="account-top">
+
+<div class="account-welcome">
+
+<h2>مرحباً بك</h2>
+
+<p id="accountWelcomeText">
+في حسابك لدى ULTRA PLUS
+</p>
+
+</div>
+
+<button class="account-close" id="closeAccount">
+
+<svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="m6 6 12 12M18 6 6 18"/>
+</svg>
+
+</button>
+
+</div>
+
+<div class="account-user">
+
+<div class="account-avatar">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<circle cx="12" cy="8" r="3.5"/>
+<path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6"/>
+</svg>
+
+</div>
+
+<div>
+
+<strong id="accountName">
+العميل
+</strong>
+
+<small id="accountEmail">
+</small>
+
+</div>
+
+</div>
+
+<div class="account-menu">
+
+<button class="account-row" data-account-section="notifications">
+
+<div class="account-row-icon">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+<path d="M10 21h4"/>
+</svg>
+
+</div>
+
+<div class="account-row-text">
+
+<strong>الإشعارات</strong>
+
+<small>آخر التنبيهات والتحديثات</small>
+
+</div>
+
+<div class="account-arrow">‹</div>
+
+</button>
+
+<button class="account-row" data-account-section="orders">
+
+<div class="account-row-icon">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M5 7h14v13H5z"/>
+<path d="M8 7V5a4 4 0 0 1 8 0v2"/>
+<path d="M9 11h6"/>
+</svg>
+
+</div>
+
+<div class="account-row-text">
+
+<strong>الطلبات</strong>
+
+<small>عرض جميع طلباتك</small>
+
+</div>
+
+<div class="account-arrow">‹</div>
+
+</button>
+
+<button class="account-row" data-account-section="pending">
+
+<div class="account-row-icon">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<circle cx="12" cy="12" r="8"/>
+<path d="M12 8v5l3 2"/>
+</svg>
+
+</div>
+
+<div class="account-row-text">
+
+<strong>طلبات بانتظار الدفع</strong>
+
+<small>الطلبات التي لم يكتمل دفعها</small>
+
+</div>
+
+<div class="account-arrow">‹</div>
+
+</button>
+
+<button class="account-row" data-account-section="profile">
+
+<div class="account-row-icon">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<circle cx="12" cy="8" r="3.5"/>
+<path d="M5 21c.7-4 3-6 7-6s6.3 2 7 6"/>
+</svg>
+
+</div>
+
+<div class="account-row-text">
+
+<strong>حسابي</strong>
+
+<small>بيانات الحساب والبريد الإلكتروني</small>
+
+</div>
+
+<div class="account-arrow">‹</div>
+
+</button>
+
+</div>
+
+<div class="account-content" id="accountNotifications">
+
+<div class="account-content-head">
+
+<strong>الإشعارات</strong>
+
+<button data-account-close-section>إغلاق</button>
+
+</div>
+
+<div class="account-empty">
+لا توجد إشعارات جديدة حالياً.
+</div>
+
+</div>
+
+<div class="account-content" id="accountOrders">
+
+<div class="account-content-head">
+
+<strong>الطلبات</strong>
+
+<button data-account-close-section>إغلاق</button>
+
+</div>
+
+<div class="account-empty">
+لا توجد طلبات حالياً.
+</div>
+
+</div>
+
+<div class="account-content" id="accountPending">
+
+<div class="account-content-head">
+
+<strong>طلبات بانتظار الدفع</strong>
+
+<button data-account-close-section>إغلاق</button>
+
+</div>
+
+<div class="account-empty">
+لا توجد طلبات بانتظار الدفع حالياً.
+</div>
+
+</div>
+
+<div class="account-content" id="accountProfile">
+
+<div class="account-content-head">
+
+<strong>حسابي</strong>
+
+<button data-account-close-section>إغلاق</button>
+
+</div>
+
+<div class="account-empty" id="profileContent">
+</div>
+
+</div>
+
+<button class="account-row account-logout" id="logoutBtn">
+
+<div class="account-row-icon">
+
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+<path d="M10 5H5v14h5"/>
+<path d="M14 8l4 4-4 4"/>
+<path d="M18 12H9"/>
+</svg>
+
+</div>
+
+<div class="account-row-text">
+
+<strong>تسجيل الخروج</strong>
+
+<small>الخروج من حسابك على هذا الجهاز</small>
+
+</div>
+
+</button>
+
+</div>
+</div>
+
 <!-- ================= PRODUCT DETAILS ================= -->
 
 <div class="details-wrap" id="detailsWrap">
@@ -2367,57 +2863,6 @@ id="sendMagicLinkBtn"
 
 </div>
 
-<div class="recommended">
-
-<div class="recommended-title">
-منتجات قد تعجبك
-</div>
-
-<div class="recommended-product">
-
-<div class="recommended-icon">
-4K
-</div>
-
-<div class="recommended-info">
-
-<strong>
-اشتراك نتفلكس شهري 4K
-</strong>
-
-<small>
-اشتراك شهري
-</small>
-
-</div>
-
-<div class="recommended-price">
-7.99 ر.س
-</div>
-
-<div class="recommended-actions">
-
-<button
-class="small-add"
-id="netflixAddBtn"
-title="إضافة للسلة"
->
-+
-</button>
-
-<button
-class="small-buy"
-id="netflixBuyBtn"
->
-اشترِ الآن
-</button>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -2438,7 +2883,10 @@ const supabaseKey =
 'sb_publishable_ezsF35smSK7h6hBMfFm_zA_j8t5W-bU'
 
 const supabase =
-createClient(supabaseUrl,supabaseKey)
+createClient(
+  supabaseUrl,
+  supabaseKey
+)
 
 
 /* =========================================================
@@ -2453,12 +2901,22 @@ name:"الباقة الذهبية",
 price:30.99,
 icon:"gold",
 category:"تطبيقات بلس للايفون",
-desc:"أكثر من 7000 تطبيق وخدمة رقمية مع تفعيل فوري.",
+desc:"اشتراك تطبيقات البلس المعدلة مع أكثر من 6000+ تطبيق معدل ومهكر واشتراك فوري.",
 contents:[
-"تطبيقات بلس للايفون",
-"أكثر من 7000 تطبيق",
-"تفعيل فوري",
-"خدمة رقمية"
+"اشتراك تطبيقات البلس المعدلة",
+"أكثر من 6000+ تطبيق معدل ومهكر",
+"اشتراك فوري",
+"تطبيقات التواصل الاجتماعي",
+"تطبيقات الأفلام والمسلسلات",
+"ألعاب مهكرة",
+"تطبيقات الانميشن",
+"تطبيقات التصاميم مدفوعة ومفتوحة المزايا",
+"تطبيقات محذوفة من الاب ستور",
+"تطبيقات مدفوعة",
+"تطبيقات الجلبريك",
+"تكرار التطبيقات",
+"التوقيع التلقائى",
+"وغيرها العديد من التطبيقات!"
 ]
 },
 
@@ -2473,19 +2931,23 @@ contents:[
 "تطبيقات بلس للايفون",
 "أكثر من 4000 تطبيق",
 "تفعيل بعد الطلب",
+"خدمة رقمية",
 "سعر اقتصادي"
 ]
 },
 
 {
 id:3,
-name:"اشتراك نتفلكس شهري 4K",
+name:"اشتراك نتفلكس 4K",
 price:7.99,
 icon:"netflix",
 category:"اشتراكات رقمية",
-desc:"اشتراك نتفلكس شهري بجودة 4K.",
+desc:"اشتراك نتفلكس 4K شهري مع ضمان ذهبي وتسليم فوري.",
 contents:[
+"اشتراك نتفلكس 4K",
 "اشتراك شهري",
+"ضمان ذهبي",
+"تسليم فوري",
 "جودة 4K"
 ]
 }
@@ -2551,6 +3013,18 @@ document.getElementById("detailsIcon")
 
 const contentsList =
 document.getElementById("contentsList")
+
+const accountWrap =
+document.getElementById("accountWrap")
+
+const accountName =
+document.getElementById("accountName")
+
+const accountEmail =
+document.getElementById("accountEmail")
+
+const profileContent =
+document.getElementById("profileContent")
 
 let toastTimer
 
@@ -2913,6 +3387,8 @@ links.style.zIndex = "1100"
 
 function openLogin(){
 
+accountWrap.classList.remove("show")
+
 loginWrap.classList.add("show")
 
 setTimeout(() => {
@@ -3003,8 +3479,13 @@ return
 
 }
 
+localStorage.setItem(
+"ultra_magic_link_sent",
+"1"
+)
+
 showToast(
-"تم إرسال رابط الدخول إلى بريدك ✓"
+"تم إرسال رابط الدخول إلى بريدك"
 )
 
 button.disabled = false
@@ -3041,20 +3522,217 @@ button.innerHTML = `
 
 
 /* =========================================================
+   ACCOUNT
+========================================================= */
+
+function getCustomerName(user){
+
+const metadata =
+user?.user_metadata || {}
+
+return (
+metadata.full_name ||
+metadata.name ||
+metadata.display_name ||
+user?.email ||
+"العميل"
+)
+
+}
+
+
+function fillAccount(user){
+
+if(!user) return
+
+const name =
+getCustomerName(user)
+
+const email =
+user.email || ""
+
+accountName.textContent =
+name
+
+accountEmail.textContent =
+email
+
+profileContent.innerHTML = `
+الاسم: ${name}<br>
+البريد الإلكتروني: ${email}
+`
+
+}
+
+
+function closeAccount(){
+
+accountWrap.classList.remove("show")
+
+}
+
+
+function openAccount(user){
+
+if(!user){
+
+openLogin()
+
+return
+
+}
+
+fillAccount(user)
+
+loginWrap.classList.remove("show")
+
+accountWrap.classList.add("show")
+
+}
+
+
+async function openAccountFromButton(){
+
+const {data,error} =
+await supabase.auth.getSession()
+
+if(error){
+
+console.error(error)
+
+openLogin()
+
+return
+
+}
+
+if(data?.session?.user){
+
+openAccount(
+data.session.user
+)
+
+}else{
+
+openLogin()
+
+}
+
+}
+
+
+function closeAllAccountSections(){
+
+document
+.querySelectorAll(".account-content")
+.forEach(section => {
+
+section.classList.remove("show")
+
+})
+
+}
+
+
+function openAccountSection(name){
+
+closeAllAccountSections()
+
+const map = {
+
+notifications:"accountNotifications",
+
+orders:"accountOrders",
+
+pending:"accountPending",
+
+profile:"accountProfile"
+
+}
+
+const element =
+document.getElementById(map[name])
+
+if(element){
+
+element.classList.add("show")
+
+}
+
+}
+
+
+async function logout(){
+
+const {error} =
+await supabase.auth.signOut()
+
+if(error){
+
+console.error(error)
+
+showToast(
+"تعذر تسجيل الخروج"
+)
+
+return
+
+}
+
+closeAccount()
+
+closeLogin()
+
+showToast(
+"تم تسجيل الخروج بنجاح"
+)
+
+}
+
+
+/* =========================================================
    CURRENT USER
 ========================================================= */
 
 async function checkCurrentUser(){
 
-const {data} =
+const {data,error} =
 await supabase.auth.getSession()
 
-if(data && data.session){
+if(error){
 
-console.log(
-"المستخدم مسجل دخول:",
-data.session.user.email
+console.error(error)
+
+return
+
+}
+
+if(data?.session?.user){
+
+fillAccount(
+data.session.user
 )
+
+const magicLinkSent =
+localStorage.getItem(
+"ultra_magic_link_sent"
+)
+
+if(magicLinkSent === "1"){
+
+localStorage.removeItem(
+"ultra_magic_link_sent"
+)
+
+setTimeout(() => {
+
+showToast(
+"مرحباً بك، تم تسجيل الدخول بنجاح"
+)
+
+},500)
+
+}
 
 }
 
@@ -3070,14 +3748,23 @@ supabase.auth.onAuthStateChange(
 
 if(event === "SIGNED_IN" && session){
 
+fillAccount(
+session.user
+)
+
 closeLogin()
 
-showToast("تم تسجيل الدخول بنجاح ✓")
-
-console.log(
-"تم تسجيل الدخول:",
-session.user.email
+showToast(
+"تم تسجيل الدخول بنجاح"
 )
+
+}
+
+if(event === "SIGNED_OUT"){
+
+closeAccount()
+
+closeLogin()
 
 }
 
@@ -3129,6 +3816,11 @@ contentsList.innerHTML += `
 
 })
 
+detailsIcon.classList.remove(
+"gold",
+"netflix"
+)
+
 if(product.icon === "gold"){
 
 detailsIcon.classList.add("gold")
@@ -3137,15 +3829,27 @@ detailsIcon.innerHTML = `
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 
-<path d="M12 3 14.8 8.5 21 9.4l-4.5 4.3 1.1 6.1L12 17l-5.6 2.8 1.1-6.1L3 9.4l6.2-.9L12 3Z"/>
+<path d="M12 3 14.8 8.5 21 9.4l-4.5 4.3 1.1 6.1L12 17l-5.6 2.8 1.1-6.1L3 9.4 9.2 8.5 12 3Z"/>
 
 </svg>
 
 `
 
-}else{
+}
 
-detailsIcon.classList.remove("gold")
+else if(product.icon === "netflix"){
+
+detailsIcon.classList.add("netflix")
+
+detailsIcon.innerHTML = `
+<span style="font-size:12px;font-weight:800">
+4K
+</span>
+`
+
+}
+
+else{
 
 detailsIcon.innerHTML = `
 
@@ -3247,13 +3951,15 @@ localProduct.price = price
 })
 
 
-/* تحديث أسعار البطاقات */
-
 const gold =
 products.find(p => p.id === 1)
 
 const silver =
 products.find(p => p.id === 2)
+
+const netflix =
+products.find(p => p.id === 3)
+
 
 if(gold){
 
@@ -3282,6 +3988,22 @@ if(silverEl){
 
 silverEl.innerHTML =
 `${silver.price.toFixed(2)} <small>ر.س</small>`
+
+}
+
+}
+
+if(netflix){
+
+const netflixEl =
+document.querySelector(
+'.product[data-product-id="3"] .price'
+)
+
+if(netflixEl){
+
+netflixEl.innerHTML =
+`${netflix.price.toFixed(2)} <small>ر.س</small>`
 
 }
 
@@ -3342,7 +4064,7 @@ Number(button.dataset.buy)
 })
 
 
-/* فتح تفاصيل الباقة */
+/* فتح تفاصيل المنتج */
 
 document
 .querySelectorAll(".product-card")
@@ -3376,7 +4098,9 @@ document
 
 if(selectedProductId){
 
-addToCart(selectedProductId)
+addToCart(
+selectedProductId
+)
 
 }
 
@@ -3391,33 +4115,14 @@ document
 
 if(selectedProductId){
 
-buyNow(selectedProductId)
+const id =
+selectedProductId
+
+buyNow(id)
 
 closeProductDetails()
 
 }
-
-})
-
-
-/* نتفلكس + */
-
-document
-.getElementById("netflixAddBtn")
-.addEventListener("click",() => {
-
-addToCart(3)
-
-})
-
-
-/* نتفلكس شراء */
-
-document
-.getElementById("netflixBuyBtn")
-.addEventListener("click",() => {
-
-buyNow(3)
 
 })
 
@@ -3482,7 +4187,7 @@ document
 .getElementById("accountBtn")
 .addEventListener(
 "click",
-openLogin
+openAccountFromButton
 )
 
 
@@ -3516,6 +4221,71 @@ document
 .addEventListener(
 "click",
 sendMagicLink
+)
+
+
+/* إغلاق الحساب */
+
+document
+.getElementById("closeAccount")
+.addEventListener(
+"click",
+closeAccount
+)
+
+
+accountWrap.addEventListener(
+"click",
+event => {
+
+if(event.target === accountWrap){
+
+closeAccount()
+
+}
+
+})
+
+
+/* أقسام الحساب */
+
+document
+.querySelectorAll("[data-account-section]")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+openAccountSection(
+button.dataset.accountSection
+)
+
+})
+
+})
+
+
+/* إغلاق قسم داخل الحساب */
+
+document
+.querySelectorAll("[data-account-close-section]")
+.forEach(button => {
+
+button.addEventListener("click",() => {
+
+closeAllAccountSections()
+
+})
+
+})
+
+
+/* تسجيل الخروج */
+
+document
+.getElementById("logoutBtn")
+.addEventListener(
+"click",
+logout
 )
 
 
@@ -3628,6 +4398,8 @@ closeCart()
 closeLogin()
 
 closeProductDetails()
+
+closeAccount()
 
 searchBox.classList.remove("show")
 
