@@ -380,6 +380,17 @@ a{
   margin:auto;
 }
 
+/* الترتيب:
+   الذهبية يمين
+   الفضية يسار
+   نتفلكس بالمنتصف تحتهم
+*/
+.product.netflix{
+  grid-column:1 / -1;
+  width:min(343px,100%);
+  justify-self:center;
+}
+
 .product{
   position:relative;
   overflow:hidden;
@@ -1590,6 +1601,13 @@ footer{
     max-width:100%;
   }
 
+  /* نتفلكس يرجع بعرض الشاشة بالجوال */
+  .product.netflix{
+    grid-column:auto;
+    width:100%;
+    justify-self:stretch;
+  }
+
   .product-image{
     height:155px;
   }
@@ -2260,7 +2278,7 @@ ULTRA PLUS | ألترا بلس — تجربة رقمية مختلفة
 أقدر أطلب وأفعل بجهاز ثاني؟
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-<path d="M12 5v14M5 12h14"/>
+<path d="M12 5v14M15 7v14M6 21h12"/>
 </svg>
 
 </button>
