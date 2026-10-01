@@ -374,9 +374,9 @@ a{
 
 .products{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:14px;
-  max-width:1000px;
+  max-width:700px;
   margin:auto;
 }
 
@@ -1587,6 +1587,7 @@ footer{
   .products{
     grid-template-columns:1fr;
     gap:11px;
+    max-width:100%;
   }
 
   .product-image{
@@ -3829,7 +3830,7 @@ detailsIcon.innerHTML = `
 
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
 
-<path d="M12 3 14.8 8.5 21 9.4l-4.5 4.3 1.1 6.1L12 17l-5.6 2.8 1.1-6.1L3 9.4 9.2 8.5 12 3Z"/>
+<path d="M12 3 14.8 8.5 21 9.4l-4.5 4.3 1.1 6.1L12 17l-5.6 2.8 1.1-6.1L3 9.4l6.2-.9L12 3Z"/>
 
 </svg>
 
